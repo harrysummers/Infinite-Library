@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C2CBADE4A8E857B43A0A091 /* Pods_InfiniteLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */; };
 		4A24F134209A57130017FB2C /* SpotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24F133209A57130017FB2C /* SpotifyTests.swift */; };
-		4A32B9F1209A92EA007AB9F8 /* EnvVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32B9F0209A92EA007AB9F8 /* EnvVariables.swift */; };
+		4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D17E9209A9619006A7B01 /* EnvConstants.swift */; };
 		4AA40F57209A85630081F69A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F56209A85630081F69A /* Constants.swift */; };
 		4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */; };
 		4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21722209A398F00DB0878 /* AppDelegate.swift */; };
@@ -40,8 +40,7 @@
 		05474208288FA42049F36534 /* Pods_InfiniteLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FEB956AF21EC09D1D5D7573 /* Pods-InfiniteLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		4A24F133209A57130017FB2C /* SpotifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTests.swift; sourceTree = "<group>"; };
-		4A32B9F0209A92EA007AB9F8 /* EnvVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVariables.swift; sourceTree = "<group>"; };
-		4AA40F54209A84C60081F69A /* EnvironmentalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EnvironmentalVariables.swift; path = ../EnvironmentalVariables.swift; sourceTree = "<group>"; };
+		4A9D17E9209A9619006A7B01 /* EnvConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvConstants.swift; sourceTree = "<group>"; };
 		4AA40F56209A85630081F69A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
 		4AB2171F209A398F00DB0878 /* InfiniteLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,12 +95,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4A32B9EF209A92D5007AB9F8 /* Utils */ = {
+		4A9D17E8209A960B006A7B01 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				4A32B9F0209A92EA007AB9F8 /* EnvVariables.swift */,
+				4A9D17E9209A9619006A7B01 /* EnvConstants.swift */,
 			);
-			path = Utils;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		4AB21716209A398F00DB0878 = {
@@ -127,7 +126,7 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
-				4A32B9EF209A92D5007AB9F8 /* Utils */,
+				4A9D17E8209A960B006A7B01 /* Utilities */,
 				4AB2174E209A405E00DB0878 /* Networking */,
 				4AB21747209A3D1200DB0878 /* Apple Files */,
 				4AB21722209A398F00DB0878 /* AppDelegate.swift */,
@@ -151,7 +150,6 @@
 		4AB21747209A3D1200DB0878 /* Apple Files */ = {
 			isa = PBXGroup;
 			children = (
-				4AA40F54209A84C60081F69A /* EnvironmentalVariables.swift */,
 				4AB2174A209A3F1A00DB0878 /* Default-568h@2x.png */,
 				4AB2172C209A399000DB0878 /* Assets.xcassets */,
 				4AB21731209A399000DB0878 /* Info.plist */,
@@ -344,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */,
+				4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */,
 				4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */,
 				4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
@@ -351,7 +350,6 @@
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
 				4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */,
-				4A32B9F1209A92EA007AB9F8 /* EnvVariables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
