@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Infinite Library.xcodeproj">
+      location = "self:/Users/Harry/Developer/Infinite Library/InfiniteLibrary.xcodeproj">
    </FileRef>
 </Workspace>

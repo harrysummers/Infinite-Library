@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SpotifyLogin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let url = URL(string: Constants.APP_URL)
+        SpotifyLogin.shared.configure(clientID: EnvironmentalVariables.CLIENT_ID, clientSecret: EnvironmentalVariables.CLIENT_SECRET, redirectURL: url!)
+
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        
+        var initialViewController: UIViewController?
+        
+        SpotifyLogin.shared.getAccessToken { (accessToken, error) in
+            if error == nil {
+                initialViewController = AlbumsTableViewController()
+            } else {
+                initialViewController = LoginViewController()
+            }
+            
+            let navController = UINavigationController(rootViewController: initialViewController!)
+            self.window?.rootViewController = navController
+            
+        }
+        
+        
+
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (error) in }
+        return handled
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

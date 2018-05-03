@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2CBADE4A8E857B43A0A091 /* Pods_InfiniteLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */; };
+		4A24F134209A57130017FB2C /* SpotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24F133209A57130017FB2C /* SpotifyTests.swift */; };
+		4AA40F55209A84C60081F69A /* EnvironmentalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F54209A84C60081F69A /* EnvironmentalVariables.swift */; };
+		4AA40F57209A85630081F69A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F56209A85630081F69A /* Constants.swift */; };
+		4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */; };
 		4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21722209A398F00DB0878 /* AppDelegate.swift */; };
-		4AB21725209A398F00DB0878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21724209A398F00DB0878 /* ViewController.swift */; };
+		4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21724209A398F00DB0878 /* LoginViewController.swift */; };
 		4AB21728209A398F00DB0878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB21726209A398F00DB0878 /* Main.storyboard */; };
 		4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21729209A398F00DB0878 /* Infinite_Library.xcdatamodeld */; };
 		4AB2172D209A399000DB0878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2172C209A399000DB0878 /* Assets.xcassets */; };
 		4AB21730209A399000DB0878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2172E209A399000DB0878 /* LaunchScreen.storyboard */; };
 		4AB2173B209A399000DB0878 /* Infinite_LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2173A209A399000DB0878 /* Infinite_LibraryTests.swift */; };
+		4AB2174B209A3F1A00DB0878 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2174A209A3F1A00DB0878 /* Default-568h@2x.png */; };
+		4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2174C209A404900DB0878 /* AsyncWebService.swift */; };
+		4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */; };
+		4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21751209A424B00DB0878 /* Endpoints.swift */; };
+		B586CFCD1CF406ACE04652D6 /* Pods_InfiniteLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05474208288FA42049F36534 /* Pods_InfiniteLibraryTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +37,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4AB2171F209A398F00DB0878 /* Infinite Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Infinite Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05474208288FA42049F36534 /* Pods_InfiniteLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FEB956AF21EC09D1D5D7573 /* Pods-InfiniteLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary.release.xcconfig"; sourceTree = "<group>"; };
+		4A24F133209A57130017FB2C /* SpotifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTests.swift; sourceTree = "<group>"; };
+		4AA40F54209A84C60081F69A /* EnvironmentalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentalVariables.swift; sourceTree = "<group>"; };
+		4AA40F56209A85630081F69A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
+		4AB2171F209A398F00DB0878 /* InfiniteLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB21722209A398F00DB0878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4AB21724209A398F00DB0878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AB21724209A398F00DB0878 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4AB21727209A398F00DB0878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AB2172A209A398F00DB0878 /* Infinite_Library.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infinite_Library.xcdatamodel; sourceTree = "<group>"; };
 		4AB2172C209A399000DB0878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB2172F209A399000DB0878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AB21731209A399000DB0878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AB21736209A399000DB0878 /* Infinite LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Infinite LibraryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AB21736209A399000DB0878 /* InfiniteLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfiniteLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB2173A209A399000DB0878 /* Infinite_LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infinite_LibraryTests.swift; sourceTree = "<group>"; };
 		4AB2173C209A399000DB0878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AB2174A209A3F1A00DB0878 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4AB2174C209A404900DB0878 /* AsyncWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncWebService.swift; sourceTree = "<group>"; };
+		4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyNetworking.swift; sourceTree = "<group>"; };
+		4AB21751209A424B00DB0878 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		B10B001AF740EB0CBCCFCFFE /* Pods-InfiniteLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary.debug.xcconfig"; sourceTree = "<group>"; };
+		BC2338FFB2990EFDFF5E96B1 /* Pods-InfiniteLibraryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibraryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibraryTests/Pods-InfiniteLibraryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF0779598191B503FDA28009 /* Pods-InfiniteLibraryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibraryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibraryTests/Pods-InfiniteLibraryTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2CBADE4A8E857B43A0A091 /* Pods_InfiniteLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,26 +77,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B586CFCD1CF406ACE04652D6 /* Pods_InfiniteLibraryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		459B2788F5B7BA7DF94BC46B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B10B001AF740EB0CBCCFCFFE /* Pods-InfiniteLibrary.debug.xcconfig */,
+				0FEB956AF21EC09D1D5D7573 /* Pods-InfiniteLibrary.release.xcconfig */,
+				BC2338FFB2990EFDFF5E96B1 /* Pods-InfiniteLibraryTests.debug.xcconfig */,
+				CF0779598191B503FDA28009 /* Pods-InfiniteLibraryTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4AB21716209A398F00DB0878 = {
 			isa = PBXGroup;
 			children = (
 				4AB21721209A398F00DB0878 /* Infinite Library */,
 				4AB21739209A399000DB0878 /* Infinite LibraryTests */,
 				4AB21720209A398F00DB0878 /* Products */,
+				459B2788F5B7BA7DF94BC46B /* Pods */,
+				FD516E6065BA0042A709C0F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		4AB21720209A398F00DB0878 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4AB2171F209A398F00DB0878 /* Infinite Library.app */,
-				4AB21736209A399000DB0878 /* Infinite LibraryTests.xctest */,
+				4AB2171F209A398F00DB0878 /* InfiniteLibrary.app */,
+				4AB21736209A399000DB0878 /* InfiniteLibraryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,13 +118,13 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
+				4AB2174E209A405E00DB0878 /* Networking */,
+				4AB21747209A3D1200DB0878 /* Apple Files */,
 				4AB21722209A398F00DB0878 /* AppDelegate.swift */,
-				4AB21724209A398F00DB0878 /* ViewController.swift */,
-				4AB21726209A398F00DB0878 /* Main.storyboard */,
-				4AB2172C209A399000DB0878 /* Assets.xcassets */,
-				4AB2172E209A399000DB0878 /* LaunchScreen.storyboard */,
-				4AB21731209A399000DB0878 /* Info.plist */,
-				4AB21729209A398F00DB0878 /* Infinite_Library.xcdatamodeld */,
+				4AB21724209A398F00DB0878 /* LoginViewController.swift */,
+				4AA40F54209A84C60081F69A /* EnvironmentalVariables.swift */,
+				4AA40F56209A85630081F69A /* Constants.swift */,
+				4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */,
 			);
 			path = "Infinite Library";
 			sourceTree = "<group>";
@@ -94,35 +133,71 @@
 			isa = PBXGroup;
 			children = (
 				4AB2173A209A399000DB0878 /* Infinite_LibraryTests.swift */,
+				4A24F133209A57130017FB2C /* SpotifyTests.swift */,
 				4AB2173C209A399000DB0878 /* Info.plist */,
 			);
 			path = "Infinite LibraryTests";
 			sourceTree = "<group>";
 		};
+		4AB21747209A3D1200DB0878 /* Apple Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AB2174A209A3F1A00DB0878 /* Default-568h@2x.png */,
+				4AB2172C209A399000DB0878 /* Assets.xcassets */,
+				4AB21731209A399000DB0878 /* Info.plist */,
+				4AB21729209A398F00DB0878 /* Infinite_Library.xcdatamodeld */,
+				4AB21726209A398F00DB0878 /* Main.storyboard */,
+				4AB2172E209A399000DB0878 /* LaunchScreen.storyboard */,
+			);
+			path = "Apple Files";
+			sourceTree = "<group>";
+		};
+		4AB2174E209A405E00DB0878 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4AB2174C209A404900DB0878 /* AsyncWebService.swift */,
+				4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */,
+				4AB21751209A424B00DB0878 /* Endpoints.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FD516E6065BA0042A709C0F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */,
+				05474208288FA42049F36534 /* Pods_InfiniteLibraryTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4AB2171E209A398F00DB0878 /* Infinite Library */ = {
+		4AB2171E209A398F00DB0878 /* InfiniteLibrary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AB2173F209A399000DB0878 /* Build configuration list for PBXNativeTarget "Infinite Library" */;
+			buildConfigurationList = 4AB2173F209A399000DB0878 /* Build configuration list for PBXNativeTarget "InfiniteLibrary" */;
 			buildPhases = (
+				CE72C5A81D691851686F8444 /* [CP] Check Pods Manifest.lock */,
 				4AB2171B209A398F00DB0878 /* Sources */,
 				4AB2171C209A398F00DB0878 /* Frameworks */,
 				4AB2171D209A398F00DB0878 /* Resources */,
+				AA4F1FB4BDE5E4CB86802A7D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Infinite Library";
+			name = InfiniteLibrary;
 			productName = "Infinite Library";
-			productReference = 4AB2171F209A398F00DB0878 /* Infinite Library.app */;
+			productReference = 4AB2171F209A398F00DB0878 /* InfiniteLibrary.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4AB21735209A399000DB0878 /* Infinite LibraryTests */ = {
+		4AB21735209A399000DB0878 /* InfiniteLibraryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AB21742209A399000DB0878 /* Build configuration list for PBXNativeTarget "Infinite LibraryTests" */;
+			buildConfigurationList = 4AB21742209A399000DB0878 /* Build configuration list for PBXNativeTarget "InfiniteLibraryTests" */;
 			buildPhases = (
+				D255E52B4C1AA81D14C06F9A /* [CP] Check Pods Manifest.lock */,
 				4AB21732209A399000DB0878 /* Sources */,
 				4AB21733209A399000DB0878 /* Frameworks */,
 				4AB21734209A399000DB0878 /* Resources */,
@@ -132,9 +207,9 @@
 			dependencies = (
 				4AB21738209A399000DB0878 /* PBXTargetDependency */,
 			);
-			name = "Infinite LibraryTests";
+			name = InfiniteLibraryTests;
 			productName = "Infinite LibraryTests";
-			productReference = 4AB21736209A399000DB0878 /* Infinite LibraryTests.xctest */;
+			productReference = 4AB21736209A399000DB0878 /* InfiniteLibraryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -156,7 +231,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4AB2171A209A398F00DB0878 /* Build configuration list for PBXProject "Infinite Library" */;
+			buildConfigurationList = 4AB2171A209A398F00DB0878 /* Build configuration list for PBXProject "InfiniteLibrary" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -169,8 +244,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4AB2171E209A398F00DB0878 /* Infinite Library */,
-				4AB21735209A399000DB0878 /* Infinite LibraryTests */,
+				4AB2171E209A398F00DB0878 /* InfiniteLibrary */,
+				4AB21735209A399000DB0878 /* InfiniteLibraryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -181,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB21730209A399000DB0878 /* LaunchScreen.storyboard in Resources */,
+				4AB2174B209A3F1A00DB0878 /* Default-568h@2x.png in Resources */,
 				4AB2172D209A399000DB0878 /* Assets.xcassets in Resources */,
 				4AB21728209A398F00DB0878 /* Main.storyboard in Resources */,
 			);
@@ -195,14 +271,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AA4F1FB4BDE5E4CB86802A7D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SpotifyLogin/SpotifyLogin.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpotifyLogin.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE72C5A81D691851686F8444 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InfiniteLibrary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D255E52B4C1AA81D14C06F9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InfiniteLibraryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4AB2171B209A398F00DB0878 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AB21725209A398F00DB0878 /* ViewController.swift in Sources */,
+				4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */,
+				4AA40F55209A84C60081F69A /* EnvironmentalVariables.swift in Sources */,
+				4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */,
+				4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
+				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
+				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
+				4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A24F134209A57130017FB2C /* SpotifyTests.swift in Sources */,
 				4AB2173B209A399000DB0878 /* Infinite_LibraryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +359,7 @@
 /* Begin PBXTargetDependency section */
 		4AB21738209A399000DB0878 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4AB2171E209A398F00DB0878 /* Infinite Library */;
+			target = 4AB2171E209A398F00DB0878 /* InfiniteLibrary */;
 			targetProxy = 4AB21737209A399000DB0878 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -360,11 +500,12 @@
 		};
 		4AB21740209A399000DB0878 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B10B001AF740EB0CBCCFCFFE /* Pods-InfiniteLibrary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFUHR2F3HQ;
-				INFOPLIST_FILE = "Infinite Library/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Infinite Library/Apple Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,11 +519,12 @@
 		};
 		4AB21741209A399000DB0878 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FEB956AF21EC09D1D5D7573 /* Pods-InfiniteLibrary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFUHR2F3HQ;
-				INFOPLIST_FILE = "Infinite Library/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Infinite Library/Apple Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,6 +538,7 @@
 		};
 		4AB21743209A399000DB0878 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC2338FFB2990EFDFF5E96B1 /* Pods-InfiniteLibraryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -411,12 +554,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Infinite Library.app/Infinite Library";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InfiniteLibrary.app/InfiniteLibrary";
 			};
 			name = Debug;
 		};
 		4AB21744209A399000DB0878 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF0779598191B503FDA28009 /* Pods-InfiniteLibraryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -432,14 +576,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Infinite Library.app/Infinite Library";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InfiniteLibrary.app/InfiniteLibrary";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4AB2171A209A398F00DB0878 /* Build configuration list for PBXProject "Infinite Library" */ = {
+		4AB2171A209A398F00DB0878 /* Build configuration list for PBXProject "InfiniteLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AB2173D209A399000DB0878 /* Debug */,
@@ -448,7 +592,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AB2173F209A399000DB0878 /* Build configuration list for PBXNativeTarget "Infinite Library" */ = {
+		4AB2173F209A399000DB0878 /* Build configuration list for PBXNativeTarget "InfiniteLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AB21740209A399000DB0878 /* Debug */,
@@ -457,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AB21742209A399000DB0878 /* Build configuration list for PBXNativeTarget "Infinite LibraryTests" */ = {
+		4AB21742209A399000DB0878 /* Build configuration list for PBXNativeTarget "InfiniteLibraryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AB21743209A399000DB0878 /* Debug */,
