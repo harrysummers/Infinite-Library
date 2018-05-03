@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let url = URL(string: Constants.APP_URL)
-        SpotifyLogin.shared.configure(clientID: EnvironmentalVariables.CLIENT_ID, clientSecret: EnvironmentalVariables.CLIENT_SECRET, redirectURL: url!)
+        SpotifyLogin.shared.configure(clientID: EnvVariables.CLIENT_ID, clientSecret: EnvVariables.CLIENT_SECRET, redirectURL: url!)
 
         window = UIWindow()
         window?.makeKeyAndVisible()
