@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C2CBADE4A8E857B43A0A091 /* Pods_InfiniteLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */; };
-		4A24F134209A57130017FB2C /* SpotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24F133209A57130017FB2C /* SpotifyTests.swift */; };
 		4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D17E9209A9619006A7B01 /* EnvConstants.swift */; };
 		4AA40F57209A85630081F69A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F56209A85630081F69A /* Constants.swift */; };
 		4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */; };
@@ -23,6 +22,10 @@
 		4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2174C209A404900DB0878 /* AsyncWebService.swift */; };
 		4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */; };
 		4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21751209A424B00DB0878 /* Endpoints.swift */; };
+		4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFC209BAE090054811C /* SpotifyModels.swift */; };
+		4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */; };
+		4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */; };
+		4AFC2C04209BC4540054811C /* AutoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */; };
 		B586CFCD1CF406ACE04652D6 /* Pods_InfiniteLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05474208288FA42049F36534 /* Pods_InfiniteLibraryTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +42,6 @@
 /* Begin PBXFileReference section */
 		05474208288FA42049F36534 /* Pods_InfiniteLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FEB956AF21EC09D1D5D7573 /* Pods-InfiniteLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary.release.xcconfig"; sourceTree = "<group>"; };
-		4A24F133209A57130017FB2C /* SpotifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTests.swift; sourceTree = "<group>"; };
 		4A9D17E9209A9619006A7B01 /* EnvConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvConstants.swift; sourceTree = "<group>"; };
 		4AA40F56209A85630081F69A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,10 @@
 		4AB2174C209A404900DB0878 /* AsyncWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncWebService.swift; sourceTree = "<group>"; };
 		4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyNetworking.swift; sourceTree = "<group>"; };
 		4AB21751209A424B00DB0878 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		4AFC2BFC209BAE090054811C /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
+		4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloader.swift; sourceTree = "<group>"; };
+		4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDownloader.swift; sourceTree = "<group>"; };
+		4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLoginViewController.swift; sourceTree = "<group>"; };
 		B10B001AF740EB0CBCCFCFFE /* Pods-InfiniteLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		BC2338FFB2990EFDFF5E96B1 /* Pods-InfiniteLibraryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibraryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibraryTests/Pods-InfiniteLibraryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +132,8 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
+				4AFC2BFE209BAF490054811C /* Drivers */,
+				4AFC2BFB209BADFB0054811C /* Objects */,
 				4A9D17E8209A960B006A7B01 /* Utilities */,
 				4AB2174E209A405E00DB0878 /* Networking */,
 				4AB21747209A3D1200DB0878 /* Apple Files */,
@@ -133,6 +141,7 @@
 				4AB21724209A398F00DB0878 /* LoginViewController.swift */,
 				4AA40F56209A85630081F69A /* Constants.swift */,
 				4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */,
+				4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */,
 			);
 			path = "Infinite Library";
 			sourceTree = "<group>";
@@ -141,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				4AB2173A209A399000DB0878 /* Infinite_LibraryTests.swift */,
-				4A24F133209A57130017FB2C /* SpotifyTests.swift */,
 				4AB2173C209A399000DB0878 /* Info.plist */,
 			);
 			path = "Infinite LibraryTests";
@@ -168,6 +176,23 @@
 				4AB21751209A424B00DB0878 /* Endpoints.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		4AFC2BFB209BADFB0054811C /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4AFC2BFC209BAE090054811C /* SpotifyModels.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		4AFC2BFE209BAF490054811C /* Drivers */ = {
+			isa = PBXGroup;
+			children = (
+				4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */,
+				4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */,
+			);
+			path = Drivers;
 			sourceTree = "<group>";
 		};
 		FD516E6065BA0042A709C0F6 /* Frameworks */ = {
@@ -343,10 +368,14 @@
 			files = (
 				4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */,
 				4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */,
+				4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */,
 				4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */,
+				4AFC2C04209BC4540054811C /* AutoLoginViewController.swift in Sources */,
 				4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */,
+				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
+				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
 				4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */,
@@ -357,7 +386,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A24F134209A57130017FB2C /* SpotifyTests.swift in Sources */,
 				4AB2173B209A399000DB0878 /* Infinite_LibraryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

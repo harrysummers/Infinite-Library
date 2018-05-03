@@ -8,20 +8,34 @@
 
 import Foundation
 
-
-
 class SpotifyNetworking {
-    static func retrieveAlbum(with id: String, onComplete:@escaping (_ success: Bool) -> Void) {
+    static func retrieveAlbum(with id: String, onComplete:@escaping (_ success: Bool, _ data: Data) -> Void) {
         let url: URL = URL(string: Endpoints.SPOTIFY_ALBUMS + id)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         AsyncWebService.shared.sendAsyncRequest(request: request) { (status, responseData) in
             if (status == 200) {
-                onComplete(true)
+                onComplete(true, responseData)
             } else {
-                onComplete(false)
+                onComplete(false, responseData)
+            }
+        }
+    }
+    
+    static func retrieveAllAlbums(onComplete:@escaping (_ success: Bool, _ data: Data) -> Void) {
+        let url: URL = URL(string: Endpoints.SPOTIFY_LIBRARY_ALBUMS)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        AsyncWebService.shared.sendAsyncRequest(request: request) { (status, responseData) in
+            print(responseData)
+            if (status == 200) {
+                onComplete(true, responseData)
+            } else {
+                onComplete(false, responseData)
             }
         }
     }
 }
+

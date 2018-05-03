@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import SpotifyLogin
 
 
 final class AsyncWebService {
     
     static let shared = AsyncWebService()
-    let token = "Bearer BQBhhOF4moy0mGSIG7P3wMDiBjPevlESTwCLJLAkqUPrkPcLZbRvbXtTb1ZA1ju6BQIGwe1-4228AjwfDjBhAQ46RYfQQr9zrTbTaYEuOaQ8MkQHNMmFkS2nJIpFlnMrpEiOM4WmJJ7kpNs"
+    var token = ""
     
     func sendAsyncRequest(request: URLRequest, onComplete:@escaping (_ status: Int, _ result: Data) -> Void) {
         var request = request
@@ -46,8 +47,13 @@ final class AsyncWebService {
         }.resume()
     }
     
-    func embedAuthorization() {
-        
+    func getAccessToken(onComplete:@escaping(_ accessToken: String?, _ error: Error?) -> Void) {
+        SpotifyLogin.shared.getAccessToken { (accessToken, error) in
+            if let accessToken = accessToken {
+                self.token = "Bearer " + accessToken
+            }
+            onComplete(accessToken, error)
+        }
     }
     
     

@@ -26,17 +26,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var initialViewController: UIViewController?
         
-        SpotifyLogin.shared.getAccessToken { (accessToken, error) in
-            if error == nil {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .purple
+        window?.rootViewController = vc
+        
+        AsyncWebService.shared.getAccessToken { (accessToken, error) in
+            if error == nil && accessToken != nil {
                 initialViewController = AlbumsTableViewController()
             } else {
                 initialViewController = LoginViewController()
             }
             
             let navController = UINavigationController(rootViewController: initialViewController!)
-            self.window?.rootViewController = navController
             
+            vc.present(navController, animated: true, completion: nil)
         }
+        
+        // This is the
+        
         
         
 

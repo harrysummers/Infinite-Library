@@ -12,5 +12,5 @@ class Endpoints {
     static let BASE_URL = "https://api.spotify.com/v1/"
     
     static let SPOTIFY_ALBUMS = Endpoints.BASE_URL + "albums/"
-    
+    static let SPOTIFY_LIBRARY_ALBUMS = Endpoints.BASE_URL + "me/albums"
 }

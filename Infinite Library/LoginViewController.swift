@@ -38,7 +38,11 @@ class LoginViewController: UIViewController {
     }
     
     @objc func loginSuccessful() {
-        enterApp()
+        AsyncWebService.shared.getAccessToken { (_, error) in
+            if error == nil {
+                self.enterApp()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
