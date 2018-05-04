@@ -23,10 +23,12 @@ class SpotifyNetworking {
         }
     }
     
-    static func retrieveAllAlbums(onComplete:@escaping (_ success: Bool, _ data: Data) -> Void) {
-        let url: URL = URL(string: Endpoints.SPOTIFY_LIBRARY_ALBUMS)!
+    static func retrieveAllAlbums(_ offset: Int, onComplete:@escaping (_ success: Bool, _ data: Data) -> Void) {
+        let urlString = "\(Endpoints.SPOTIFY_LIBRARY_ALBUMS)?limit=20&offset=\(offset)"
+        guard let url: URL = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        
         
         AsyncWebService.shared.sendAsyncRequest(request: request) { (status, responseData) in
             print(responseData)

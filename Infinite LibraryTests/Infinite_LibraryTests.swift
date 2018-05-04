@@ -45,7 +45,7 @@ class Infinite_LibraryTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 20.0)
+        wait(for: [expectation], timeout: 1000.0)
     }
     
     func convertAlbumJSONTest() {

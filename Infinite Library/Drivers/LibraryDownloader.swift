@@ -11,19 +11,51 @@ import Foundation
 class LibraryDownloader {
     
     private var library = Library()
+    private let BATCH_SIZE = 20
     
     func download(onComplete:@escaping (_ albums: Library) -> Void) {
-        SpotifyNetworking.retrieveAllAlbums { (status, data) in
-            self.convertDataToAlbums(data) {
-                onComplete(self.library)
-            }
+        recursiveDownload(0) {
+            onComplete(self.library)
         }
     }
     
-    func convertDataToAlbums(_ data: Data, onComplete:@escaping () -> Void) {
+    func recursiveDownload(_ offset: Int, onComplete:@escaping () -> Void) {
+        SpotifyNetworking.retrieveAllAlbums(offset) { (status, data) in
+            self.convertDataToAlbums(data, self.isFirstBatch(offset)) { shouldRepeat in
+                if shouldRepeat {
+                    let nextBatch = offset + 20
+                    self.recursiveDownload(nextBatch) {
+                        onComplete()
+                    }
+                } else {
+                    onComplete()
+                }
+            }
+
+        }
+    }
+    
+    private func isFirstBatch(_ offset: Int) -> Bool {
+        return offset == 0
+    }
+    
+    func convertDataToAlbums(_ data: Data, _ isFirstBatch: Bool, onComplete:@escaping (_ shouldGetNextBatch: Bool) -> Void) {
         do {
-            library = try JSONDecoder().decode(Library.self, from: data)
-            onComplete()
+            let newLibrary = try JSONDecoder().decode(Library.self, from: data)
+
+            var shouldRepeat = false
+            if let libraryCount = newLibrary.items?.count, libraryCount > 0 {
+                shouldRepeat = true
+            }
+            
+            if isFirstBatch {
+                library = newLibrary
+            } else {
+                for libraryAlbum in newLibrary.items! {
+                    library.items?.append(libraryAlbum)
+                }
+            }
+            onComplete(shouldRepeat)
         } catch let err {
             print(err)
         }
