@@ -8,25 +8,25 @@
 
 import Foundation
 
-struct Library: Decodable {
+struct JSONLibrary: Decodable {
     var href: String?
-    var items: [LibraryAlbum]?
+    var items: [JSONLibraryAlbum]?
 }
 
-struct LibraryAlbum: Decodable {
+struct JSONLibraryAlbum: Decodable {
     var added_ad: String?
-    var album: Album?
+    var album: JSONAlbum?
 }
 
 
-struct Album: Decodable {
+struct JSONAlbum: Decodable {
     var album_type: String?
-    var artists: [Artist]?
-    var external_urls: ExternalURLs?
+    var artists: [JSONArtist]?
+    var external_urls: JSONExternalURLs?
     //var genres:
     var href: String?
     var id: String?
-    var images: [AlbumArt]?
+    var images: [JSONAlbumArt]?
     var label: String?
     var name: String?
     var release_date: String?
@@ -35,8 +35,8 @@ struct Album: Decodable {
     var uri: String?
 }
 
-struct Artist: Decodable {
-    var external_urls: ExternalURLs?
+struct JSONArtist: Decodable {
+    var external_urls: JSONExternalURLs?
     var href: String?
     var id: String?
     var name: String?
@@ -44,11 +44,11 @@ struct Artist: Decodable {
     var uri: String?
 }
 
-struct ExternalURLs: Decodable {
+struct JSONExternalURLs: Decodable {
     var spotify: String?
 }
 
-struct AlbumArt: Decodable {
+struct JSONAlbumArt: Decodable {
     var height: Int
     var url: String
     var width: Int

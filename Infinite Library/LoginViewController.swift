@@ -13,15 +13,13 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
+        view.backgroundColor = UIColor.CustomColors.spotifyDark
         
         NotificationCenter.default.addObserver(self, selector: #selector(loginSuccessful), name: .SpotifyLoginSuccessful, object: nil)
         
         
         let button = SpotifyLoginButton(viewController: self, scopes: [.streaming, .userLibraryRead])
+        button.center = view.center
         self.view.addSubview(button)
         
 
@@ -33,7 +31,8 @@ class LoginViewController: UIViewController {
     
     func enterApp() {
         let vc = AlbumsTableViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let navController = UINavigationController(rootViewController: vc)
+        present(navController, animated: true, completion: nil)
     }
     
     @objc func loginSuccessful() {

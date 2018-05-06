@@ -11,7 +11,7 @@ import AlamofireImage
 
 class AlbumsTableViewController: UITableViewController {
 
-    private var albums = [LibraryAlbum]()
+    private var albums = [JSONLibraryAlbum]()
     private let cellId = "albumId"
     private var activityView: UIActivityIndicatorView?
     

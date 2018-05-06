@@ -24,6 +24,7 @@
 		4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2174C209A404900DB0878 /* AsyncWebService.swift */; };
 		4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */; };
 		4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21751209A424B00DB0878 /* Endpoints.swift */; };
+		4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */; };
 		4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFC209BAE090054811C /* SpotifyModels.swift */; };
 		4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */; };
 		4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */; };
@@ -64,6 +65,7 @@
 		4AB2174C209A404900DB0878 /* AsyncWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncWebService.swift; sourceTree = "<group>"; };
 		4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyNetworking.swift; sourceTree = "<group>"; };
 		4AB21751209A424B00DB0878 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4AFC2BFC209BAE090054811C /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
 		4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloader.swift; sourceTree = "<group>"; };
 		4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDownloader.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				4A9D17E9209A9619006A7B01 /* EnvConstants.swift */,
 				4A30E266209E782800680B4C /* UIColor+Colors.swift */,
+				4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				4A556A71209CF40B00D6EA14 /* AlbumsTableViewCell.swift in Sources */,
 				4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */,
 				4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */,
+				4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */,
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
@@ -554,6 +558,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFUHR2F3HQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Infinite Library/Apple Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -573,6 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFUHR2F3HQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Infinite Library/Apple Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

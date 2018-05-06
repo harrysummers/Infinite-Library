@@ -10,10 +10,10 @@ import Foundation
 
 class LibraryDownloader {
     
-    private var library = Library()
+    private var library = JSONLibrary()
     private let BATCH_SIZE = 20
     
-    func download(onComplete:@escaping (_ albums: Library) -> Void) {
+    func download(onComplete:@escaping (_ albums: JSONLibrary) -> Void) {
         recursiveDownload(0) {
             onComplete(self.library)
         }
@@ -41,7 +41,7 @@ class LibraryDownloader {
     
     func convertDataToAlbums(_ data: Data, _ isFirstBatch: Bool, onComplete:@escaping (_ shouldGetNextBatch: Bool) -> Void) {
         do {
-            let newLibrary = try JSONDecoder().decode(Library.self, from: data)
+            let newLibrary = try JSONDecoder().decode(JSONLibrary.self, from: data)
 
             var shouldRepeat = false
             if let libraryCount = newLibrary.items?.count, libraryCount > 0 {
