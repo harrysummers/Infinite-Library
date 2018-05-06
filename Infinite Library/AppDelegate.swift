@@ -49,8 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vc.present(navController, animated: true, completion: nil)
         }
         
-        // This is the
-        
         
         
 

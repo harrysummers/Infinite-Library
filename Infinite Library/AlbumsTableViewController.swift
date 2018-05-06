@@ -46,9 +46,16 @@ class AlbumsTableViewController: UITableViewController {
         cell.nameLabel.text = libraryAlbum.album?.name
         cell.artistLabel.text = libraryAlbum.album?.artists?[0].name ?? ""
         
-        if let artString = libraryAlbum.album?.images?[0].url, let artUrl = URL(string: artString) {
-            cell.albumArt.af_setImage(withURL: artUrl)
+        if let images = libraryAlbum.album?.images, images.count > 0 {
+            let artString = images[0].url
+            if let artUrl = URL(string: artString) {
+                cell.albumArt.af_setImage(withURL: artUrl)
+            }
         }
+        
+
+        
+        
         return cell
     }
     
@@ -63,7 +70,7 @@ class AlbumsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 62
     }
 
 }

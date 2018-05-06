@@ -14,6 +14,7 @@ class AlbumsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
+        label.font = label.font.withSize(16.0)
         return label
     }()
     
@@ -21,6 +22,8 @@ class AlbumsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
+        label.font = label.font.withSize(13.0)
+        label.textColor = UIColor.CustomColors.offWhite
         return label
     }()
     
@@ -30,6 +33,14 @@ class AlbumsTableViewCell: UITableViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
+    
+    var verticalStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        return stackView
+    }()
 
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -38,23 +49,19 @@ class AlbumsTableViewCell: UITableViewCell {
         backgroundColor = UIColor.CustomColors.spotifyDark
         
         addSubview(albumArt)
-        albumArt.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        albumArt.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
-        albumArt.leftAnchor.constraint(equalTo: leftAnchor, constant: 10.0).isActive = true
+        albumArt.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
+        albumArt.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
+        albumArt.leftAnchor.constraint(equalTo: leftAnchor, constant: 15.0).isActive = true
         albumArt.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        addSubview(nameLabel)
-        nameLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
-        nameLabel.leftAnchor.constraint(equalTo: albumArt.rightAnchor, constant: 10.0).isActive = true
-        nameLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
+        addSubview(verticalStackView)
+        verticalStackView.heightAnchor.constraint(equalTo: albumArt.heightAnchor, constant: -10.0).isActive = true
+        verticalStackView.leftAnchor.constraint(equalTo: albumArt.rightAnchor, constant: 10.0).isActive = true
+        verticalStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: 10.0).isActive = true
+        verticalStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        addSubview(artistLabel)
-        artistLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
-        artistLabel.leftAnchor.constraint(equalTo: nameLabel.leftAnchor).isActive = true
-        artistLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        artistLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10.0).isActive = true
-        
+        verticalStackView.addArrangedSubview(nameLabel)
+        verticalStackView.addArrangedSubview(artistLabel)
 
         
     }

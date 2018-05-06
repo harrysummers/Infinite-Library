@@ -13,6 +13,7 @@ extension UIColor {
     struct CustomColors {
         static var spotifyExtraDark = UIColor.hexStringToUIColor(hex: "#080808")
         static var spotifyDark = UIColor.hexStringToUIColor(hex: "#121212")
+        static var offWhite = UIColor.hexStringToUIColor(hex: "#BDBDBD")
     }
     
     static func hexStringToUIColor (hex:String) -> UIColor {
