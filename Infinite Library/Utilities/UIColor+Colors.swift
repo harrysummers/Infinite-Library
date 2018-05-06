@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     
     struct CustomColors {
-        static var spotifyLight = UIColor.hexStringToUIColor(hex: "#191919")
+        static var spotifyExtraDark = UIColor.hexStringToUIColor(hex: "#080808")
         static var spotifyDark = UIColor.hexStringToUIColor(hex: "#121212")
     }
     

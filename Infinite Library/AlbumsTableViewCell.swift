@@ -35,7 +35,7 @@ class AlbumsTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.CustomColors.spotifyLight
+        backgroundColor = UIColor.CustomColors.spotifyDark
         
         addSubview(albumArt)
         albumArt.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
