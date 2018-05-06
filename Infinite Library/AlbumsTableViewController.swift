@@ -12,21 +12,40 @@ import AlamofireImage
 class AlbumsTableViewController: UITableViewController {
 
     private var albums = [LibraryAlbum]()
+    private let cellId = "albumId"
+    private var activityView: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.CustomColors.spotifyExtraDark
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         tableView.separatorStyle = .none
-        tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: "albumId")
+        tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
         title = "Albums"
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadTapped))
+
+    }
+    
+    @objc func downloadTapped() {
+        startActivityIndicator()
         LibraryDownloader().download { (library) in
             if let items = library.items {
                 self.albums = items
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.activityView?.stopAnimating()
             }
+        }
+    }
+    
+    private func startActivityIndicator() {
+        activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        if let activityView = activityView {
+            activityView.center = self.view.center
+            activityView.startAnimating()
+            self.view.addSubview(activityView)
         }
     }
     
@@ -53,8 +72,6 @@ class AlbumsTableViewController: UITableViewController {
             }
         }
         
-
-        
         
         return cell
     }
@@ -68,9 +85,11 @@ class AlbumsTableViewController: UITableViewController {
             UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in })
         }
     }
+
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 62
     }
+
 
 }

@@ -48,6 +48,10 @@ class AlbumsTableViewCell: UITableViewCell {
         
         backgroundColor = UIColor.CustomColors.spotifyDark
         
+        let selectedBackground = UIView()
+        selectedBackground.backgroundColor = UIColor.CustomColors.spotifyExtraDark
+        selectedBackgroundView = selectedBackground
+        
         addSubview(albumArt)
         albumArt.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
         albumArt.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
@@ -69,5 +73,5 @@ class AlbumsTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
