@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let url = URL(string: Constants.APP_URL)
         SpotifyLogin.shared.configure(clientID: EnvConstants.CLIENT_ID, clientSecret: EnvConstants.CLIENT_SECRET, redirectURL: url!)
-
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         window = UIWindow()
         window?.makeKeyAndVisible()
         

@@ -13,12 +13,14 @@ class AlbumsTableViewCell: UITableViewCell {
     var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         return label
     }()
     
     var artistLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         return label
     }()
     
@@ -32,6 +34,9 @@ class AlbumsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        backgroundColor = UIColor.CustomColors.spotifyLight
+        
         addSubview(albumArt)
         albumArt.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         albumArt.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
@@ -57,8 +62,5 @@ class AlbumsTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-
 
 }

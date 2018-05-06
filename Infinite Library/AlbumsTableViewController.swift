@@ -15,11 +15,15 @@ class AlbumsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.barTintColor = UIColor.CustomColors.spotifyDark
+        view.backgroundColor = UIColor.CustomColors.spotifyLight
+        tableView.separatorStyle = .none
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: "albumId")
-        
+        title = "Albums"
         LibraryDownloader().download { (library) in
-            self.albums = library.items!
+            if let items = library.items {
+                self.albums = items
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

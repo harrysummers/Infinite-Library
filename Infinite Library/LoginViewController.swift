@@ -32,8 +32,7 @@ class LoginViewController: UIViewController {
     }
     
     func enterApp() {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .yellow
+        let vc = AlbumsTableViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
