@@ -11,7 +11,7 @@ import CoreData
 struct CoreDataManager {
     static let shared = CoreDataManager()
     let persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "HackerNoteiOS")
+        let container = NSPersistentContainer(name: "Infinite_Library")
         container.loadPersistentStores(completionHandler: { (storeDescription, err) in
             if let err = err {
                 fatalError("Loading of store failed: \(err)")

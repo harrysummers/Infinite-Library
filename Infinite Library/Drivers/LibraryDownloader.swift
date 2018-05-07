@@ -15,6 +15,7 @@ class LibraryDownloader {
     
     func download(onComplete:@escaping (_ albums: JSONLibrary) -> Void) {
         recursiveDownload(0) {
+            self.saveToDatabase()
             onComplete(self.library)
         }
     }
@@ -60,6 +61,15 @@ class LibraryDownloader {
             print(err)
         }
         
+    }
+    
+    func saveToDatabase() {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        guard let items = library.items else { return }
+        for libraryAlbum in items {
+            _ = libraryAlbum.album?.map(in: context)
+        }
+        CoreDataManager.shared.saveMainContext()
     }
     
 }

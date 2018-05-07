@@ -7,15 +7,20 @@
 //
 
 import Foundation
+import CoreData
 
 struct JSONLibrary: Decodable {
     var href: String?
     var items: [JSONLibraryAlbum]?
+    
+    
 }
 
 struct JSONLibraryAlbum: Decodable {
     var added_ad: String?
     var album: JSONAlbum?
+    
+
 }
 
 
@@ -33,6 +38,20 @@ struct JSONAlbum: Decodable {
     var release_date_precision: String?
     var type: String?
     var uri: String?
+    
+    func map(in context: NSManagedObjectContext) -> Album {
+        let album = Album(context: context)
+        album.setValue(name, forKey: "name")
+        album.setValue(external_urls?.spotify, forKey: "external_url")
+        if let images = images, images.count > 0 {
+            album.setValue(images[0].url, forKey: "image_url")
+        }
+        if let artists = artists, artists.count > 0 {
+            let artist = artists[0]
+            album.setValue(artist.map(in: context), forKey: "artist")
+        }
+        return album
+    }
 }
 
 struct JSONArtist: Decodable {
@@ -42,6 +61,15 @@ struct JSONArtist: Decodable {
     var name: String?
     var type: String?
     var uri: String?
+
+    func map(in context: NSManagedObjectContext) -> Artist {
+        
+        let artist = Artist(context: context)
+        artist.setValue(id, forKey: "id")
+        artist.setValue(name, forKey: "name")
+        artist.setValue(external_urls?.spotify, forKey: "external_url")
+        return artist
+    }
 }
 
 struct JSONExternalURLs: Decodable {
@@ -52,4 +80,5 @@ struct JSONAlbumArt: Decodable {
     var height: Int
     var url: String
     var width: Int
+    
 }

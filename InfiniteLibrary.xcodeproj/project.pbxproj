@@ -25,6 +25,7 @@
 		4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */; };
 		4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21751209A424B00DB0878 /* Endpoints.swift */; };
 		4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */; };
+		4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */; };
 		4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFC209BAE090054811C /* SpotifyModels.swift */; };
 		4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */; };
 		4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */; };
@@ -66,6 +67,7 @@
 		4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyNetworking.swift; sourceTree = "<group>"; };
 		4AB21751209A424B00DB0878 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+Utilities.swift"; sourceTree = "<group>"; };
 		4AFC2BFC209BAE090054811C /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
 		4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloader.swift; sourceTree = "<group>"; };
 		4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDownloader.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				4AFC2BFC209BAE090054811C /* SpotifyModels.swift */,
+				4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
+				4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */,
 				4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

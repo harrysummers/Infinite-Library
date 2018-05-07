@@ -8,12 +8,63 @@
 
 import UIKit
 import AlamofireImage
+import CoreData
 
-class AlbumsTableViewController: UITableViewController {
+class AlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-    private var albums = [JSONLibraryAlbum]()
     private let cellId = "albumId"
     private var activityView: UIActivityIndicatorView?
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<Album> = {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let request: NSFetchRequest<Album> = Album.fetchRequest()
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "artist.name", ascending: true)
+        ]
+        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        do {
+            try frc.performFetch()
+        } catch let err {
+            print(err)
+        }
+        return frc
+    }()
+    
+    // MARK: NSFetchResultsController Delegate
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .move:
+            break
+        case .update:
+            break
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +81,8 @@ class AlbumsTableViewController: UITableViewController {
     @objc func downloadTapped() {
         startActivityIndicator()
         LibraryDownloader().download { (library) in
-            if let items = library.items {
-                self.albums = items
-            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.activityView?.stopAnimating()
             }
         }
     }
@@ -56,20 +103,20 @@ class AlbumsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return albums.count
+        return getNoteCount(for: section)
+    }
+    
+    func getNoteCount(for section: Int) -> Int {
+        return fetchedResultsController.sections![section].numberOfObjects
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let libraryAlbum = albums[indexPath.row]
+        let album = fetchedResultsController.object(at: indexPath)
         let cell = AlbumsTableViewCell()
-        cell.nameLabel.text = libraryAlbum.album?.name
-        cell.artistLabel.text = libraryAlbum.album?.artists?[0].name ?? ""
-        
-        if let images = libraryAlbum.album?.images, images.count > 0 {
-            let artString = images[0].url
-            if let artUrl = URL(string: artString) {
-                cell.albumArt.af_setImage(withURL: artUrl)
-            }
+        cell.nameLabel.text = album.name
+        cell.artistLabel.text = album.artist?.name ?? ""
+        if let imageUrl = album.image_url, let artUrl = URL(string: imageUrl) {
+            cell.albumArt.af_setImage(withURL: artUrl)
         }
         
         
@@ -77,10 +124,10 @@ class AlbumsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let libraryAlbum = albums[indexPath.row]
+        let album = fetchedResultsController.object(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let spotifyUrl = libraryAlbum.album?.external_urls?.spotify {
+        if let spotifyUrl = album.external_url {
             let url = URL(string : spotifyUrl)
             UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in })
         }

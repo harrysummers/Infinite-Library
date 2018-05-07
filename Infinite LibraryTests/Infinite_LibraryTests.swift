@@ -12,13 +12,13 @@ import XCTest
 
 class Infinite_LibraryTests: XCTestCase {
     let albumId = "4Db5w1mFaolDotknFJiteD"
-
+    var library: JSONLibrary?
 
     func testAll() {
         let expectation = XCTestExpectation()
 
         AsyncWebService.shared.getAccessToken { (_, _) in
-            //self.getAlbumTest()
+            self.getAlbumTest()
             self.getLibraryAlbums()
             expectation.fulfill()
         }
@@ -38,6 +38,7 @@ class Infinite_LibraryTests: XCTestCase {
     func getLibraryAlbums() {
         let expectation = XCTestExpectation()
         LibraryDownloader().download { (library) in
+            self.library = library
             if let items = library.items {
                 XCTAssert(items.count > 0)
             } else {
@@ -48,8 +49,4 @@ class Infinite_LibraryTests: XCTestCase {
         wait(for: [expectation], timeout: 1000.0)
     }
     
-    func convertAlbumJSONTest() {
-                
-    }
-
 }
