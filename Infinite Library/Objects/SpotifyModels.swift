@@ -63,13 +63,20 @@ struct JSONArtist: Decodable {
     var uri: String?
 
     func map(in context: NSManagedObjectContext) -> Artist {
+        let artist = Artist.getArtist(with: id ?? "", in: context)
         
-        let artist = Artist(context: context)
-        artist.setValue(id, forKey: "id")
-        artist.setValue(name, forKey: "name")
-        artist.setValue(external_urls?.spotify, forKey: "external_url")
-        return artist
+        if artist == nil {
+            let newArtist = Artist(context: context)
+            newArtist.setValue(id, forKey: "id")
+            newArtist.setValue(name, forKey: "name")
+            newArtist.setValue(external_urls?.spotify, forKey: "external_url")
+            return newArtist
+        } else {
+            return artist!
+        }
+        
     }
+    
 }
 
 struct JSONExternalURLs: Decodable {

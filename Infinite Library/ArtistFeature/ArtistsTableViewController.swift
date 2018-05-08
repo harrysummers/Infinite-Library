@@ -1,8 +1,8 @@
 //
-//  AlbumsTableViewController.swift
+//  ArtistsTableViewController.swift
 //  InfiniteLibrary
 //
-//  Created by Harry Summers on 5/2/18.
+//  Created by Harry Summers on 5/8/18.
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
 
@@ -10,16 +10,14 @@ import UIKit
 import AlamofireImage
 import CoreData
 
-class AlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
-    private let cellId = "albumId"
-    private var activityView: UIActivityIndicatorView?
+class ArtistsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    private let cellId = "artistId"
     
-    lazy var fetchedResultsController: NSFetchedResultsController<Album> = {
+    lazy var fetchedResultsController: NSFetchedResultsController<Artist> = {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        let request: NSFetchRequest<Album> = Album.fetchRequest()
+        let request: NSFetchRequest<Artist> = Artist.fetchRequest()
         request.sortDescriptors = [
-            NSSortDescriptor(key: "artist.name", ascending: true)
+            NSSortDescriptor(key: "name", ascending: true)
         ]
         let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
@@ -30,6 +28,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         }
         return frc
     }()
+    
     
     // MARK: NSFetchResultsController Delegate
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -68,75 +67,40 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.barTintColor = UIColor.CustomColors.spotifyExtraDark
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         tableView.separatorStyle = .none
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
-        title = "Albums"
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadTapped))
-
+        title = "Artists"
     }
     
-    @objc func downloadTapped() {
-        startActivityIndicator()
-        LibraryDownloader().download { (library) in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    private func startActivityIndicator() {
-        activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        if let activityView = activityView {
-            activityView.center = self.view.center
-            activityView.startAnimating()
-            self.view.addSubview(activityView)
-        }
-    }
-    
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getNoteCount(for: section)
+        return getArtistCount(for: section)
     }
     
-    func getNoteCount(for section: Int) -> Int {
+    func getArtistCount(for section: Int) -> Int {
         return fetchedResultsController.sections![section].numberOfObjects
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let album = fetchedResultsController.object(at: indexPath)
-        let cell = AlbumsTableViewCell()
-        cell.nameLabel.text = album.name
-        cell.artistLabel.text = album.artist?.name ?? ""
-        if let imageUrl = album.image_url, let artUrl = URL(string: imageUrl) {
-            cell.albumArt.af_setImage(withURL: artUrl)
+        let artist = fetchedResultsController.object(at: indexPath)
+        let cell = ArtistTableViewCell()
+        if let stringUrl = artist.external_url, let url = URL(string: stringUrl) {
+            cell.artistImage.af_setImage(withURL: url)
         }
-        
-        
+        cell.nameLabel.text = artist.name ?? ""
+        cell.backgroundColor = .red
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let album = fetchedResultsController.object(at: indexPath)
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        if let spotifyUrl = album.external_url {
-            let url = URL(string : spotifyUrl)
-            UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in })
-        }
-    }
-
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 62
     }
-
-
 }
+
+
