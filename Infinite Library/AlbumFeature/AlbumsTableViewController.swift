@@ -83,6 +83,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         LibraryDownloader().download { (library) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.activityView?.stopAnimating()
             }
         }
     }

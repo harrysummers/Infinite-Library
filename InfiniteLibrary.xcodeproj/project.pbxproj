@@ -16,6 +16,7 @@
 		4AAF0ADE20A202D80054A0FC /* Artist+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0ADD20A202D80054A0FC /* Artist+Utilities.swift */; };
 		4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */; };
 		4AAF0AE720A2077B0054A0FC /* ArtistsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */; };
+		4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE820A281600054A0FC /* TabViewController.swift */; };
 		4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21722209A398F00DB0878 /* AppDelegate.swift */; };
 		4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21724209A398F00DB0878 /* LoginViewController.swift */; };
 		4AB21728209A398F00DB0878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB21726209A398F00DB0878 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		4AAF0ADD20A202D80054A0FC /* Artist+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Utilities.swift"; sourceTree = "<group>"; };
 		4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
 		4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewCell.swift; sourceTree = "<group>"; };
+		4AAF0AE820A281600054A0FC /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		4AB2171F209A398F00DB0878 /* InfiniteLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB21722209A398F00DB0878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AB21724209A398F00DB0878 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,15 @@
 			path = ArtistFeature;
 			sourceTree = "<group>";
 		};
+		4AAF0AEA20A2816E0054A0FC /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				4AB21722209A398F00DB0878 /* AppDelegate.swift */,
+				4AAF0AE820A281600054A0FC /* TabViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		4AB21716209A398F00DB0878 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +187,7 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
+				4AAF0AEA20A2816E0054A0FC /* Root */,
 				4AAF0AE320A205CA0054A0FC /* ArtistFeature */,
 				4AAF0AE220A2059A0054A0FC /* LoginFeature */,
 				4AAF0ADF20A2050F0054A0FC /* AlbumFeature */,
@@ -184,7 +196,6 @@
 				4A9D17E8209A960B006A7B01 /* Utilities */,
 				4AB2174E209A405E00DB0878 /* Networking */,
 				4AB21747209A3D1200DB0878 /* Apple Files */,
-				4AB21722209A398F00DB0878 /* AppDelegate.swift */,
 			);
 			path = "Infinite Library";
 			sourceTree = "<group>";
@@ -427,6 +438,7 @@
 				4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */,
 				4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */,
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
+				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,

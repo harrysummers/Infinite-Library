@@ -30,9 +30,8 @@ class LoginViewController: UIViewController {
     }
     
     func enterApp() {
-        let vc = AlbumsTableViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        present(navController, animated: true, completion: nil)
+        let vc = TabViewController()
+        present(vc, animated: true, completion: nil)
     }
     
     @objc func loginSuccessful() {

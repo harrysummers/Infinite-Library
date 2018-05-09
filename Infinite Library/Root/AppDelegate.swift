@@ -39,19 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AsyncWebService.shared.getAccessToken { (accessToken, error) in
             if error == nil && accessToken != nil {
-                initialViewController = AlbumsTableViewController()
+                initialViewController = TabViewController()
             } else {
                 initialViewController = LoginViewController()
             }
             
-            let navController = UINavigationController(rootViewController: initialViewController!)
-            
-            vc.present(navController, animated: true, completion: nil)
+            vc.present(initialViewController!, animated: true, completion: nil)
         }
         
-        
-        
-
         return true
     }
     
