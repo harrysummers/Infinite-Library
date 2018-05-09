@@ -94,12 +94,16 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
             cell.artistImage.af_setImage(withURL: url)
         }
         cell.nameLabel.text = artist.name ?? ""
-        cell.backgroundColor = .red
+        cell.backgroundColor = UIColor.CustomColors.spotifyDark
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 62
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

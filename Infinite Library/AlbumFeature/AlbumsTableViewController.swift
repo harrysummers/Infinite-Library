@@ -68,7 +68,6 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor.CustomColors.spotifyExtraDark
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         tableView.separatorStyle = .none
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)

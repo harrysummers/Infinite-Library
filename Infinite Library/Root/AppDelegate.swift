@@ -23,11 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 234.0/255.0, green: 46.0/255.0, blue: 73.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor.CustomColors.spotifyExtraDark
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
 
-        
+        UITabBar.appearance().barTintColor = UIColor.CustomColors.spotifyExtraDark
+        UITabBar.appearance().tintColor = UIColor.CustomColors.offWhite
         window = UIWindow()
         window?.makeKeyAndVisible()
         
