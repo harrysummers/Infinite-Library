@@ -9,11 +9,12 @@
     <entity name="Artist" representedClassName="Artist" syncable="YES" codeGenerationType="class">
         <attribute name="external_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="albums" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="artist" inverseEntity="Album" syncable="YES"/>
     </entity>
     <elements>
         <element name="Album" positionX="198" positionY="45" width="128" height="105"/>
-        <element name="Artist" positionX="0" positionY="45" width="128" height="103"/>
+        <element name="Artist" positionX="0" positionY="45" width="128" height="120"/>
     </elements>
 </model>

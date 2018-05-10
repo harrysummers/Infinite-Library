@@ -90,7 +90,7 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let artist = fetchedResultsController.object(at: indexPath)
         let cell = ArtistTableViewCell()
-        if let stringUrl = artist.external_url, let url = URL(string: stringUrl) {
+        if let stringUrl = artist.image_url, let url = URL(string: stringUrl) {
             cell.artistImage.af_setImage(withURL: url)
         }
         cell.nameLabel.text = artist.name ?? ""

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class LibraryDownloader {
     
@@ -16,7 +17,9 @@ class LibraryDownloader {
     func download(onComplete:@escaping (_ albums: JSONLibrary) -> Void) {
         recursiveDownload(0) {
             self.saveToDatabase()
-            onComplete(self.library)
+            self.getAllAlbumArt {
+                onComplete(self.library)
+            }
         }
     }
     
@@ -40,7 +43,7 @@ class LibraryDownloader {
         return offset == 0
     }
     
-    func convertDataToAlbums(_ data: Data, _ isFirstBatch: Bool, onComplete:@escaping (_ shouldGetNextBatch: Bool) -> Void) {
+    private func convertDataToAlbums(_ data: Data, _ isFirstBatch: Bool, onComplete:@escaping (_ shouldGetNextBatch: Bool) -> Void) {
         do {
             let newLibrary = try JSONDecoder().decode(JSONLibrary.self, from: data)
 
@@ -63,7 +66,7 @@ class LibraryDownloader {
         
     }
     
-    func saveToDatabase() {
+    private func saveToDatabase() {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         guard let items = library.items else { return }
         for libraryAlbum in items {
@@ -72,4 +75,39 @@ class LibraryDownloader {
         }
     }
     
+    private func getAllAlbumArt(_ onComplete:@escaping () -> Void) {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let artists = Artist.getAllArtists(in: context)
+        let artistCount = artists.count
+        var completedCount = 0
+        for artist in artists {
+            if let id = artist.id {
+                getAlbumArt(with: id) { (artistArt) in
+                    artist.image_url = artistArt
+                    CoreDataManager.shared.saveMainContext()
+                    completedCount = completedCount + 1
+                    if completedCount == artistCount {
+                        onComplete()
+                    }
+                }
+            }
+        }
+    }
+    
+    private func getAlbumArt(with id: String, _ onComplete:@escaping (_ artistArt: String) -> Void) {
+        SpotifyNetworking.retrieveArtist(with: id) { (status, data) in
+            do {
+                let spotifyArtist = try JSONDecoder().decode(JSONSpotifyArtist.self, from: data)
+                if let images = spotifyArtist.images, images.count > 0 {
+                    let image = images[0]
+                    onComplete(image.url)
+                } else {
+                    onComplete("")
+                }
+            } catch let err {
+                print(err)
+                onComplete("")
+            }
+        }
+    }
 }

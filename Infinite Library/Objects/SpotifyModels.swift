@@ -79,6 +79,16 @@ struct JSONArtist: Decodable {
     
 }
 
+struct JSONSpotifyArtist: Decodable {
+    var images: [JSONArtistArt]?
+}
+
+struct JSONArtistArt: Decodable {
+    var height: Int
+    var url: String
+    var width: Int
+}
+
 struct JSONExternalURLs: Decodable {
     var spotify: String?
 }

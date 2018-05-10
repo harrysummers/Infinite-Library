@@ -30,5 +30,15 @@ extension Artist {
         return nil
     }
     
-
+    static func getAllArtists(in context: NSManagedObjectContext) -> [Artist] {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let request = NSFetchRequest<Artist>(entityName: "Artist")
+        
+        do {
+            return try context.fetch(request)
+        } catch let err {
+            print(err)
+            return []
+        }
+    }
 }

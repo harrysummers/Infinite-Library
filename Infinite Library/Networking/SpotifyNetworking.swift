@@ -15,11 +15,7 @@ class SpotifyNetworking {
         request.httpMethod = "GET"
         
         AsyncWebService.shared.sendAsyncRequest(request: request) { (status, responseData) in
-            if (status == 200) {
-                onComplete(true, responseData)
-            } else {
-                onComplete(false, responseData)
-            }
+            onComplete(status == 200, responseData)
         }
     }
     
@@ -29,14 +25,18 @@ class SpotifyNetworking {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
+        AsyncWebService.shared.sendAsyncRequest(request: request) { (status, responseData) in
+            onComplete(status == 200, responseData)
+        }
+    }
+    
+    static func retrieveArtist(with id: String, onComplete:@escaping (_ success: Bool, _ data: Data) -> Void) {
+        let url: URL = URL(string: Endpoints.SPOTIFY_ARTIST + id)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
         
         AsyncWebService.shared.sendAsyncRequest(request: request) { (status, responseData) in
-            print(responseData)
-            if (status == 200) {
-                onComplete(true, responseData)
-            } else {
-                onComplete(false, responseData)
-            }
+            onComplete(status == 200, responseData)
         }
     }
 }

@@ -13,7 +13,6 @@ class ArtistTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .red
         return image
     }()
     
