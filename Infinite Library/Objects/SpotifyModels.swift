@@ -12,15 +12,11 @@ import CoreData
 struct JSONLibrary: Decodable {
     var href: String?
     var items: [JSONLibraryAlbum]?
-    
-    
 }
 
 struct JSONLibraryAlbum: Decodable {
     var added_ad: String?
     var album: JSONAlbum?
-    
-
 }
 
 
@@ -48,7 +44,8 @@ struct JSONAlbum: Decodable {
         }
         if let artists = artists, artists.count > 0 {
             let artist = artists[0]
-            album.setValue(artist.map(in: context), forKey: "artist")
+            album.artist = artist.map(in: context)
+            //album.setValue(artist.map(in: context), forKey: "artist")
         }
         return album
     }
@@ -74,7 +71,7 @@ struct JSONArtist: Decodable {
         } else {
             return artist!
         }
-        
+
     }
     
 }

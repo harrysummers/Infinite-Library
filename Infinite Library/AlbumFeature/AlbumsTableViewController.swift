@@ -74,6 +74,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         title = "Albums"
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearTapped))
 
     }
     
@@ -85,6 +86,26 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
                 self.activityView?.stopAnimating()
             }
         }
+    }
+    
+    @objc func clearTapped() {
+        let fetch1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Artist")
+        let request1 = NSBatchDeleteRequest(fetchRequest: fetch1)
+
+        do {
+            _ = try CoreDataManager.shared.persistentContainer.viewContext.execute(request1)
+        } catch let err {
+            print(err)
+        }
+        
+        let fetch2 = NSFetchRequest<NSFetchRequestResult>(entityName: "Album")
+        let request2 = NSBatchDeleteRequest(fetchRequest: fetch2)
+        do {
+            _ = try CoreDataManager.shared.persistentContainer.viewContext.execute(request2)
+        } catch let err {
+            print(err)
+        }
+        self.tableView.reloadData()
     }
     
     private func startActivityIndicator() {

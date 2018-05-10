@@ -13,6 +13,7 @@ class ArtistTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .red
         return image
     }()
     
@@ -39,11 +40,12 @@ class ArtistTableViewCell: UITableViewCell {
         artistImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 15.0).isActive = true
         artistImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
+        
         addSubview(nameLabel)
         nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        nameLabel.leftAnchor.constraint(equalTo: artistImage.rightAnchor, constant: 10.0)
-        nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: 10.0)
-        nameLabel.heightAnchor.constraint(equalToConstant: 25.0)
+        nameLabel.leftAnchor.constraint(equalTo: artistImage.rightAnchor, constant: 10.0).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: 10.0).isActive = true
+        nameLabel.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
