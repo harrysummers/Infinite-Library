@@ -68,8 +68,8 @@ class LibraryDownloader {
         guard let items = library.items else { return }
         for libraryAlbum in items {
             _ = libraryAlbum.album?.map(in: context)
+            CoreDataManager.shared.saveMainContext()
         }
-        CoreDataManager.shared.saveMainContext()
     }
     
 }

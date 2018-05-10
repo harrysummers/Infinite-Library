@@ -15,7 +15,7 @@ extension Artist {
         request.sortDescriptors = [
             NSSortDescriptor(key: "id", ascending: false)
         ]
-        request.predicate = NSPredicate(format: "id = %s", id)
+        request.predicate = NSPredicate(format: "id = %@", id)
         request.fetchLimit = 1
         do {
             let artists = try context.fetch(request)

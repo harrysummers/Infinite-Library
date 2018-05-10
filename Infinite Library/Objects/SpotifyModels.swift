@@ -37,18 +37,21 @@ struct JSONAlbum: Decodable {
     
     func map(in context: NSManagedObjectContext) -> Album {
         let album = Album(context: context)
-        album.setValue(name, forKey: "name")
-        album.setValue(external_urls?.spotify, forKey: "external_url")
+        album.name = name
+        album.external_url = external_urls?.spotify
+        
         if let images = images, images.count > 0 {
-            album.setValue(images[0].url, forKey: "image_url")
+            album.image_url = images[0].url
         }
         if let artists = artists, artists.count > 0 {
-            let artist = artists[0]
-            album.artist = artist.map(in: context)
-            //album.setValue(artist.map(in: context), forKey: "artist")
+            let jsonArtist = artists[0]
+            
+            let artist = jsonArtist.map(in: context)
+            artist.addToAlbums(album)
         }
         return album
     }
+    
 }
 
 struct JSONArtist: Decodable {
@@ -64,9 +67,9 @@ struct JSONArtist: Decodable {
         
         if artist == nil {
             let newArtist = Artist(context: context)
-            newArtist.setValue(id, forKey: "id")
-            newArtist.setValue(name, forKey: "name")
-            newArtist.setValue(external_urls?.spotify, forKey: "external_url")
+            newArtist.id = id
+            newArtist.name = name
+            newArtist.external_url = external_urls?.spotify
             return newArtist
         } else {
             return artist!

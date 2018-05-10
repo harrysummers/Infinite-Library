@@ -105,7 +105,12 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         } catch let err {
             print(err)
         }
-        self.tableView.reloadData()
+        
+        do {
+            try CoreDataManager.shared.persistentContainer.viewContext.save()
+        } catch let err {
+            print(err)
+        }
     }
     
     private func startActivityIndicator() {
