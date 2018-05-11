@@ -20,7 +20,7 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         request.sortDescriptors = [
             NSSortDescriptor(key: "name", ascending: true)
         ]
-        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "name", cacheName: nil)
         frc.delegate = self
         do {
             try frc.performFetch()
@@ -74,6 +74,7 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.separatorStyle = .none
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.keyboardDismissMode = .interactive
+        tableView.sectionIndexColor = UIColor.CustomColors.offWhite
         tabBarController?.delegate = self
         title = "Artists"
         setupView()
@@ -91,7 +92,11 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
 
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if let count = fetchedResultsController.sections?.count {
+            return count
+        } else {
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,6 +129,15 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
             let url = URL(string : spotifyUrl)
             UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in })
         }
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        let titles =  fetchedResultsController.sectionIndexTitles
+        return titles
+    }
+    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return fetchedResultsController.section(forSectionIndexTitle: title, at: index)
     }
 }
 
