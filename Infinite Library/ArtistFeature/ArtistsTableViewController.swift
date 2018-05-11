@@ -12,6 +12,7 @@ import CoreData
 
 class ArtistsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     private let cellId = "artistId"
+    private let searchController = UISearchController(searchResultsController: nil)
     
     lazy var fetchedResultsController: NSFetchedResultsController<Artist> = {
         let context = CoreDataManager.shared.persistentContainer.viewContext
@@ -72,10 +73,22 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         tableView.separatorStyle = .none
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.keyboardDismissMode = .interactive
+        tabBarController?.delegate = self
         title = "Artists"
-
+        setupView()
     }
     
+    private func setupView() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Albums"
+        searchController.searchBar.barStyle = .black
+        searchController.searchBar.keyboardAppearance = .dark
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -111,6 +124,36 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
             let url = URL(string : spotifyUrl)
             UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in })
         }
+    }
+}
+
+extension ArtistsTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text ?? ""
+        var predicate: NSPredicate?
+        if searchText.count > 0 {
+            predicate = NSPredicate(format: "name contains[cd] %@", searchText)
+        } else {
+            predicate = nil
+        }
+        
+        fetchedResultsController.fetchRequest.predicate = predicate
+        
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch let err {
+            print(err)
+        }
+        
+    }
+    
+}
+
+extension ArtistsTableViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let topIndex = IndexPath(row: 0, section: 0)
+        tableView.scrollToRow(at: topIndex, at: .top, animated: true)
     }
 }
 

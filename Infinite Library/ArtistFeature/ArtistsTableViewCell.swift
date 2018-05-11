@@ -11,7 +11,7 @@ import UIKit
 class ArtistTableViewCell: UITableViewCell {
     var artistImage: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
