@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabViewController: UITabBarController {
+class TabViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,17 @@ class TabViewController: UITabBarController {
         viewControllers = viewControllersList.map {
             UINavigationController(rootViewController: $0)
         }
+        //delegate = self
         
     }
+    
+//    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+//        let topIndex = IndexPath(row: 0, section: 0)
+//        if let vc = viewController as? AlbumsTableViewController {
+//            vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+//        } else if let vc = viewController as? ArtistsTableViewController {
+//            vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+//        }
+//    }
+
 }

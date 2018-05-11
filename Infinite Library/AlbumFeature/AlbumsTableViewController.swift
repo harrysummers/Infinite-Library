@@ -75,8 +75,6 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.keyboardDismissMode = .interactive
         tableView.sectionIndexColor = UIColor.CustomColors.offWhite
-        
-        tabBarController?.delegate = self
         title = "Albums"
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadTapped))
@@ -84,6 +82,11 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         
         setupView()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.delegate = self
     }
     
     private func setupView() {
@@ -187,8 +190,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        let titles =  fetchedResultsController.sectionIndexTitles
-        return titles
+        return fetchedResultsController.sectionIndexTitles
     }
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {

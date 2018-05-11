@@ -75,9 +75,13 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.keyboardDismissMode = .interactive
         tableView.sectionIndexColor = UIColor.CustomColors.offWhite
-        tabBarController?.delegate = self
         title = "Artists"
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.delegate = self
     }
     
     private func setupView() {
