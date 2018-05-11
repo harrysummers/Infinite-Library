@@ -71,11 +71,11 @@ class LibraryDownloader {
         guard let items = library.items else { return }
         for libraryAlbum in items {
             _ = libraryAlbum.album?.map(in: context)
-            CoreDataManager.shared.saveMainContext()
+                CoreDataManager.shared.saveMainContext()
         }
     }
     
-    private func getAllAlbumArt(_ onComplete:@escaping () -> Void) {
+    func getAllAlbumArt(_ onComplete:@escaping () -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let artists = Artist.getAllArtists(in: context)
         let artistCount = artists.count
@@ -83,18 +83,21 @@ class LibraryDownloader {
         for artist in artists {
             if let id = artist.id {
                 getAlbumArt(with: id) { (artistArt) in
-                    artist.image_url = artistArt
-                    CoreDataManager.shared.saveMainContext()
-                    completedCount = completedCount + 1
-                    if completedCount == artistCount {
-                        onComplete()
-                    }
+
+                        artist.image_url = artistArt
+                        CoreDataManager.shared.saveMainContext()
+                        completedCount = completedCount + 1
+                        if completedCount == artistCount {
+                            onComplete()
+                        }
+                    
+
                 }
             }
         }
     }
     
-    private func getAlbumArt(with id: String, _ onComplete:@escaping (_ artistArt: String) -> Void) {
+    func getAlbumArt(with id: String, _ onComplete:@escaping (_ artistArt: String) -> Void) {
         SpotifyNetworking.retrieveArtist(with: id) { (status, data) in
             do {
                 let spotifyArtist = try JSONDecoder().decode(JSONSpotifyArtist.self, from: data)

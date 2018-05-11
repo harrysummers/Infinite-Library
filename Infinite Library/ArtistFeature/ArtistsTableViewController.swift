@@ -73,6 +73,15 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.separatorStyle = .none
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
         title = "Artists"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Art", style: .plain, target: self, action: #selector(artTapped))
+
+    }
+    
+    @objc func artTapped() {
+        LibraryDownloader().getAllAlbumArt {
+            print("Finished getting art")
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

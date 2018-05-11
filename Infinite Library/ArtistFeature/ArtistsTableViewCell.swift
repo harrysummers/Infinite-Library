@@ -38,7 +38,8 @@ class ArtistTableViewCell: UITableViewCell {
         artistImage.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
         artistImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 15.0).isActive = true
         artistImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
+        artistImage.layer.cornerRadius = 45.0 / 2
+        artistImage.clipsToBounds = true
         
         addSubview(nameLabel)
         nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
