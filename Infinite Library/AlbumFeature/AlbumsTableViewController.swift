@@ -84,11 +84,6 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.delegate = self
-    }
-    
     private func setupView() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -221,11 +216,3 @@ extension AlbumsTableViewController: UISearchResultsUpdating {
     }
     
 }
-
-extension AlbumsTableViewController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        let topIndex = IndexPath(row: 0, section: 0)
-        tableView.scrollToRow(at: topIndex, at: .top, animated: true)
-    }
-}
-

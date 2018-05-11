@@ -22,17 +22,22 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         viewControllers = viewControllersList.map {
             UINavigationController(rootViewController: $0)
         }
-        //delegate = self
+        delegate = self
         
     }
     
-//    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-//        let topIndex = IndexPath(row: 0, section: 0)
-//        if let vc = viewController as? AlbumsTableViewController {
-//            vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
-//        } else if let vc = viewController as? ArtistsTableViewController {
-//            vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
-//        }
-//    }
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let topIndex = IndexPath(row: 0, section: 0)
+        if let navController = viewController as? UINavigationController,
+            navController.childViewControllers.count > 0 {
+            let childController = navController.childViewControllers[0]
+            if let vc = childController as? AlbumsTableViewController {
+                vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+            } else if let vc = childController as? ArtistsTableViewController {
+                vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+            }
+        }
+
+    }
 
 }
