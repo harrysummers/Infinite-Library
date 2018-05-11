@@ -73,16 +73,9 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.separatorStyle = .none
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
         title = "Artists"
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Art", style: .plain, target: self, action: #selector(artTapped))
 
     }
     
-    @objc func artTapped() {
-        LibraryDownloader().getAllAlbumArt {
-            print("Finished getting art")
-        }
-    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -113,6 +106,11 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let artist = fetchedResultsController.object(at: indexPath)
+        if let spotifyUrl = artist.external_url {
+            let url = URL(string : spotifyUrl)
+            UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in })
+        }
     }
 }
 

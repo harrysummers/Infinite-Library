@@ -80,36 +80,38 @@ class LibraryDownloader {
         let artists = Artist.getAllArtists(in: context)
         let artistCount = artists.count
         var completedCount = 0
-        for artist in artists {
-            if let id = artist.id {
-                getAlbumArt(with: id) { (artistArt) in
-
-                        artist.image_url = artistArt
-                        CoreDataManager.shared.saveMainContext()
-                        completedCount = completedCount + 1
-                        if completedCount == artistCount {
-                            onComplete()
+            for artist in artists {
+                if let id = artist.id {
+                    getAlbumArt(with: id) { (artistArt) in
+                        DispatchQueue.main.async {
+                            artist.image_url = artistArt
+                            CoreDataManager.shared.saveMainContext()
+                            completedCount = completedCount + 1
+                            if completedCount == artistCount {
+                                onComplete()
+                            }
                         }
-                    
-
+                    }
                 }
             }
-        }
     }
     
     func getAlbumArt(with id: String, _ onComplete:@escaping (_ artistArt: String) -> Void) {
         SpotifyNetworking.retrieveArtist(with: id) { (status, data) in
-            do {
-                let spotifyArtist = try JSONDecoder().decode(JSONSpotifyArtist.self, from: data)
-                if let images = spotifyArtist.images, images.count > 0 {
-                    let image = images[0]
-                    onComplete(image.url)
-                } else {
+            DispatchQueue.main.async {
+                do {
+                        let spotifyArtist = try JSONDecoder().decode(JSONSpotifyArtist.self, from: data)
+                        if let images = spotifyArtist.images, images.count > 0 {
+                            let image = images[0]
+                            onComplete(image.url)
+                        } else {
+                            onComplete("")
+                        }
+                    
+                } catch let err {
+                    print(err)
                     onComplete("")
                 }
-            } catch let err {
-                print(err)
-                onComplete("")
             }
         }
     }
