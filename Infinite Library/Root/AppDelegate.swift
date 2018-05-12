@@ -77,39 +77,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
         if let clipboard = UIPasteboard.general.string, let idString = clipboard.getAlbumId() {
-            SpotifyNetworking.retrieveAlbum(with: idString) { (status, data) in
-                
-                do {
-                    let jsonAlbum = try JSONDecoder().decode(JSONAlbum.self, from: data)
-                    
-                    DispatchQueue.main.async {
-                        let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 80, height: 80))
-                        
-                        if let images = jsonAlbum.images, images.count > 0, let url = URL(string: images[0].url) {
-                            imageView.af_setImage(withURL: url)
-                        }
-
-                        let title = "\(jsonAlbum.name ?? "") by \(jsonAlbum.artists?[0].name ?? "")"
-                        let alertView = UIAlertController(title: "Add Album", message: "\(title)", preferredStyle: .actionSheet)
-                        alertView.view.addSubview(imageView)
-                        alertView.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
-                            let context = CoreDataManager.shared.persistentContainer.viewContext
-                            let _ = jsonAlbum.map(in: context)
-                            CoreDataManager.shared.saveMainContext()
-                        }))
-                        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
-                        self.window?.rootViewController?.presentedViewController?.present(alertView, animated: true, completion: nil)
-                    }
-                } catch let err {
-                    print(err)
+            let albumDownloader = AlbumDownloader()
+            albumDownloader.download(idString) { (album) in
+                DispatchQueue.main.async {
+                    self.showActionSheet(with: album, and: albumDownloader)
                 }
-                
-
             }
-
+            
         }
         
+    }
+    
+    private func showActionSheet(with album: JSONAlbum, and albumDownloader: AlbumDownloader) {
+        let imageView = UIImageView(frame: CGRect(x: 220, y: 5, width: 40, height: 40))
+        
+        if let images = album.images, images.count > 0, let url = URL(string: images[0].url) {
+            imageView.af_setImage(withURL: url)
+        }
+        let title = "\(album.name ?? "") by \(album.artists?[0].name ?? "")"
+        let alertView = UIAlertController(title: "Add Album", message: "\(title)", preferredStyle: .actionSheet)
+        alertView.view.addSubview(imageView)
+        alertView.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+            albumDownloader.saveToDatabase()
+        }))
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.window?.rootViewController?.presentedViewController?.present(alertView, animated: true, completion: nil)
     }
 
 
