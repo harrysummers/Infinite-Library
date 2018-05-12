@@ -13,16 +13,19 @@ import XCTest
 class Infinite_LibraryTests: XCTestCase {
     let albumId = "4Db5w1mFaolDotknFJiteD"
     var library: JSONLibrary?
-
+    let albumUrl = "https://open.spotify.com/track/6UPWfwnMVop0szGZacqwRn?si=Bt8ZIObiQ8OBPCLDkOQY9A"
+    let albumUrlId = "6UPWfwnMVop0szGZacqwRn"
+    
     func testAll() {
-        let expectation = XCTestExpectation()
-
-        AsyncWebService.shared.getAccessToken { (_, _) in
-            self.getAlbumTest()
-            self.getLibraryAlbums()
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 100.0)
+//        let expectation = XCTestExpectation()
+//
+//        AsyncWebService.shared.getAccessToken { (_, _) in
+//            self.getAlbumTest()
+//            self.getLibraryAlbums()
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 100.0)
+        XCTAssert(albumUrl.getAlbumId() ?? "" == albumUrlId)
     }
     
     func getAlbumTest() {
@@ -48,5 +51,8 @@ class Infinite_LibraryTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1000.0)
     }
+    
+    
+    
     
 }

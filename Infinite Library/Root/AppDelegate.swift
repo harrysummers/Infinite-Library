@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SpotifyLogin
+import AlamofireImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.CustomColors.spotifyExtraDark
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+
+        //UIVisualEffectView.appearance(whenContainedInInstancesOf: [UIAlertController.classForCoder() as! UIAppearanceContainer.Type]).effect = UIBlurEffect(style: .dark)
 
         UITabBar.appearance().barTintColor = UIColor.CustomColors.spotifyExtraDark
         UITabBar.appearance().tintColor = UIColor.CustomColors.offWhite
@@ -72,7 +75,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        if let clipboard = UIPasteboard.general.string, let idString = clipboard.getAlbumId() {
+            SpotifyNetworking.retrieveAlbum(with: idString) { (status, data) in
+                
+                do {
+                    let jsonAlbum = try JSONDecoder().decode(JSONAlbum.self, from: data)
+                    
+                    DispatchQueue.main.async {
+                        let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 80, height: 80))
+                        
+                        if let images = jsonAlbum.images, images.count > 0, let url = URL(string: images[0].url) {
+                            imageView.af_setImage(withURL: url)
+                        }
+
+                        let title = "\(jsonAlbum.name ?? "") by \(jsonAlbum.artists?[0].name ?? "")"
+                        let alertView = UIAlertController(title: "Add Album", message: "\(title)", preferredStyle: .actionSheet)
+                        alertView.view.addSubview(imageView)
+                        alertView.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
+                            let context = CoreDataManager.shared.persistentContainer.viewContext
+                            let _ = jsonAlbum.map(in: context)
+                            CoreDataManager.shared.saveMainContext()
+                        }))
+                        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+                        self.window?.rootViewController?.presentedViewController?.present(alertView, animated: true, completion: nil)
+                    }
+                } catch let err {
+                    print(err)
+                }
+                
+
+            }
+
+        }
+        
     }
+
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
