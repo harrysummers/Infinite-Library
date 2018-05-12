@@ -131,8 +131,7 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        let titles =  fetchedResultsController.sectionIndexTitles
-        return titles
+        return fetchedResultsController.sectionIndexTitles
     }
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
