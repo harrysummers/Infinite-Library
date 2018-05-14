@@ -50,7 +50,7 @@ class AddAlbumViewController: UIViewController {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 30.0
-        view.backgroundColor = UIColor.CustomColors.spotifyExtraDark
+        view.backgroundColor = UIColor.CustomColors.spotifyLight
         return view
     }()
     
@@ -67,7 +67,7 @@ class AddAlbumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let darkColor = UIColor.CustomColors.spotifyDark
+        let darkColor = UIColor.CustomColors.spotifyLight
         view.backgroundColor = darkColor.withAlphaComponent(0.0)
         setupView()
         if let album = album {

@@ -13,7 +13,6 @@ import CoreData
 class AlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     private let cellId = "albumId"
-    private var activityView: UIActivityIndicatorView?
     private let searchController = UISearchController(searchResultsController: nil)
 
     
@@ -76,9 +75,6 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         tableView.keyboardDismissMode = .interactive
         tableView.sectionIndexColor = UIColor.CustomColors.offWhite
         title = "Albums"
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self, action: #selector(downloadTapped))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearTapped))
         
         setupView()
 
@@ -92,16 +88,6 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         searchController.searchBar.keyboardAppearance = .dark
         navigationItem.searchController = searchController
         definesPresentationContext = true
-    }
-    
-    @objc func downloadTapped() {
-        startActivityIndicator()
-        LibraryDownloader().download { (library) in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.activityView?.stopAnimating()
-            }
-        }
     }
     
     @objc func clearTapped() {
@@ -126,15 +112,6 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
             try CoreDataManager.shared.persistentContainer.viewContext.save()
         } catch let err {
             print(err)
-        }
-    }
-    
-    private func startActivityIndicator() {
-        activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        if let activityView = activityView {
-            activityView.center = self.view.center
-            activityView.startAnimating()
-            self.view.addSubview(activityView)
         }
     }
     

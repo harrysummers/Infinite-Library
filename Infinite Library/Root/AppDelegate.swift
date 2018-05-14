@@ -76,16 +76,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        if let clipboard = UIPasteboard.general.string, let idString = clipboard.getAlbumId() {
-            let albumDownloader = AlbumDownloader()
-            albumDownloader.download(idString) { (album) in
-                DispatchQueue.main.async {
-                    self.showActionSheet(with: album, and: albumDownloader)
+        if let clipboard = UIPasteboard.general.string,
+            let idString = clipboard.getAlbumId(),
+            let externalUrl = clipboard.getAlbumExternalUrl() {
+            if !Album.isAlreadyInCoreData(with: externalUrl, with: CoreDataManager.shared.persistentContainer.viewContext) {
+                let albumDownloader = AlbumDownloader()
+                albumDownloader.download(idString) { (album) in
+                    DispatchQueue.main.async {
+                        self.showActionSheet(with: album, and: albumDownloader)
+                    }
                 }
             }
-            
         }
-        
     }
     
     private func showActionSheet(with album: JSONAlbum, and albumDownloader: AlbumDownloader) {

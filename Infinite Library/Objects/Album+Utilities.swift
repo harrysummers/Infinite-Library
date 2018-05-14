@@ -15,7 +15,7 @@ extension Album {
         request.sortDescriptors = [
             NSSortDescriptor(key: "name", ascending: false)
         ]
-        request.predicate = NSPredicate(format: "external_url = %s", externalUrl)
+        request.predicate = NSPredicate(format: "external_url = %@", externalUrl)
         request.fetchLimit = 1
         do {
             let albums = try context.fetch(request)

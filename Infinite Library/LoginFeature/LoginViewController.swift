@@ -10,6 +10,8 @@ import UIKit
 import SpotifyLogin
 
 class LoginViewController: UIViewController {
+    
+    private var activityView: UIActivityIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +32,23 @@ class LoginViewController: UIViewController {
     }
     
     func enterApp() {
-        let vc = TabViewController()
-        present(vc, animated: true, completion: nil)
+        startActivityIndicator()
+        LibraryDownloader().download { (library) in
+            DispatchQueue.main.async {
+                self.activityView?.stopAnimating()
+                let vc = TabViewController()
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    private func startActivityIndicator() {
+        activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        if let activityView = activityView {
+            activityView.center = self.view.center
+            activityView.startAnimating()
+            self.view.addSubview(activityView)
+        }
     }
     
     @objc func loginSuccessful() {

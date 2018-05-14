@@ -15,6 +15,7 @@ extension UIColor {
         static var spotifyDark = UIColor.hexStringToUIColor(hex: "#121212")
         static var offWhite = UIColor.hexStringToUIColor(hex: "#BDBDBD")
         static var spotifyGreen = UIColor.hexStringToUIColor(hex: "#28B054")
+        static var spotifyLight = UIColor.hexStringToUIColor(hex: "#212121")
     }
     
     static func hexStringToUIColor (hex:String) -> UIColor {

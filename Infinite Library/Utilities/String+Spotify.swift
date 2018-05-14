@@ -31,4 +31,17 @@ extension String {
         }
         return nil
     }
+    
+    func getAlbumExternalUrl() -> String? {
+        let url = self
+        var externalUrl = ""
+        for letter in url {
+            if letter == "?" {
+                return externalUrl
+            } else {
+                externalUrl.append(letter)
+            }
+        }
+        return nil
+    }
 }
