@@ -137,6 +137,7 @@ class AddAlbumViewController: UIViewController {
         if let albumDownloader = albumDownloader {
             impact.impactOccurred()
             albumDownloader.saveToDatabase()
+            albumDownloader.getArt()
             dismiss(animated: true, completion: nil)
         }
     }
