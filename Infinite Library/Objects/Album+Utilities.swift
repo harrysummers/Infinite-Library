@@ -39,4 +39,12 @@ extension Album {
         }
     }
     
+    public override func prepareForDeletion() {
+        if let artist = artist {
+            let albums = artist.albums
+            if albums == nil || albums?.count == 1 {
+                managedObjectContext?.delete(artist)
+            }
+        }
+    }
 }
