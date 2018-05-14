@@ -10,6 +10,9 @@ import UIKit
 
 class TabViewController: UITabBarController, UITabBarControllerDelegate {
 
+    var albumTabCount = 0
+    var artistTabCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,12 +35,25 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             navController.childViewControllers.count > 0 {
             let childController = navController.childViewControllers[0]
             if let vc = childController as? AlbumsTableViewController {
-                vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                artistTabCount = 0
+                if albumTabCount > 1 {
+                    vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                    albumTabCount = 0
+                } else {
+                     albumTabCount = albumTabCount + 1
+                }
             } else if let vc = childController as? ArtistsTableViewController {
-                vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                albumTabCount = 0
+                if artistTabCount > 1 {
+                    vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                    artistTabCount = 0
+                } else {
+                    artistTabCount = artistTabCount + 1
+                }
             }
         }
 
     }
+    
 
 }
