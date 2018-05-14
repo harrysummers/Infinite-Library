@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 import CoreData
 
 class AlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
@@ -18,6 +17,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     
     lazy var fetchedResultsController: NSFetchedResultsController<Album> = {
         let context = CoreDataManager.shared.persistentContainer.viewContext
+        
         let request: NSFetchRequest<Album> = Album.fetchRequest()
         request.sortDescriptors = [
             NSSortDescriptor(key: "artist.name", ascending: true)
@@ -42,7 +42,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         case .insert:
             tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
         case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .left)
         case .move:
             break
         case .update:
@@ -55,7 +55,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.deleteRows(at: [indexPath!], with: .left)
         case .update:
             tableView.reloadRows(at: [indexPath!], with: .fade)
         case .move:
@@ -176,11 +176,10 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let context = CoreDataManager.shared.persistentContainer.viewContext
-            context.delete(fetchedResultsController.object(at: indexPath))
+            context.delete(self.fetchedResultsController.object(at: indexPath))
             CoreDataManager.shared.saveMainContext()
         }
     }
-    
 }
 
 extension AlbumsTableViewController: UISearchResultsUpdating {

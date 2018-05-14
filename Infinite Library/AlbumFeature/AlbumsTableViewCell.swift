@@ -31,6 +31,7 @@ class AlbumsTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = UIColor.CustomColors.spotifyExtraDark
         return image
     }()
     
@@ -61,7 +62,7 @@ class AlbumsTableViewCell: UITableViewCell {
         addSubview(verticalStackView)
         verticalStackView.heightAnchor.constraint(equalTo: albumArt.heightAnchor, constant: -10.0).isActive = true
         verticalStackView.leftAnchor.constraint(equalTo: albumArt.rightAnchor, constant: 10.0).isActive = true
-        verticalStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: 10.0).isActive = true
+        verticalStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10.0).isActive = true
         verticalStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         verticalStackView.addArrangedSubview(nameLabel)

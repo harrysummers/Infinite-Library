@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import SpotifyLogin
-import AlamofireImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

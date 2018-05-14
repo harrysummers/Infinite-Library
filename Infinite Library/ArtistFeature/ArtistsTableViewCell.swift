@@ -12,6 +12,7 @@ class ArtistTableViewCell: UITableViewCell {
     var artistImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
+        image.backgroundColor = UIColor.CustomColors.spotifyExtraDark
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -44,7 +45,7 @@ class ArtistTableViewCell: UITableViewCell {
         addSubview(nameLabel)
         nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         nameLabel.leftAnchor.constraint(equalTo: artistImage.rightAnchor, constant: 10.0).isActive = true
-        nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: 10.0).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -10.0).isActive = true
         nameLabel.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
     }
     
