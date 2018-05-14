@@ -89,20 +89,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func showActionSheet(with album: JSONAlbum, and albumDownloader: AlbumDownloader) {
-        let imageView = UIImageView(frame: CGRect(x: 220, y: 5, width: 40, height: 40))
-        
-        if let images = album.images, images.count > 0, let url = URL(string: images[0].url) {
-            imageView.af_setImage(withURL: url)
-        }
-        let title = "\(album.name ?? "") by \(album.artists?[0].name ?? "")"
-        let alertView = UIAlertController(title: "Add Album", message: "\(title)", preferredStyle: .actionSheet)
-        alertView.view.addSubview(imageView)
-        alertView.addAction(UIAlertAction(title: "Add", style: .default, handler: { (action) in
-            albumDownloader.saveToDatabase()
-        }))
-        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        self.window?.rootViewController?.presentedViewController?.present(alertView, animated: true, completion: nil)
+        let addAlbumViewController = AddAlbumViewController()
+        addAlbumViewController.modalPresentationStyle = .overCurrentContext
+        addAlbumViewController.album = album
+        addAlbumViewController.albumDownloader = albumDownloader
+        let currentViewController = self.window?.rootViewController?.presentedViewController
+        currentViewController?.present(addAlbumViewController, animated: true, completion: nil)
     }
 
 
