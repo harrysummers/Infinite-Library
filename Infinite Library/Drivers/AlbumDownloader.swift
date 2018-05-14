@@ -54,6 +54,7 @@ class AlbumDownloader {
         }
     }
     
+    
     func getArtistId() -> String? {
         let artists = album.artists
         if let artists = artists, artists.count > 0, let id = artists[0].id {

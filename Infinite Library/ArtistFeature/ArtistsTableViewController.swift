@@ -77,6 +77,13 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.sectionIndexColor = UIColor.CustomColors.offWhite
         title = "Artists"
         setupView()
+        
+        let libraryDownloader = LibraryDownloader()
+        
+        // TODO: Remove this with a check to see if all the artist art has been downloaded
+        libraryDownloader.getAllAlbumArt {
+            print("Finished")
+        }
     }
     
     private func setupView() {
