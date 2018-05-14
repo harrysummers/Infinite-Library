@@ -13,10 +13,10 @@ class AlbumDownloader {
     
     private var album: JSONAlbum = JSONAlbum()
     
-    func download(_ albumId: String, onComplete:@escaping (_ album: JSONAlbum) -> Void) {
+    func download(_ albumId: String, onComplete:@escaping (_ status: Bool, _ album: JSONAlbum) -> Void) {
         SpotifyNetworking.retrieveAlbum(with: albumId) { (status, data) in
             self.mapJSONToCoreData(data) {
-                onComplete(self.album)
+                onComplete(status, self.album)
             }
         }
     }
@@ -27,15 +27,17 @@ class AlbumDownloader {
             
             onComplete()
         } catch let err {
+            onComplete()
             print(err)
         }
     }
     
-    func saveToDatabase() {
+    func saveToDatabase(_ onComplete:@escaping () -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        _ = album.map(in: context)
-        DispatchQueue.main.async {
+        context.perform {
+            _ = self.album.map(in: context)
             CoreDataManager.shared.saveMainContext()
+            onComplete()
         }
     }
     
@@ -74,20 +76,18 @@ class AlbumDownloader {
     
     func getAlbumArt(with id: String, _ onComplete:@escaping (_ artistArt: String) -> Void) {
         SpotifyNetworking.retrieveArtist(with: id) { (status, data) in
-            DispatchQueue.main.async {
-                do {
-                    let spotifyArtist = try JSONDecoder().decode(JSONSpotifyArtist.self, from: data)
-                    if let images = spotifyArtist.images, images.count > 0 {
-                        let image = images[0]
-                        onComplete(image.url)
-                    } else {
-                        onComplete("")
-                    }
-                    
-                } catch let err {
-                    print(err)
+            do {
+                let spotifyArtist = try JSONDecoder().decode(JSONSpotifyArtist.self, from: data)
+                if let images = spotifyArtist.images, images.count > 0 {
+                    let image = images[0]
+                    onComplete(image.url)
+                } else {
                     onComplete("")
                 }
+                
+            } catch let err {
+                print(err)
+                onComplete("")
             }
         }
     }

@@ -91,6 +91,16 @@ class AddAlbumViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc private func addButtonPressed() {
+        if let albumDownloader = albumDownloader {
+            impact.impactOccurred()
+            albumDownloader.saveToDatabase {
+                albumDownloader.getArt()
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     private func setupView() {
         
         view.addSubview(containerView)
@@ -131,15 +141,6 @@ class AddAlbumViewController: UIViewController {
         addButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         addButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
-    }
-    
-    @objc private func addButtonPressed() {
-        if let albumDownloader = albumDownloader {
-            impact.impactOccurred()
-            albumDownloader.saveToDatabase()
-            albumDownloader.getArt()
-            dismiss(animated: true, completion: nil)
-        }
     }
 
 }
