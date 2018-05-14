@@ -42,7 +42,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         case .insert:
             tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
         case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
         case .move:
             break
         case .update:
@@ -167,6 +167,18 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return fetchedResultsController.section(forSectionIndexTitle: title, at: index)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let context = CoreDataManager.shared.persistentContainer.viewContext
+            context.delete(fetchedResultsController.object(at: indexPath))
+            CoreDataManager.shared.saveMainContext()
+        }
     }
     
 }
