@@ -13,6 +13,7 @@
 		4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */; };
 		4A347CDD20AA46C3003BEE72 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CDC20AA46C3003BEE72 /* WelcomeViewController.swift */; };
 		4A347CDF20AA46EB003BEE72 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CDE20AA46EB003BEE72 /* OnboardingViewController.swift */; };
+		4A347CE320AB45C1003BEE72 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CE220AB45C1003BEE72 /* PopAnimator.swift */; };
 		4A556A71209CF40B00D6EA14 /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */; };
 		4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D17E9209A9619006A7B01 /* EnvConstants.swift */; };
 		4A9F2E6120A77A32002329B2 /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */; };
@@ -61,6 +62,7 @@
 		4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloadViewController.swift; sourceTree = "<group>"; };
 		4A347CDC20AA46C3003BEE72 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		4A347CDE20AA46EB003BEE72 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4A347CE220AB45C1003BEE72 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		4A9D17E9209A9619006A7B01 /* EnvConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvConstants.swift; sourceTree = "<group>"; };
 		4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */,
 				4A347CDC20AA46C3003BEE72 /* WelcomeViewController.swift */,
 				4A347CDE20AA46EB003BEE72 /* OnboardingViewController.swift */,
+				4A347CE220AB45C1003BEE72 /* PopAnimator.swift */,
 			);
 			path = LoginFeature;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				4AAF0ADE20A202D80054A0FC /* Artist+Utilities.swift in Sources */,
 				4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */,
 				4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */,
+				4A347CE320AB45C1003BEE72 /* PopAnimator.swift in Sources */,
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
 				4A347CDF20AA46EB003BEE72 /* OnboardingViewController.swift in Sources */,

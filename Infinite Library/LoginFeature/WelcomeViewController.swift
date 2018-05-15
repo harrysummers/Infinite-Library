@@ -30,7 +30,7 @@ class WelcomeViewController: UIViewController {
         return button
     }()
     
-    let transition = SlideLeftAnimator()
+    let transition = PopAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()

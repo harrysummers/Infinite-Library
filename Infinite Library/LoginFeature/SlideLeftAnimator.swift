@@ -11,7 +11,6 @@ import UIKit
 class SlideLeftAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     private let duration = 1.0
-    private var presenting = true
     private var originFrame = CGRect.zero
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -21,48 +20,27 @@ class SlideLeftAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         let toView = transitionContext.view(forKey: .to)!
-        let herbView = presenting ? toView :
-            transitionContext.view(forKey: .from)!
+        let fromView = transitionContext.view(forKey: .from)!
         
-        let initialFrame = presenting ? originFrame : herbView.frame
-        let finalFrame = presenting ? herbView.frame : originFrame
+        let slideTransform = CGAffineTransform(translationX: toView.frame.width, y: 0)
+        toView.transform = slideTransform
         
-        let xScaleFactor = presenting ?
-            
-            initialFrame.width / finalFrame.width :
-            finalFrame.width / initialFrame.width
-        
-        let yScaleFactor = presenting ?
-            
-            initialFrame.height / finalFrame.height :
-            finalFrame.height / initialFrame.height
-        
-        let scaleTransform = CGAffineTransform(scaleX: xScaleFactor,
-                                               y: yScaleFactor)
-        
-        if presenting {
-            herbView.transform = scaleTransform
-            herbView.center = CGPoint(
-                x: initialFrame.midX,
-                y: initialFrame.midY)
-            herbView.clipsToBounds = true
-        }
+        let finalFrame = CGRect(x: -fromView.frame.width, y: 0, width: fromView.frame.width, height: fromView.frame.height)
         
         containerView.addSubview(toView)
-        containerView.bringSubview(toFront: herbView)
+        containerView.bringSubview(toFront: toView)
         
         UIView.animate(withDuration: duration, delay:0.0,
                        usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0,
                        animations: {
-                        herbView.transform = self.presenting ?
-                            CGAffineTransform.identity : scaleTransform
-                        herbView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
-        },
+                        toView.transform = .identity
+                        fromView.frame = finalFrame
+                        
+            },
                        completion: { _ in
                         transitionContext.completeTransition(true)
-        }
+            }
         )
-        
     }
     
     

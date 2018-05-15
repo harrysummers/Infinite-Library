@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = UIColor.CustomColors.spotifyExtraDark
         UITabBar.appearance().tintColor = UIColor.CustomColors.offWhite
         window = UIWindow()
+        window?.backgroundColor = UIColor.CustomColors.spotifyDark
         window?.makeKeyAndVisible()
         
         var initialViewController: UIViewController?

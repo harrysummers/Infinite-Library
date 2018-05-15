@@ -10,6 +10,16 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
+    var titleLabel: UILabel = {
+        var label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Click on albums to play them on Spotify"
+        label.font = UIFont.boldSystemFont(ofSize: 50.0)
+        label.textColor = UIColor.CustomColors.offWhite
+        label.numberOfLines = 4
+        return label
+    }()
+    
     var nextButton: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +29,7 @@ class OnboardingViewController: UIViewController {
         button.tintColor = .white
         return button
     }()
+    
     
     let transition = SlideLeftAnimator()
     
@@ -31,6 +42,12 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupView() {
+        view.addSubview(titleLabel)
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15.0).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15.0).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15.0).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
+        
         view.addSubview(nextButton)
         nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25.0).isActive = true
         nextButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
