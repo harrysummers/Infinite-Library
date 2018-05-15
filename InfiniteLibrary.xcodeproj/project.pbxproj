@@ -12,8 +12,11 @@
 		4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */; };
 		4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */; };
 		4A347CDD20AA46C3003BEE72 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CDC20AA46C3003BEE72 /* WelcomeViewController.swift */; };
-		4A347CDF20AA46EB003BEE72 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CDE20AA46EB003BEE72 /* OnboardingViewController.swift */; };
 		4A347CE320AB45C1003BEE72 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CE220AB45C1003BEE72 /* PopAnimator.swift */; };
+		4A347CE520AB59A6003BEE72 /* TutorialScreen1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CE420AB59A6003BEE72 /* TutorialScreen1.swift */; };
+		4A347CE720AB59D6003BEE72 /* TutorialScreen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CE620AB59D6003BEE72 /* TutorialScreen2.swift */; };
+		4A347CE920AB59DF003BEE72 /* TutorialScreen3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CE820AB59DF003BEE72 /* TutorialScreen3.swift */; };
+		4A347CEB20AB59E8003BEE72 /* TutorialScreen4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CEA20AB59E8003BEE72 /* TutorialScreen4.swift */; };
 		4A556A71209CF40B00D6EA14 /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */; };
 		4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D17E9209A9619006A7B01 /* EnvConstants.swift */; };
 		4A9F2E6120A77A32002329B2 /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */; };
@@ -61,8 +64,11 @@
 		4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideLeftAnimator.swift; sourceTree = "<group>"; };
 		4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloadViewController.swift; sourceTree = "<group>"; };
 		4A347CDC20AA46C3003BEE72 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		4A347CDE20AA46EB003BEE72 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4A347CE220AB45C1003BEE72 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
+		4A347CE420AB59A6003BEE72 /* TutorialScreen1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialScreen1.swift; sourceTree = "<group>"; };
+		4A347CE620AB59D6003BEE72 /* TutorialScreen2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreen2.swift; sourceTree = "<group>"; };
+		4A347CE820AB59DF003BEE72 /* TutorialScreen3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreen3.swift; sourceTree = "<group>"; };
+		4A347CEA20AB59E8003BEE72 /* TutorialScreen4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreen4.swift; sourceTree = "<group>"; };
 		4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		4A9D17E9209A9619006A7B01 /* EnvConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvConstants.swift; sourceTree = "<group>"; };
 		4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
@@ -168,8 +174,11 @@
 				4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */,
 				4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */,
 				4A347CDC20AA46C3003BEE72 /* WelcomeViewController.swift */,
-				4A347CDE20AA46EB003BEE72 /* OnboardingViewController.swift */,
 				4A347CE220AB45C1003BEE72 /* PopAnimator.swift */,
+				4A347CE420AB59A6003BEE72 /* TutorialScreen1.swift */,
+				4A347CE620AB59D6003BEE72 /* TutorialScreen2.swift */,
+				4A347CE820AB59DF003BEE72 /* TutorialScreen3.swift */,
+				4A347CEA20AB59E8003BEE72 /* TutorialScreen4.swift */,
 			);
 			path = LoginFeature;
 			sourceTree = "<group>";
@@ -455,11 +464,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A347CEB20AB59E8003BEE72 /* TutorialScreen4.swift in Sources */,
 				4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */,
 				4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */,
 				4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */,
 				4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */,
 				4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */,
+				4A347CE720AB59D6003BEE72 /* TutorialScreen2.swift in Sources */,
 				4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */,
 				4A9F2E6320A77D89002329B2 /* String+Spotify.swift in Sources */,
 				4AFC2C04209BC4540054811C /* AutoLoginViewController.swift in Sources */,
@@ -472,11 +483,12 @@
 				4A347CE320AB45C1003BEE72 /* PopAnimator.swift in Sources */,
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
-				4A347CDF20AA46EB003BEE72 /* OnboardingViewController.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
 				4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */,
 				4A347CDD20AA46C3003BEE72 /* WelcomeViewController.swift in Sources */,
+				4A347CE520AB59A6003BEE72 /* TutorialScreen1.swift in Sources */,
+				4A347CE920AB59DF003BEE72 /* TutorialScreen3.swift in Sources */,
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
@@ -654,7 +666,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "harrysummers.Infinite-Library";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -674,7 +686,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "harrysummers.Infinite-Library";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

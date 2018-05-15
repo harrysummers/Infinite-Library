@@ -1,22 +1,22 @@
 //
-//  WelcomeViewController.swift
+//  TutorialScreen4.swift
 //  InfiniteLibrary
 //
-//  Created by Harry Summers on 5/14/18.
+//  Created by Harry Summers on 5/15/18.
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class TutorialScreen4: UIViewController {
     
     var titleLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Welcome to Infinity Library"
-        label.font = UIFont.boldSystemFont(ofSize: 50.0)
+        label.text = "View this tutorial again in the settings"
+        label.font = UIFont.boldSystemFont(ofSize: 30.0)
         label.textColor = UIColor.CustomColors.offWhite
-        label.numberOfLines = 3
+        label.numberOfLines = 4
         return label
     }()
     
@@ -30,12 +30,14 @@ class WelcomeViewController: UIViewController {
         return button
     }()
     
-    let transition = PopAnimator()
+    
+    let transition = SlideLeftAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         transitioningDelegate = self
+        
         setupView()
     }
     
@@ -45,7 +47,6 @@ class WelcomeViewController: UIViewController {
         titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15.0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15.0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-
         
         view.addSubview(nextButton)
         nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25.0).isActive = true
@@ -53,17 +54,16 @@ class WelcomeViewController: UIViewController {
         nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         nextButton.addTarget(self, action: #selector(nextPressed), for: .touchUpInside)
-        
     }
     
     @objc func nextPressed() {
-        let vc = TutorialScreen1()
+        let vc = LoginViewController()
         present(vc, animated: true, completion: nil)
     }
     
 }
 
-extension WelcomeViewController: UIViewControllerTransitioningDelegate {
+extension TutorialScreen4: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return transition
     }

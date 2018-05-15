@@ -87,32 +87,13 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         searchController.searchBar.barStyle = .black
         searchController.searchBar.keyboardAppearance = .dark
         navigationItem.searchController = searchController
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
+        
         definesPresentationContext = true
     }
     
-    @objc func clearTapped() {
-        let fetch1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Artist")
-        let request1 = NSBatchDeleteRequest(fetchRequest: fetch1)
-
-        do {
-            _ = try CoreDataManager.shared.persistentContainer.viewContext.execute(request1)
-        } catch let err {
-            print(err)
-        }
-        
-        let fetch2 = NSFetchRequest<NSFetchRequestResult>(entityName: "Album")
-        let request2 = NSBatchDeleteRequest(fetchRequest: fetch2)
-        do {
-            _ = try CoreDataManager.shared.persistentContainer.viewContext.execute(request2)
-        } catch let err {
-            print(err)
-        }
-        
-        do {
-            try CoreDataManager.shared.persistentContainer.viewContext.save()
-        } catch let err {
-            print(err)
-        }
+    @objc func settingsPressed() {
+        //
     }
     
     // MARK: - Table view data source

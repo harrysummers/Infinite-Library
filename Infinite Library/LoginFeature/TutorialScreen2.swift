@@ -1,20 +1,20 @@
 //
-//  OnboardingViewController.swift
+//  TutorialScreen2.swift
 //  InfiniteLibrary
 //
-//  Created by Harry Summers on 5/14/18.
+//  Created by Harry Summers on 5/15/18.
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
 
 import UIKit
 
-class OnboardingViewController: UIViewController {
+class TutorialScreen2: UIViewController {
     
     var titleLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Click on albums to play them on Spotify"
-        label.font = UIFont.boldSystemFont(ofSize: 50.0)
+        label.text = "Click on artists to visit their artist page"
+        label.font = UIFont.boldSystemFont(ofSize: 30.0)
         label.textColor = UIColor.CustomColors.offWhite
         label.numberOfLines = 4
         return label
@@ -57,13 +57,13 @@ class OnboardingViewController: UIViewController {
     }
     
     @objc func nextPressed() {
-        let vc = LoginViewController()
+        let vc = TutorialScreen3()
         present(vc, animated: true, completion: nil)
     }
     
 }
 
-extension OnboardingViewController: UIViewControllerTransitioningDelegate {
+extension TutorialScreen2: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return transition
     }
