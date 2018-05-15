@@ -33,7 +33,7 @@ class AddAlbumViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.textColor = .white
-        label.font = label.font.withSize(16.0)
+        label.font = label.font.withSize(18.0)
         return label
     }()
     
@@ -43,7 +43,7 @@ class AddAlbumViewController: UIViewController {
         button.backgroundColor = UIColor.CustomColors.spotifyGreen
         button.tintColor = .white
         button.setTitle("Add", for: .normal)
-        button.layer.cornerRadius = 10.0
+        button.layer.cornerRadius = 15.0
         return button
     }()
     
@@ -138,8 +138,8 @@ class AddAlbumViewController: UIViewController {
         
         containerView.addSubview(addButton)
         addButton.topAnchor.constraint(equalTo: artistLabel.bottomAnchor, constant: 15.0).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        addButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        addButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        addButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
         addButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
     }
