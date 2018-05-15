@@ -37,16 +37,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var initialViewController: UIViewController?
         
         let vc = UIViewController()
-        vc.view.backgroundColor = .purple
+        vc.view.backgroundColor = UIColor.CustomColors.spotifyDark
         window?.rootViewController = vc
         
         AsyncWebService.shared.getAccessToken { (accessToken, error) in
-            if error == nil && accessToken != nil {
-                initialViewController = TabViewController()
-            } else {
-                initialViewController = LoginViewController()
-            }
-            
+//            if error == nil && accessToken != nil {
+//                initialViewController = TabViewController()
+//            } else {
+//                initialViewController = LoginViewController()
+//            }
+            initialViewController = WelcomeViewController()
             vc.present(initialViewController!, animated: true, completion: nil)
         }
         

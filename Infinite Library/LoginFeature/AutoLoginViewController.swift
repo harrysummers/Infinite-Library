@@ -12,7 +12,7 @@ class AutoLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = UIColor.CustomColors.spotifyDark
         // Do any additional setup after loading the view.
     }
 }
