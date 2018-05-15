@@ -30,6 +30,13 @@ class TutorialScreen3: UIViewController {
         return button
     }()
     
+    var gifView: UIImageView = {
+        var imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = UIColor.CustomColors.spotifyDark
+        return imageView
+    }()
+    
     
     let transition = SlideLeftAnimator()
     
@@ -47,6 +54,13 @@ class TutorialScreen3: UIViewController {
         titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15.0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15.0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
+        
+        view.addSubview(gifView)
+        gifView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        gifView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        gifView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        gifView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        gifView.loadGif(name: "addAlbum")
         
         view.addSubview(nextButton)
         nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25.0).isActive = true

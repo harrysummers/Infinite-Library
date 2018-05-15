@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0C2CBADE4A8E857B43A0A091 /* Pods_InfiniteLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */; };
+		4A0259A820AB62FA005F75AB /* addAlbum.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A720AB62FA005F75AB /* addAlbum.gif */; };
+		4A0259AB20AB6ADC005F75AB /* album.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A920AB6ADB005F75AB /* album.gif */; };
+		4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259AA20AB6ADC005F75AB /* artist.gif */; };
 		4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30E266209E782800680B4C /* UIColor+Colors.swift */; };
 		4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */; };
 		4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */; };
@@ -60,6 +63,9 @@
 /* Begin PBXFileReference section */
 		05474208288FA42049F36534 /* Pods_InfiniteLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FEB956AF21EC09D1D5D7573 /* Pods-InfiniteLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary.release.xcconfig"; sourceTree = "<group>"; };
+		4A0259A720AB62FA005F75AB /* addAlbum.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addAlbum.gif; sourceTree = "<group>"; };
+		4A0259A920AB6ADB005F75AB /* album.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = album.gif; sourceTree = "<group>"; };
+		4A0259AA20AB6ADC005F75AB /* artist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = artist.gif; sourceTree = "<group>"; };
 		4A30E266209E782800680B4C /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideLeftAnimator.swift; sourceTree = "<group>"; };
 		4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloadViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,16 @@
 				CF0779598191B503FDA28009 /* Pods-InfiniteLibraryTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A0259A620AB62ED005F75AB /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				4A0259A720AB62FA005F75AB /* addAlbum.gif */,
+				4A0259A920AB6ADB005F75AB /* album.gif */,
+				4A0259AA20AB6ADC005F75AB /* artist.gif */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		4A9D17E8209A960B006A7B01 /* Utilities */ = {
@@ -224,6 +240,7 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
+				4A0259A620AB62ED005F75AB /* Media */,
 				4A9F2E5F20A77A0F002329B2 /* AddAlbumFeature */,
 				4AAF0AEA20A2816E0054A0FC /* Root */,
 				4AAF0AE320A205CA0054A0FC /* ArtistFeature */,
@@ -384,7 +401,10 @@
 			files = (
 				4AB21730209A399000DB0878 /* LaunchScreen.storyboard in Resources */,
 				4AB2174B209A3F1A00DB0878 /* Default-568h@2x.png in Resources */,
+				4A0259AB20AB6ADC005F75AB /* album.gif in Resources */,
 				4AB2172D209A399000DB0878 /* Assets.xcassets in Resources */,
+				4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */,
+				4A0259A820AB62FA005F75AB /* addAlbum.gif in Resources */,
 				4AB21728209A398F00DB0878 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,12 +429,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SpotifyLogin/SpotifyLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpotifyLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

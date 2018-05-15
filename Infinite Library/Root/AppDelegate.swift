@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if error == nil && accessToken != nil {
                 initialViewController = TabViewController()
             } else {
-                initialViewController = LoginViewController()
+                initialViewController = WelcomeViewController()
             }
             //initialViewController = WelcomeViewController()
             vc.present(initialViewController!, animated: true, completion: nil)

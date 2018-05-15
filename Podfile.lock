@@ -3,22 +3,26 @@ PODS:
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
   - SpotifyLogin (0.1.6)
+  - SwiftGifOrigin (1.6.1)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.3)
   - SpotifyLogin (~> 0.1)
+  - SwiftGifOrigin (~> 1.6.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AlamofireImage
     - SpotifyLogin
+    - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
 
-PODFILE CHECKSUM: 88be6f931fc88a04345839bb663134e150f74021
+PODFILE CHECKSUM: 3fe17134afe64da588815e334d9cad9d4bb12052
 
 COCOAPODS: 1.5.0
