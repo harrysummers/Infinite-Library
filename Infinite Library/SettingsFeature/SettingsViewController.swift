@@ -9,7 +9,7 @@
 import UIKit
 import SpotifyLogin
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var scrollView: UIScrollView = {
         var scroll = UIScrollView()
@@ -56,6 +56,12 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
+    var collectionView: UICollectionView = {
+        var collection = UICollectionView()
+        collection.backgroundColor = .red
+        return collection
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -71,6 +77,16 @@ class SettingsViewController: UIViewController {
         SpotifyLogin.shared.logout()
         let vc = LoginViewController()
         present(vc, animated: true, completion: nil)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
     }
     
     private func setupView() {
@@ -103,12 +119,22 @@ class SettingsViewController: UIViewController {
         closeButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
         closeButton.addTarget(self, action: #selector(closePressed), for: .touchUpInside)
 
+        contentView.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15.0).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15.0).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 15.0).isActive = true
         
         contentView.addSubview(logoutButton)
-        logoutButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50).isActive = true
+        logoutButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 50).isActive = true
         logoutButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         logoutButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         logoutButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         logoutButton.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
     }
+    
+    
+    
 }
