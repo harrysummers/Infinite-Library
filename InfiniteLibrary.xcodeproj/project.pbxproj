@@ -20,6 +20,7 @@
 		4A347CE720AB59D6003BEE72 /* TutorialScreen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CE620AB59D6003BEE72 /* TutorialScreen2.swift */; };
 		4A347CE920AB59DF003BEE72 /* TutorialScreen3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CE820AB59DF003BEE72 /* TutorialScreen3.swift */; };
 		4A347CEB20AB59E8003BEE72 /* TutorialScreen4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CEA20AB59E8003BEE72 /* TutorialScreen4.swift */; };
+		4A3DD65020AC96BA006A800F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3DD64F20AC96BA006A800F /* SettingsViewController.swift */; };
 		4A556A71209CF40B00D6EA14 /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */; };
 		4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D17E9209A9619006A7B01 /* EnvConstants.swift */; };
 		4A9F2E6120A77A32002329B2 /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */; };
@@ -32,7 +33,6 @@
 		4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE820A281600054A0FC /* TabViewController.swift */; };
 		4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21722209A398F00DB0878 /* AppDelegate.swift */; };
 		4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21724209A398F00DB0878 /* LoginViewController.swift */; };
-		4AB21728209A398F00DB0878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB21726209A398F00DB0878 /* Main.storyboard */; };
 		4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21729209A398F00DB0878 /* Infinite_Library.xcdatamodeld */; };
 		4AB2172D209A399000DB0878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2172C209A399000DB0878 /* Assets.xcassets */; };
 		4AB21730209A399000DB0878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2172E209A399000DB0878 /* LaunchScreen.storyboard */; };
@@ -75,6 +75,7 @@
 		4A347CE620AB59D6003BEE72 /* TutorialScreen2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreen2.swift; sourceTree = "<group>"; };
 		4A347CE820AB59DF003BEE72 /* TutorialScreen3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreen3.swift; sourceTree = "<group>"; };
 		4A347CEA20AB59E8003BEE72 /* TutorialScreen4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreen4.swift; sourceTree = "<group>"; };
+		4A3DD64F20AC96BA006A800F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		4A9D17E9209A9619006A7B01 /* EnvConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvConstants.swift; sourceTree = "<group>"; };
 		4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		4AB2171F209A398F00DB0878 /* InfiniteLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB21722209A398F00DB0878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AB21724209A398F00DB0878 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4AB21727209A398F00DB0878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AB2172A209A398F00DB0878 /* Infinite_Library.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Infinite_Library.xcdatamodel; sourceTree = "<group>"; };
 		4AB2172C209A399000DB0878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB2172F209A399000DB0878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -151,6 +151,14 @@
 				4A0259AA20AB6ADC005F75AB /* artist.gif */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		4A3DD64E20AC96A9006A800F /* SettingsFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4A3DD64F20AC96BA006A800F /* SettingsViewController.swift */,
+			);
+			path = SettingsFeature;
 			sourceTree = "<group>";
 		};
 		4A9D17E8209A960B006A7B01 /* Utilities */ = {
@@ -240,6 +248,7 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
+				4A3DD64E20AC96A9006A800F /* SettingsFeature */,
 				4A0259A620AB62ED005F75AB /* Media */,
 				4A9F2E5F20A77A0F002329B2 /* AddAlbumFeature */,
 				4AAF0AEA20A2816E0054A0FC /* Root */,
@@ -271,7 +280,6 @@
 				4AB2172C209A399000DB0878 /* Assets.xcassets */,
 				4AB21731209A399000DB0878 /* Info.plist */,
 				4AB21729209A398F00DB0878 /* Infinite_Library.xcdatamodeld */,
-				4AB21726209A398F00DB0878 /* Main.storyboard */,
 				4AB2172E209A399000DB0878 /* LaunchScreen.storyboard */,
 			);
 			path = "Apple Files";
@@ -405,7 +413,6 @@
 				4AB2172D209A399000DB0878 /* Assets.xcassets in Resources */,
 				4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */,
 				4A0259A820AB62FA005F75AB /* addAlbum.gif in Resources */,
-				4AB21728209A398F00DB0878 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +500,7 @@
 				4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */,
 				4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */,
 				4A347CE720AB59D6003BEE72 /* TutorialScreen2.swift in Sources */,
+				4A3DD65020AC96BA006A800F /* SettingsViewController.swift in Sources */,
 				4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */,
 				4A9F2E6320A77D89002329B2 /* String+Spotify.swift in Sources */,
 				4AFC2C04209BC4540054811C /* AutoLoginViewController.swift in Sources */,
@@ -539,14 +547,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4AB21726209A398F00DB0878 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4AB21727209A398F00DB0878 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4AB2172E209A399000DB0878 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

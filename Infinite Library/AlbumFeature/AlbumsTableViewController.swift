@@ -93,7 +93,8 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     }
     
     @objc func settingsPressed() {
-        //
+        let vc = SettingsViewController()
+        present(vc, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
