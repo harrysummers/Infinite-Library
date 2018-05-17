@@ -8,6 +8,7 @@
 
 import UIKit
 import SpotifyLogin
+import SwiftGifOrigin
 
 class SettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -56,11 +57,25 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         return button
     }()
     
-    var collectionView: UICollectionView = {
-        var collection = UICollectionView()
-        collection.backgroundColor = .red
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 140, height: 250)
+        layout.scrollDirection = .horizontal
+        let collection = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collection.backgroundColor = UIColor.CustomColors.spotifyDark
+        collection.bounces = true
+        collection.alwaysBounceHorizontal = true
+        collection.alwaysBounceVertical = false
+        collection.delegate = self
+        collection.dataSource = self
         return collection
     }()
+    
+    let cellId = "gifCell"
+
+    var gifs = ["addAlbum", "album", "artist", "album"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +87,7 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @objc func logoutPressed() {
-        
-        // Ask the user are they sure
+        // TODO: Ask the user are they sure
         SpotifyLogin.shared.logout()
         let vc = LoginViewController()
         present(vc, animated: true, completion: nil)
@@ -81,12 +95,15 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
+        let gif = gifs[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! GifCollectionViewCell
+        cell.gifView.loadGif(name: gif)
         return cell
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     private func setupView() {
@@ -120,10 +137,8 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         closeButton.addTarget(self, action: #selector(closePressed), for: .touchUpInside)
 
         contentView.addSubview(collectionView)
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15.0).isActive = true
-        collectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         collectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15.0).isActive = true
         collectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 15.0).isActive = true
         
@@ -134,7 +149,4 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         logoutButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         logoutButton.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
     }
-    
-    
-    
 }

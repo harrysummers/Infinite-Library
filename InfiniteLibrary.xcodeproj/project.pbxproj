@@ -11,6 +11,7 @@
 		4A0259A820AB62FA005F75AB /* addAlbum.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A720AB62FA005F75AB /* addAlbum.gif */; };
 		4A0259AB20AB6ADC005F75AB /* album.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A920AB6ADB005F75AB /* album.gif */; };
 		4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259AA20AB6ADC005F75AB /* artist.gif */; };
+		4A30205420ADF8BE00D27664 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30205320ADF8BE00D27664 /* GifCollectionViewCell.swift */; };
 		4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30E266209E782800680B4C /* UIColor+Colors.swift */; };
 		4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */; };
 		4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */; };
@@ -66,6 +67,7 @@
 		4A0259A720AB62FA005F75AB /* addAlbum.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addAlbum.gif; sourceTree = "<group>"; };
 		4A0259A920AB6ADB005F75AB /* album.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = album.gif; sourceTree = "<group>"; };
 		4A0259AA20AB6ADC005F75AB /* artist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = artist.gif; sourceTree = "<group>"; };
+		4A30205320ADF8BE00D27664 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A30E266209E782800680B4C /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideLeftAnimator.swift; sourceTree = "<group>"; };
 		4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloadViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3DD64F20AC96BA006A800F /* SettingsViewController.swift */,
+				4A30205320ADF8BE00D27664 /* GifCollectionViewCell.swift */,
 			);
 			path = SettingsFeature;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A30205420ADF8BE00D27664 /* GifCollectionViewCell.swift in Sources */,
 				4A347CEB20AB59E8003BEE72 /* TutorialScreen4.swift in Sources */,
 				4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */,
 				4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */,
