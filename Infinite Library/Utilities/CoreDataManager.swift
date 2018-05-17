@@ -27,4 +27,17 @@ struct CoreDataManager {
             print("Failed to save note: ", saveErr)
         }
     }
+    
+    func clear() {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        context.perform {
+            do {
+                let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Album")
+                let request = NSBatchDeleteRequest(fetchRequest: fetch)
+                _ = try context.execute(request)
+            } catch let err {
+                print(err)
+            }
+        }
+    }
 }

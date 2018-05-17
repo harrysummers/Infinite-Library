@@ -29,6 +29,7 @@
 		4AA40F57209A85630081F69A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F56209A85630081F69A /* Constants.swift */; };
 		4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */; };
 		4AA4F4A620AE107000C9E735 /* ProgressCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */; };
+		4AA4F4A820AE27E900C9E735 /* settings.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AA4F4A720AE27E900C9E735 /* settings.gif */; };
 		4AAF0ADE20A202D80054A0FC /* Artist+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0ADD20A202D80054A0FC /* Artist+Utilities.swift */; };
 		4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */; };
 		4AAF0AE720A2077B0054A0FC /* ArtistsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */; };
@@ -86,6 +87,7 @@
 		4AA40F56209A85630081F69A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
 		4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCounter.swift; sourceTree = "<group>"; };
+		4AA4F4A720AE27E900C9E735 /* settings.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = settings.gif; sourceTree = "<group>"; };
 		4AAF0ADD20A202D80054A0FC /* Artist+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Utilities.swift"; sourceTree = "<group>"; };
 		4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
 		4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				4A0259A720AB62FA005F75AB /* addAlbum.gif */,
 				4A0259A920AB6ADB005F75AB /* album.gif */,
 				4A0259AA20AB6ADC005F75AB /* artist.gif */,
+				4AA4F4A720AE27E900C9E735 /* settings.gif */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				4AB21730209A399000DB0878 /* LaunchScreen.storyboard in Resources */,
 				4AB2174B209A3F1A00DB0878 /* Default-568h@2x.png in Resources */,
 				4A0259AB20AB6ADC005F75AB /* album.gif in Resources */,
+				4AA4F4A820AE27E900C9E735 /* settings.gif in Resources */,
 				4AB2172D209A399000DB0878 /* Assets.xcassets in Resources */,
 				4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */,
 				4A0259A820AB62FA005F75AB /* addAlbum.gif in Resources */,

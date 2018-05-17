@@ -53,16 +53,35 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func transitionScreen() {
+    func goToLibraryDownloader() {
         let vc = LibraryDownloadViewController()
         present(vc, animated: true, completion: nil)
+    }
+    
+    func goToAlbums() {
+        let vc = TabViewController()
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func loginSuccessful() {
         AsyncWebService.shared.getAccessToken { (_, error) in
             if error == nil {
-                self.transitionScreen()
+                self.isEmptyLibrary { (isEmpty) in
+                    if isEmpty {
+                        self.goToLibraryDownloader()
+                    } else {
+                        self.goToAlbums()
+                    }
+                }
             }
+        }
+    }
+    
+    private func isEmptyLibrary(_ onComplete:@escaping (_ isEmpty: Bool) -> Void) {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        context.perform {
+            let count = Album.getAlbumCount(in: context)
+            onComplete(count < 1)
         }
     }
 }

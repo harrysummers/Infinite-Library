@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import CoreData
 
 class LibraryDownloadViewController: UIViewController {
     

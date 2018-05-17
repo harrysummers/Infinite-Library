@@ -60,7 +60,7 @@ class TutorialScreen4: UIViewController {
         gifView.widthAnchor.constraint(equalToConstant: 140).isActive = true
         gifView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         gifView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        gifView.loadGif(name: "addAlbum")
+        gifView.loadGif(name: "settings")
         
         view.addSubview(nextButton)
         nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25.0).isActive = true

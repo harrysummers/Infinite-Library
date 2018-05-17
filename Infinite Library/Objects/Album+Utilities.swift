@@ -47,4 +47,16 @@ extension Album {
             }
         }
     }
+    
+    static func getAlbumCount(in context: NSManagedObjectContext) -> Int {
+        let request:NSFetchRequest<Album> = Album.fetchRequest()
+        do {
+            let albums = try context.fetch(request)
+            return albums.count
+        } catch let err {
+            print(err)
+            return 0
+        }
+
+    }
 }

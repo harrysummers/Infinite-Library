@@ -10,6 +10,7 @@ import UIKit
 
 class ProgressCounter {
     
+    private let INCREMENT = 5
     private(set) var count = 0
     private var label: UILabel?
     
@@ -23,8 +24,8 @@ class ProgressCounter {
     }
     
     func increment() {
-        if count < 98 {
-            count = count + 4
+        if count < (100 - INCREMENT) {
+            count = count + INCREMENT
             label?.text = "\(count)%"
         }
     }

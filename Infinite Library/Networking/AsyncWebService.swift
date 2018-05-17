@@ -22,7 +22,7 @@ final class AsyncWebService {
         URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             
-            let httpResponse = response as! HTTPURLResponse
+            guard let httpResponse = response as? HTTPURLResponse else { return }
             let statusCode = httpResponse.statusCode
             
             guard error == nil else {

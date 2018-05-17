@@ -75,6 +75,7 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.keyboardDismissMode = .interactive
         tableView.sectionIndexColor = UIColor.CustomColors.offWhite
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
         title = "Artists"
         setupView()
         
@@ -84,6 +85,11 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         libraryDownloader.getAllAlbumArt {
             print("Finished")
         }
+    }
+    
+    @objc func settingsPressed() {
+        let vc = SettingsViewController()
+        present(vc, animated: true, completion: nil)
     }
     
     private func setupView() {
