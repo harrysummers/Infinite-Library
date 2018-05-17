@@ -26,12 +26,16 @@ class ProgressCounter {
     func increment() {
         if count < (100 - INCREMENT) {
             count = count + INCREMENT
-            label?.text = "\(count)%"
+            updateLabel()
         }
     }
     
     func complete() {
         count = 100
+        updateLabel()
+    }
+    
+    func updateLabel() {
         label?.text = "\(count)%"
     }
 }
