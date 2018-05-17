@@ -75,7 +75,7 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     let cellId = "gifCell"
 
-    var gifs = ["addAlbum", "album", "artist", "album"]
+    var gifs = ["addAlbum", "album", "artist"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +103,7 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     private func setupView() {

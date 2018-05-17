@@ -42,12 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = vc
         
         AsyncWebService.shared.getAccessToken { (accessToken, error) in
-            if error == nil && accessToken != nil {
-                initialViewController = TabViewController()
-            } else {
-                initialViewController = WelcomeViewController()
-            }
-            //initialViewController = WelcomeViewController()
+//            if error == nil && accessToken != nil {
+//                initialViewController = TabViewController()
+//            } else {
+//                initialViewController = WelcomeViewController()
+//            }
+            initialViewController = LibraryDownloadViewController()
             vc.present(initialViewController!, animated: true, completion: nil)
         }
         

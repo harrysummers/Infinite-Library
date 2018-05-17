@@ -8,11 +8,13 @@
 
 import Foundation
 import CoreData
+import NVActivityIndicatorView
 
 class LibraryDownloader {
     
     private var library = JSONLibrary()
     private let BATCH_SIZE = 20
+    var activityView: NVActivityIndicatorView?
     
     func download(onComplete:@escaping (_ albums: JSONLibrary) -> Void) {
         self.recursiveDownload(0) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class LibraryDownloadViewController: UIViewController {
     
@@ -50,7 +51,21 @@ class LibraryDownloadViewController: UIViewController {
         return stackView
     }()
     
-    private var activityView: UIActivityIndicatorView?
+    lazy var activityView: NVActivityIndicatorView = {
+        var activityView = NVActivityIndicatorView(frame: self.view.frame, type: .ballPulse, color: UIColor.CustomColors.offWhite, padding: nil)
+        activityView.center = self.view.center
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+        return activityView
+    }()
+    
+    var progressLabel: UILabel = {
+        var label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.CustomColors.offWhite
+        label.isHidden = true
+        return label
+    }()
+    
     let transition = SlideLeftAnimator()
 
     
@@ -68,11 +83,18 @@ class LibraryDownloadViewController: UIViewController {
         titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15.0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
         
+        view.addSubview(activityView)
+        activityView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
+        activityView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        activityView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
         view.addSubview(buttonStack)
         buttonStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -15.0).isActive = true
         buttonStack.widthAnchor.constraint(equalToConstant: 200).isActive = true
         buttonStack.heightAnchor.constraint(equalToConstant: 115).isActive = true
         buttonStack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         
         buttonStack.addArrangedSubview(skipButton)
         skipButton.addTarget(self, action: #selector(skipPressed), for: .touchUpInside)
@@ -80,13 +102,18 @@ class LibraryDownloadViewController: UIViewController {
         buttonStack.addArrangedSubview(downloadButton)
         downloadButton.addTarget(self, action: #selector(downloadPressed), for: .touchUpInside)
 
+        view.addSubview(progressLabel)
+        progressLabel.bottomAnchor.constraint(equalTo: buttonStack.topAnchor, constant: -15.0).isActive = true
+        progressLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
     }
     
     @objc func downloadPressed() {
-        startActivityIndicator()
-        LibraryDownloader().download { (library) in
+        startProgressViews()
+        let libraryDownloader = LibraryDownloader()
+        libraryDownloader.download { (library) in
             DispatchQueue.main.async {
-                self.activityView?.stopAnimating()
+                self.stopProgressViews()
                 let vc = TabViewController()
                 self.present(vc, animated: true, completion: nil)
             }
@@ -98,14 +125,18 @@ class LibraryDownloadViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    private func startActivityIndicator() {
-        activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        if let activityView = activityView {
-            activityView.center = self.view.center
-            activityView.startAnimating()
-            self.view.addSubview(activityView)
-        }
+    private func startProgressViews() {
+        activityView.startAnimating()
+        progressLabel.isHidden = false
+        progressLabel.text = "0%"
     }
+    
+    private func stopProgressViews() {
+        self.activityView.stopAnimating()
+        progressLabel.isHidden = true
+        
+    }
+    
 }
 
 extension LibraryDownloadViewController: UIViewControllerTransitioningDelegate {

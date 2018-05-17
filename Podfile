@@ -9,6 +9,8 @@ target 'InfiniteLibrary' do
   pod 'SpotifyLogin', '~> 0.1'
   pod 'AlamofireImage', '~> 3.3'
   pod 'SwiftGifOrigin', '~> 1.6.1'
+  pod 'NVActivityIndicatorView'
+
 
   target 'InfiniteLibraryTests' do
     inherit! :search_paths
