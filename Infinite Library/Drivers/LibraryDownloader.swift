@@ -6,20 +6,22 @@
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
-import NVActivityIndicatorView
 
 class LibraryDownloader {
     
     private var library = JSONLibrary()
     private let BATCH_SIZE = 20
-    var activityView: NVActivityIndicatorView?
+    var progressCounter: ProgressCounter?
     
     func download(onComplete:@escaping (_ albums: JSONLibrary) -> Void) {
         self.recursiveDownload(0) {
             self.saveToDatabase {
                 self.getAllAlbumArt {
+                    DispatchQueue.main.async {
+                        self.progressCounter?.complete()
+                    }
                     onComplete(self.library)
                 }
             }
@@ -29,6 +31,9 @@ class LibraryDownloader {
     func recursiveDownload(_ offset: Int, onComplete:@escaping () -> Void) {
         SpotifyNetworking.retrieveAllAlbums(offset) { (status, data) in
             self.convertDataToAlbums(data, self.isFirstBatch(offset)) { shouldRepeat in
+                DispatchQueue.main.async {
+                    self.progressCounter?.increment()
+                }
                 if shouldRepeat {
                     let nextBatch = offset + 20
                     self.recursiveDownload(nextBatch) {
@@ -72,13 +77,18 @@ class LibraryDownloader {
     private func saveToDatabase(_ onComplete:@escaping () -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         guard let items = library.items else { return }
-        for libraryAlbum in items {
-            context.perform {
+        
+        context.perform {
+            for libraryAlbum in items {
                 _ = libraryAlbum.album?.map(in: context)
                 CoreDataManager.shared.saveMainContext()
-                onComplete()
+                DispatchQueue.main.async {
+                    self.progressCounter?.increment()
+                }
             }
+            onComplete()
         }
+
     }
     
     func getAllAlbumArt(_ onComplete:@escaping () -> Void) {

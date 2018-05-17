@@ -28,6 +28,7 @@
 		4A9F2E6320A77D89002329B2 /* String+Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F2E6220A77D89002329B2 /* String+Spotify.swift */; };
 		4AA40F57209A85630081F69A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F56209A85630081F69A /* Constants.swift */; };
 		4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */; };
+		4AA4F4A620AE107000C9E735 /* ProgressCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */; };
 		4AAF0ADE20A202D80054A0FC /* Artist+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0ADD20A202D80054A0FC /* Artist+Utilities.swift */; };
 		4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */; };
 		4AAF0AE720A2077B0054A0FC /* ArtistsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */; };
@@ -84,6 +85,7 @@
 		4A9F2E6220A77D89002329B2 /* String+Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Spotify.swift"; sourceTree = "<group>"; };
 		4AA40F56209A85630081F69A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
+		4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCounter.swift; sourceTree = "<group>"; };
 		4AAF0ADD20A202D80054A0FC /* Artist+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Utilities.swift"; sourceTree = "<group>"; };
 		4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
 		4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewCell.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */,
 				4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */,
+				4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */,
 			);
 			path = Drivers;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */,
 				4AAF0AE720A2077B0054A0FC /* ArtistsTableViewCell.swift in Sources */,
 				4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */,
+				4AA4F4A620AE107000C9E735 /* ProgressCounter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,7 +691,10 @@
 				DEVELOPMENT_TEAM = TFUHR2F3HQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Infinite Library/Apple Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "harrysummers.Infinite-Library";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -704,7 +711,10 @@
 				DEVELOPMENT_TEAM = TFUHR2F3HQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Infinite Library/Apple Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "harrysummers.Infinite-Library";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -721,7 +731,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFUHR2F3HQ;
 				INFOPLIST_FILE = "Infinite LibraryTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "harrysummers.Infinite-LibraryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -739,7 +753,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFUHR2F3HQ;
 				INFOPLIST_FILE = "Infinite LibraryTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "harrysummers.Infinite-LibraryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

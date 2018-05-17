@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            } else {
 //                initialViewController = WelcomeViewController()
 //            }
-            initialViewController = LibraryDownloadViewController()
+            initialViewController = LoginViewController()
             vc.present(initialViewController!, animated: true, completion: nil)
         }
         

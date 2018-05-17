@@ -111,6 +111,7 @@ class LibraryDownloadViewController: UIViewController {
     @objc func downloadPressed() {
         startProgressViews()
         let libraryDownloader = LibraryDownloader()
+        libraryDownloader.progressCounter = ProgressCounter(with: progressLabel)
         libraryDownloader.download { (library) in
             DispatchQueue.main.async {
                 self.stopProgressViews()
