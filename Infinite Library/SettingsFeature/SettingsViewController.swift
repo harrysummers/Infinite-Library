@@ -12,65 +12,10 @@ import SwiftGifOrigin
 
 class SettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var scrollView: UIScrollView = {
-        var scroll = UIScrollView()
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.bounces = true
-        scroll.isScrollEnabled = true
-        scroll.delaysContentTouches = false
-        scroll.backgroundColor = UIColor.CustomColors.spotifyDark
-        scroll.alwaysBounceVertical = true
-        return scroll
-    }()
-    
-    var contentView: UIView = {
-        var view = UIView()
+    let settingsView: SettingsView = {
+        let view = SettingsView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = true
         return view
-    }()
-    
-    var titleLabel: UILabel = {
-        var label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.CustomColors.offWhite
-        label.font = UIFont.boldSystemFont(ofSize: 50.0)
-        label.text = "Settings"
-        return label
-    }()
-    
-    var closeButton: UIButton = {
-        var button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = UIColor.CustomColors.offWhite
-        button.setTitle("Close", for: .normal)
-        return button
-    }()
-
-    var logoutButton: UIButton = {
-        var button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.CustomColors.spotifyGreen
-        button.tintColor = .white
-        button.setTitle("Log Out", for: .normal)
-        button.layer.cornerRadius = 18.0
-        return button
-    }()
-    
-    lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 140, height: 250)
-        layout.scrollDirection = .horizontal
-        let collection = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.register(GifCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        collection.backgroundColor = UIColor.CustomColors.spotifyDark
-        collection.bounces = true
-        collection.alwaysBounceHorizontal = true
-        collection.alwaysBounceVertical = false
-        collection.delegate = self
-        collection.dataSource = self
-        return collection
     }()
     
     let cellId = "gifCell"
@@ -79,7 +24,15 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        setupSettingsView()
+    }
+    
+    fileprivate func setupSettingsView() {
+        settingsView.viewController = self
+        settingsView.closeButton.addTarget(self, action: #selector(closePressed), for: .touchUpInside)
+        settingsView.logoutButton.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
+        settingsView.collectionView.delegate = self
+        settingsView.collectionView.dataSource = self
     }
     
     @objc func closePressed() {
@@ -87,8 +40,15 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @objc func logoutPressed() {
-        // TODO: Ask the user are they sure
+        logout()
+        goToLoginScreen()
+    }
+    
+    fileprivate func logout() {
         SpotifyLogin.shared.logout()
+    }
+    
+    fileprivate func goToLoginScreen() {
         let vc = LoginViewController()
         present(vc, animated: true, completion: nil)
     }
@@ -106,47 +66,5 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         return 3
     }
     
-    private func setupView() {
-        view.addSubview(scrollView)
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
-        scrollView.addSubview(contentView)
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
-        contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
-        
-        contentView.addSubview(titleLabel)
-        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15).isActive = true
-        
-        contentView.addSubview(closeButton)
-        closeButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15).isActive = true
-        closeButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        closeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        closeButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
-        closeButton.addTarget(self, action: #selector(closePressed), for: .touchUpInside)
-
-        contentView.addSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15.0).isActive = true
-        collectionView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15.0).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 15.0).isActive = true
-        
-        contentView.addSubview(logoutButton)
-        logoutButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 50).isActive = true
-        logoutButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        logoutButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        logoutButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        logoutButton.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
-    }
 }
