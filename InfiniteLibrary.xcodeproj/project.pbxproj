@@ -47,6 +47,11 @@
 		4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */; };
 		4AB8F18620AF485F00A2C257 /* ArtistTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18520AF485F00A2C257 /* ArtistTableView.swift */; };
 		4AB8F18820AF48C300A2C257 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18720AF48C300A2C257 /* SettingsView.swift */; };
+		4AB8F18A20AF527700A2C257 /* AddAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18920AF527700A2C257 /* AddAlbumView.swift */; };
+		4AB8F18C20AF595C00A2C257 /* GeneralAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18B20AF595C00A2C257 /* GeneralAppearance.swift */; };
+		4AB8F19020AF5B4C00A2C257 /* InitialViewControllerChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */; };
+		4AB8F19220AF5EB500A2C257 /* SpotifyConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */; };
+		4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19320AF609300A2C257 /* Clipboard.swift */; };
 		4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */; };
 		4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFC209BAE090054811C /* SpotifyModels.swift */; };
 		4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */; };
@@ -111,6 +116,11 @@
 		4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4AB8F18520AF485F00A2C257 /* ArtistTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTableView.swift; sourceTree = "<group>"; };
 		4AB8F18720AF48C300A2C257 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4AB8F18920AF527700A2C257 /* AddAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumView.swift; sourceTree = "<group>"; };
+		4AB8F18B20AF595C00A2C257 /* GeneralAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAppearance.swift; sourceTree = "<group>"; };
+		4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewControllerChooser.swift; sourceTree = "<group>"; };
+		4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConnector.swift; sourceTree = "<group>"; };
+		4AB8F19320AF609300A2C257 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+Utilities.swift"; sourceTree = "<group>"; };
 		4AFC2BFC209BAE090054811C /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
 		4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloader.swift; sourceTree = "<group>"; };
@@ -190,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */,
+				4AB8F18920AF527700A2C257 /* AddAlbumView.swift */,
 			);
 			path = AddAlbumFeature;
 			sourceTree = "<group>";
@@ -235,6 +246,10 @@
 			children = (
 				4AB21722209A398F00DB0878 /* AppDelegate.swift */,
 				4AAF0AE820A281600054A0FC /* TabViewController.swift */,
+				4AB8F18B20AF595C00A2C257 /* GeneralAppearance.swift */,
+				4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */,
+				4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */,
+				4AB8F19320AF609300A2C257 /* Clipboard.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -527,13 +542,16 @@
 				4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */,
 				4A9F2E6120A77A32002329B2 /* AddAlbumViewController.swift in Sources */,
 				4AAF0ADE20A202D80054A0FC /* Artist+Utilities.swift in Sources */,
+				4AB8F19020AF5B4C00A2C257 /* InitialViewControllerChooser.swift in Sources */,
 				4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */,
+				4AB8F19220AF5EB500A2C257 /* SpotifyConnector.swift in Sources */,
 				4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */,
 				4A347CE320AB45C1003BEE72 /* PopAnimator.swift in Sources */,
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
 				4AB8F18820AF48C300A2C257 /* SettingsView.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
+				4AB8F18C20AF595C00A2C257 /* GeneralAppearance.swift in Sources */,
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
 				4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */,
 				4A347CDD20AA46C3003BEE72 /* WelcomeViewController.swift in Sources */,
@@ -541,6 +559,8 @@
 				4A347CE520AB59A6003BEE72 /* TutorialScreen1.swift in Sources */,
 				4A347CE920AB59DF003BEE72 /* TutorialScreen3.swift in Sources */,
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
+				4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */,
+				4AB8F18A20AF527700A2C257 /* AddAlbumView.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
 				4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */,
