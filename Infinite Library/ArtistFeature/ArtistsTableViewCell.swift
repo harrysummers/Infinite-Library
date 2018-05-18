@@ -24,16 +24,19 @@ class ArtistTableViewCell: UITableViewCell {
         label.font = label.font.withSize(16.0)
         return label
     }()
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundColor = UIColor.CustomColors.spotifyDark
-        
-        let selectedBackground = UIView()
-        selectedBackground.backgroundColor = UIColor.CustomColors.spotifyExtraDark
-        selectedBackgroundView = selectedBackground
+        setupView()
+    }
     
+    fileprivate func setupView() {
+        setupArtistImage()
+        setupNameLabel()
+        setupBackground()
+    }
+    
+    fileprivate func setupArtistImage() {
         addSubview(artistImage)
         artistImage.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
         artistImage.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
@@ -41,12 +44,21 @@ class ArtistTableViewCell: UITableViewCell {
         artistImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         artistImage.layer.cornerRadius = 45.0 / 2
         artistImage.clipsToBounds = true
-        
+    }
+    
+    fileprivate func setupNameLabel() {
         addSubview(nameLabel)
         nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         nameLabel.leftAnchor.constraint(equalTo: artistImage.rightAnchor, constant: 10.0).isActive = true
         nameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -10.0).isActive = true
         nameLabel.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+    }
+    
+    fileprivate func setupBackground() {
+        backgroundColor = UIColor.CustomColors.spotifyDark
+        let selectedBackground = UIView()
+        selectedBackground.backgroundColor = UIColor.CustomColors.spotifyExtraDark
+        selectedBackgroundView = selectedBackground
     }
     
     required init?(coder aDecoder: NSCoder) {

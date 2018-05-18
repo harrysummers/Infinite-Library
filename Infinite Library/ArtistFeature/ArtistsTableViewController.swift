@@ -152,27 +152,5 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
     }
 }
 
-extension ArtistsTableViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchText = searchController.searchBar.text ?? ""
-        var predicate: NSPredicate?
-        if searchText.count > 0 {
-            predicate = NSPredicate(format: "name contains[cd] %@", searchText)
-        } else {
-            predicate = nil
-        }
-        
-        fetchedResultsController.fetchRequest.predicate = predicate
-        
-        do {
-            try fetchedResultsController.performFetch()
-            tableView.reloadData()
-        } catch let err {
-            print(err)
-        }
-        
-    }
-    
-}
 
 

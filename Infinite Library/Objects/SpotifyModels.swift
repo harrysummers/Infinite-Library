@@ -24,7 +24,6 @@ struct JSONAlbum: Decodable {
     var album_type: String?
     var artists: [JSONArtist]?
     var external_urls: JSONExternalURLs?
-    //var genres:
     var href: String?
     var id: String?
     var images: [JSONAlbumArt]?
