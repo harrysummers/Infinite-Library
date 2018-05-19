@@ -60,9 +60,23 @@ class Clipboard {
             addAlbumViewController.modalPresentationStyle = .overCurrentContext
             addAlbumViewController.album = album
             addAlbumViewController.albumDownloader = albumDownloader
-            let currentViewController = self.window?.rootViewController?.presentedViewController
-            currentViewController?.present(addAlbumViewController, animated: true, completion: nil)
+            if let root = self.window?.rootViewController, let currentViewController = self.getShowingViewController(root) {
+                currentViewController.present(addAlbumViewController, animated: true, completion: nil)
+            }
         }
+    }
+    
+    fileprivate func getShowingViewController(_ rootViewController: UIViewController) -> UIViewController? {
+        var isRoot = false
+        var showViewController: UIViewController? = rootViewController
+        while (!isRoot) {
+            if let tempViewController = showViewController?.presentedViewController {
+                showViewController = tempViewController
+            } else {
+                isRoot = true
+            }
+        }
+        return showViewController
     }
 
 }
