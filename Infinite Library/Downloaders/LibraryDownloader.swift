@@ -93,18 +93,20 @@ class LibraryDownloader {
     
     func getAllAlbumArt(_ onComplete:@escaping () -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        let artists = Artist.getAllArtists(in: context)
-        let artistCount = artists.count
-        var completedCount = 0
-        for artist in artists {
-            if let id = artist.id {
-                getAlbumArt(with: id) { (artistArt) in
-                    context.perform {
-                        artist.image_url = artistArt
-                        CoreDataManager.shared.saveMainContext()
-                        completedCount = completedCount + 1
-                        if completedCount == artistCount {
-                            onComplete()
+        context.perform {
+            let artists = Artist.getAllArtists(in: context)
+            let artistCount = artists.count
+            var completedCount = 0
+            for artist in artists {
+                if let id = artist.id {
+                    self.getAlbumArt(with: id) { (artistArt) in
+                        context.perform {
+                            artist.image_url = artistArt
+                            CoreDataManager.shared.saveMainContext()
+                            completedCount = completedCount + 1
+                            if completedCount == artistCount {
+                                onComplete()
+                            }
                         }
                     }
                 }

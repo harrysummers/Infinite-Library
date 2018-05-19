@@ -80,8 +80,7 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         setupView()
         
         let libraryDownloader = LibraryDownloader()
-        
-        // TODO: Remove this with a check to see if all the artist art has been downloaded
+
         libraryDownloader.getAllAlbumArt {
             print("Finished")
         }
