@@ -1,15 +1,20 @@
 PODS:
-  - Alamofire (4.6.0)
-  - AlamofireImage (3.3.0):
+  - Alamofire (4.7.2)
+  - AlamofireImage (3.3.1):
     - Alamofire (~> 4.5)
-  - NVActivityIndicatorView (4.1.1):
-    - NVActivityIndicatorView/Presenter (= 4.1.1)
-  - NVActivityIndicatorView/Presenter (4.1.1)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.6)
+  - NVActivityIndicatorView (4.2.1):
+    - NVActivityIndicatorView/Presenter (= 4.2.1)
+  - NVActivityIndicatorView/Presenter (4.2.1)
   - SpotifyLogin (0.1.6)
   - SwiftGifOrigin (1.6.1)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.3)
+  - Crashlytics
+  - Fabric
   - NVActivityIndicatorView
   - SpotifyLogin (~> 0.1)
   - SwiftGifOrigin (~> 1.6.1)
@@ -18,17 +23,21 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AlamofireImage
+    - Crashlytics
+    - Fabric
     - NVActivityIndicatorView
     - SpotifyLogin
     - SwiftGifOrigin
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
-  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
 
-PODFILE CHECKSUM: 27d5f5b908c3218e458d8254e0197ac66bde1703
+PODFILE CHECKSUM: a09b3ab6d0db632103b0c06e87d8e2837f617c2a
 
 COCOAPODS: 1.5.0

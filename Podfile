@@ -10,7 +10,8 @@ target 'InfiniteLibrary' do
   pod 'AlamofireImage', '~> 3.3'
   pod 'SwiftGifOrigin', '~> 1.6.1'
   pod 'NVActivityIndicatorView'
-
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   target 'InfiniteLibraryTests' do
     inherit! :search_paths
