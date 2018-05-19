@@ -78,12 +78,6 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
         title = "Artists"
         setupView()
-        
-//        let libraryDownloader = LibraryDownloader()
-//
-//        libraryDownloader.getAllAlbumArt {
-//            print("Finished")
-//        }
     }
     
     @objc func settingsPressed() {

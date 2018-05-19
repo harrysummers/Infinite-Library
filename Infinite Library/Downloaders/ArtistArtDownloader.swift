@@ -79,6 +79,7 @@ class ArtistArtDownloader {
                 let image = images[0]
                 persistentArtist.image_url = image.url
             }
+            CoreDataManager.shared.saveMainContext()
         }
     }
     
@@ -86,7 +87,7 @@ class ArtistArtDownloader {
         var ids = ""
         var isFirst = true
         guard let artists = artists else { return "" }
-        var endIndex = getUpperLimit() - 1
+        let endIndex = getUpperLimit() - 1
         for index in offset...endIndex {
             guard let id = artists[index].id else { return "" }
             if isFirst {
