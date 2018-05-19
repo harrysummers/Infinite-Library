@@ -79,11 +79,11 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         title = "Artists"
         setupView()
         
-        let libraryDownloader = LibraryDownloader()
-
-        libraryDownloader.getAllAlbumArt {
-            print("Finished")
-        }
+//        let libraryDownloader = LibraryDownloader()
+//
+//        libraryDownloader.getAllAlbumArt {
+//            print("Finished")
+//        }
     }
     
     @objc func settingsPressed() {

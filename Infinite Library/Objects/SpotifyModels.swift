@@ -80,6 +80,7 @@ struct JSONArtist: Decodable {
 
 struct JSONSpotifyArtist: Decodable {
     var images: [JSONArtistArt]?
+    var id: String = ""
 }
 
 struct JSONArtistArt: Decodable {
@@ -97,4 +98,8 @@ struct JSONAlbumArt: Decodable {
     var url: String
     var width: Int
     
+}
+
+struct JSONArtists: Decodable {
+    var artists: [JSONSpotifyArtist]
 }

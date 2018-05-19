@@ -31,13 +31,24 @@ class SpotifyNetworking {
     }
     
     static func retrieveArtist(with id: String, onComplete:@escaping (_ success: Bool, _ data: Data) -> Void) {
-        let url: URL = URL(string: Endpoints.SPOTIFY_ARTIST + id)!
+        let url: URL = URL(string: Endpoints.SPOTIFY_ARTIST + "/" + id)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         AsyncWebService.shared.sendAsyncRequest(request: request) { (status, responseData) in
             onComplete(status == 200, responseData)
         }
+    }
+    
+    static func retrieveArtists(with ids: String, onComplete:@escaping (_ success: Bool, _ data: Data) -> Void) {
+        let url: URL = URL(string: Endpoints.SPOTIFY_ARTIST + "?ids=" + ids)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        AsyncWebService.shared.sendAsyncRequest(request: request) { (status, responseData) in
+            onComplete(status == 200, responseData)
+        }
+        
     }
 }
 

@@ -43,11 +43,12 @@ class InitialViewControllerChooser {
     }
     
     fileprivate func chooseInitialViewController(_ isValidated: Bool) {
-        if !isValidated {
-            self.initialViewController = TabViewController()
-        } else {
-            self.initialViewController = WelcomeViewController()
-        }
+//        if !isValidated {
+//            self.initialViewController = TabViewController()
+//        } else {
+//            self.initialViewController = WelcomeViewController()
+//        }
+        self.initialViewController = LoginViewController()
     }
     
     fileprivate func goToInitialViewController() {
