@@ -116,7 +116,11 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     func getArtistCount(for section: Int) -> Int {
-        return fetchedResultsController.sections![section].numberOfObjects
+        if section != 0, let sections = fetchedResultsController.sections {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

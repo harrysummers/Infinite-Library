@@ -128,8 +128,12 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         return getAlbumCount(for: section)
     }
     
-    fileprivate func getAlbumCount(for section: Int) -> Int {
-        return fetchedResultsController.sections![section].numberOfObjects
+    func getAlbumCount(for section: Int) -> Int {
+        if section != 0, let sections = fetchedResultsController.sections {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

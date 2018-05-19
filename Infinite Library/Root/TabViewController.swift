@@ -37,7 +37,10 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             if let vc = childController as? AlbumsTableViewController {
                 artistTabCount = 0
                 if albumTabCount > 1 {
-                    vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                    let count = vc.getAlbumCount(for: topIndex.section)
+                    if count > 0 {
+                        vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                    }
                     albumTabCount = 0
                 } else {
                      albumTabCount = albumTabCount + 1
@@ -45,7 +48,10 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             } else if let vc = childController as? ArtistsTableViewController {
                 albumTabCount = 0
                 if artistTabCount > 1 {
-                    vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                    let count = vc.getArtistCount(for: topIndex.section)
+                    if count > 0 {
+                        vc.tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+                    }
                     artistTabCount = 0
                 } else {
                     artistTabCount = artistTabCount + 1
