@@ -23,25 +23,47 @@ class AddAlbumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let darkColor = UIColor.CustomColors.spotifyLight
-        view.backgroundColor = darkColor.withAlphaComponent(0.0)
-        if let album = album {
-            setupAlbumView(with: album)
-        }
+        guard let album = album else { return }
+        setupViewController()
+        setupBackground()
+        setupAlbumView(with: album)
+        buzz()
+    }
+    
+    fileprivate func buzz() {
         impact.impactOccurred()
+    }
+    
+    fileprivate func setupViewController() {
         addAlbumView.viewController = self
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backgroundTouched))
         addAlbumView.backgroundView.addGestureRecognizer(gestureRecognizer)
         addAlbumView.addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
     }
     
+    fileprivate func setupBackground() {
+        let darkColor = UIColor.CustomColors.spotifyLight
+        view.backgroundColor = darkColor.withAlphaComponent(0.0)
+    }
     
-    private func setupAlbumView(with album: JSONAlbum) {
+    fileprivate func setupAlbumView(with album: JSONAlbum) {
+        setupAlbumArt(album)
+        setupNameLabel(album)
+        setupArtistLabel(album)
+    }
+    
+    fileprivate func setupAlbumArt(_ album: JSONAlbum) {
         if let images = album.images, images.count > 0, let url = URL(string: images[0].url) {
-                       addAlbumView.albumArt.af_setImage(withURL: url)
+            addAlbumView.albumArt.af_setImage(withURL: url)
         }
+    }
+    
+    fileprivate func setupNameLabel(_ album: JSONAlbum) {
         addAlbumView.nameLabel.text = album.name ?? ""
-        addAlbumView.artistLabel.text = album.artists?[0].name ?? ""   
+    }
+    
+    fileprivate func setupArtistLabel(_ album: JSONAlbum) {
+        addAlbumView.artistLabel.text = album.artists?[0].name ?? ""
     }
     
     @objc func backgroundTouched() {
@@ -49,13 +71,15 @@ class AddAlbumViewController: UIViewController {
     }
     
     @objc private func addButtonPressed() {
-        if let albumDownloader = albumDownloader {
-            impact.impactOccurred()
-            albumDownloader.saveToDatabase {
-                albumDownloader.getArt()
-                self.dismiss(animated: true, completion: nil)
-            }
+        guard let albumDownloader = albumDownloader else { return }
+        buzz()
+        saveAlbum(albumDownloader)
+    }
+    
+    fileprivate func saveAlbum(_ albumDownloader: AlbumDownloader) {
+        albumDownloader.saveToDatabase {
+            albumDownloader.getArt()
+            self.dismiss(animated: true, completion: nil)
         }
     }
-
 }
