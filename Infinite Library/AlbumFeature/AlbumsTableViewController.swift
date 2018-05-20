@@ -69,27 +69,44 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.CustomColors.spotifyDark
-        tableView.separatorStyle = .none
-        tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.keyboardDismissMode = .interactive
-        tableView.sectionIndexColor = UIColor.CustomColors.offWhite
-        title = "Albums"
-        
         setupView()
-        
     }
     
-    private func setupView() {
+    fileprivate func setupView() {
+        setupSearchController()
+        setupTableView()
+        setBackground()
+        setTitle()
+        setupNavigationItems()
+    }
+    
+    fileprivate func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Albums"
         searchController.searchBar.barStyle = .black
         searchController.searchBar.keyboardAppearance = .dark
         navigationItem.searchController = searchController
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
-        
         definesPresentationContext = true
+    }
+    
+    fileprivate func setupTableView() {
+        tableView.separatorStyle = .none
+        tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.keyboardDismissMode = .interactive
+        tableView.sectionIndexColor = UIColor.CustomColors.offWhite
+    }
+    
+    fileprivate func setBackground() {
+        view.backgroundColor = UIColor.CustomColors.spotifyDark
+    }
+    
+    fileprivate func setTitle() {
+        title = "Albums"
+    }
+    
+    fileprivate func setupNavigationItems() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
     }
     
     @objc func settingsPressed() {
@@ -112,7 +129,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     }
     
     func getAlbumCount(for section: Int) -> Int {
-        if section != 0, let sections = fetchedResultsController.sections {
+        if let sections = fetchedResultsController.sections, sections.count != 0 {
             return sections[section].numberOfObjects
         } else {
             return 0
@@ -166,27 +183,4 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
             CoreDataManager.shared.saveMainContext()
         }
     }
-}
-
-extension AlbumsTableViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchText = searchController.searchBar.text ?? ""
-        var predicate: NSPredicate?
-        if searchText.count > 0 {
-            predicate = NSPredicate(format: "(name contains[cd] %@) || (artist.name contains[cd] %@)", searchText, searchText)
-        } else {
-            predicate = nil
-        }
-        
-        fetchedResultsController.fetchRequest.predicate = predicate
-        
-        do {
-            try fetchedResultsController.performFetch()
-            tableView.reloadData()
-        } catch let err {
-            print(err)
-        }
-        
-    }
-    
 }

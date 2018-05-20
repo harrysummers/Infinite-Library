@@ -109,7 +109,7 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     func getArtistCount(for section: Int) -> Int {
-        if section != 0, let sections = fetchedResultsController.sections {
+        if let sections = fetchedResultsController.sections, sections.count != 0 {
             return sections[section].numberOfObjects
         } else {
             return 0
@@ -149,27 +149,5 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
     }
 }
 
-extension ArtistsTableViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchText = searchController.searchBar.text ?? ""
-        var predicate: NSPredicate?
-        if searchText.count > 0 {
-            predicate = NSPredicate(format: "name contains[cd] %@", searchText)
-        } else {
-            predicate = nil
-        }
-        
-        fetchedResultsController.fetchRequest.predicate = predicate
-        
-        do {
-            try fetchedResultsController.performFetch()
-            tableView.reloadData()
-        } catch let err {
-            print(err)
-        }
-        
-    }
-    
-}
 
 

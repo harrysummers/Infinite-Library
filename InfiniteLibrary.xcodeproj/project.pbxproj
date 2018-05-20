@@ -52,6 +52,8 @@
 		4AB8F19020AF5B4C00A2C257 /* InitialViewControllerChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */; };
 		4AB8F19220AF5EB500A2C257 /* SpotifyConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */; };
 		4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19320AF609300A2C257 /* Clipboard.swift */; };
+		4AC9213D20B20479006F5EB8 /* AlbumsTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9213C20B20479006F5EB8 /* AlbumsTableViewController+Search.swift */; };
+		4AC9213F20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9213E20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift */; };
 		4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */; };
 		4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFC209BAE090054811C /* SpotifyModels.swift */; };
 		4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */; };
@@ -121,6 +123,8 @@
 		4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewControllerChooser.swift; sourceTree = "<group>"; };
 		4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConnector.swift; sourceTree = "<group>"; };
 		4AB8F19320AF609300A2C257 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
+		4AC9213C20B20479006F5EB8 /* AlbumsTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumsTableViewController+Search.swift"; sourceTree = "<group>"; };
+		4AC9213E20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistsTableViewController+Search.swift"; sourceTree = "<group>"; };
 		4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+Utilities.swift"; sourceTree = "<group>"; };
 		4AFC2BFC209BAE090054811C /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
 		4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloader.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 			children = (
 				4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */,
 				4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */,
+				4AC9213C20B20479006F5EB8 /* AlbumsTableViewController+Search.swift */,
 			);
 			path = AlbumFeature;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			children = (
 				4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */,
 				4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */,
+				4AC9213E20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift */,
 			);
 			path = ArtistFeature;
 			sourceTree = "<group>";
@@ -547,6 +553,7 @@
 				4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */,
 				4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */,
 				4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */,
+				4AC9213D20B20479006F5EB8 /* AlbumsTableViewController+Search.swift in Sources */,
 				4A347CE720AB59D6003BEE72 /* TutorialScreen2.swift in Sources */,
 				4A3DD65020AC96BA006A800F /* SettingsViewController.swift in Sources */,
 				4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */,
@@ -574,6 +581,7 @@
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
 				4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */,
 				4AB8F18A20AF527700A2C257 /* AddAlbumView.swift in Sources */,
+				4AC9213F20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
 				4A6287FA20B079C800544D8B /* ArtistArtDownloader.swift in Sources */,
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
