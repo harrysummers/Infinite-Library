@@ -10,10 +10,10 @@ import UIKit
 import CoreData
 
 class AlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    
     private let cellId = "albumId"
     private let searchController = UISearchController(searchResultsController: nil)
-
+    
     
     lazy var fetchedResultsController: NSFetchedResultsController<Album> = {
         let context = CoreDataManager.shared.persistentContainer.viewContext
@@ -69,44 +69,27 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.CustomColors.spotifyDark
+        tableView.separatorStyle = .none
+        tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.keyboardDismissMode = .interactive
+        tableView.sectionIndexColor = UIColor.CustomColors.offWhite
+        title = "Albums"
+        
         setupView()
+        
     }
     
-    fileprivate func setupView() {
-        setupSearchController()
-        setupTableView()
-        setBackground()
-        setTitle()
-        setupNavigationItems()
-    }
-    
-    fileprivate func setupSearchController() {
+    private func setupView() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Albums"
         searchController.searchBar.barStyle = .black
         searchController.searchBar.keyboardAppearance = .dark
         navigationItem.searchController = searchController
-        definesPresentationContext = true
-    }
-    
-    fileprivate func setupTableView() {
-        tableView.separatorStyle = .none
-        tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.keyboardDismissMode = .interactive
-        tableView.sectionIndexColor = UIColor.CustomColors.offWhite
-    }
-    
-    fileprivate func setBackground() {
-        view.backgroundColor = UIColor.CustomColors.spotifyDark
-    }
-    
-    fileprivate func setTitle() {
-        title = "Albums"
-    }
-    
-    fileprivate func setupNavigationItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
+        
+        definesPresentationContext = true
     }
     
     @objc func settingsPressed() {
@@ -115,7 +98,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         if let count = fetchedResultsController.sections?.count {
             return count
@@ -123,7 +106,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
             return 1
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getAlbumCount(for: section)
     }
@@ -158,7 +141,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
             UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in })
         }
     }
-
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 62
@@ -183,4 +166,27 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
             CoreDataManager.shared.saveMainContext()
         }
     }
+}
+
+extension AlbumsTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text ?? ""
+        var predicate: NSPredicate?
+        if searchText.count > 0 {
+            predicate = NSPredicate(format: "(name contains[cd] %@) || (artist.name contains[cd] %@)", searchText, searchText)
+        } else {
+            predicate = nil
+        }
+        
+        fetchedResultsController.fetchRequest.predicate = predicate
+        
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch let err {
+            print(err)
+        }
+        
+    }
+    
 }

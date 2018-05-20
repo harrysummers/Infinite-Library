@@ -46,15 +46,12 @@
 		4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */; };
 		4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB21751209A424B00DB0878 /* Endpoints.swift */; };
 		4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */; };
-		4AB8F18620AF485F00A2C257 /* ArtistTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18520AF485F00A2C257 /* ArtistTableView.swift */; };
 		4AB8F18820AF48C300A2C257 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18720AF48C300A2C257 /* SettingsView.swift */; };
 		4AB8F18A20AF527700A2C257 /* AddAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18920AF527700A2C257 /* AddAlbumView.swift */; };
 		4AB8F18C20AF595C00A2C257 /* GeneralAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18B20AF595C00A2C257 /* GeneralAppearance.swift */; };
 		4AB8F19020AF5B4C00A2C257 /* InitialViewControllerChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */; };
 		4AB8F19220AF5EB500A2C257 /* SpotifyConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */; };
 		4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19320AF609300A2C257 /* Clipboard.swift */; };
-		4AB8F19620AF6A0000A2C257 /* AlbumsTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19520AF6A0000A2C257 /* AlbumsTableViewController+Search.swift */; };
-		4AB8F19820AF6B1800A2C257 /* ArtistsTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19720AF6B1800A2C257 /* ArtistsTableViewController+Search.swift */; };
 		4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */; };
 		4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFC209BAE090054811C /* SpotifyModels.swift */; };
 		4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */; };
@@ -118,15 +115,12 @@
 		4AB2174F209A409100DB0878 /* SpotifyNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyNetworking.swift; sourceTree = "<group>"; };
 		4AB21751209A424B00DB0878 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		4AB8F18520AF485F00A2C257 /* ArtistTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTableView.swift; sourceTree = "<group>"; };
 		4AB8F18720AF48C300A2C257 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4AB8F18920AF527700A2C257 /* AddAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumView.swift; sourceTree = "<group>"; };
 		4AB8F18B20AF595C00A2C257 /* GeneralAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAppearance.swift; sourceTree = "<group>"; };
 		4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewControllerChooser.swift; sourceTree = "<group>"; };
 		4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConnector.swift; sourceTree = "<group>"; };
 		4AB8F19320AF609300A2C257 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
-		4AB8F19520AF6A0000A2C257 /* AlbumsTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumsTableViewController+Search.swift"; sourceTree = "<group>"; };
-		4AB8F19720AF6B1800A2C257 /* ArtistsTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistsTableViewController+Search.swift"; sourceTree = "<group>"; };
 		4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+Utilities.swift"; sourceTree = "<group>"; };
 		4AFC2BFC209BAE090054811C /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
 		4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloader.swift; sourceTree = "<group>"; };
@@ -216,7 +210,6 @@
 			children = (
 				4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */,
 				4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */,
-				4AB8F19520AF6A0000A2C257 /* AlbumsTableViewController+Search.swift */,
 			);
 			path = AlbumFeature;
 			sourceTree = "<group>";
@@ -243,8 +236,6 @@
 			children = (
 				4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */,
 				4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */,
-				4AB8F18520AF485F00A2C257 /* ArtistTableView.swift */,
-				4AB8F19720AF6B1800A2C257 /* ArtistsTableViewController+Search.swift */,
 			);
 			path = ArtistFeature;
 			sourceTree = "<group>";
@@ -556,7 +547,6 @@
 				4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */,
 				4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */,
 				4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */,
-				4AB8F19620AF6A0000A2C257 /* AlbumsTableViewController+Search.swift in Sources */,
 				4A347CE720AB59D6003BEE72 /* TutorialScreen2.swift in Sources */,
 				4A3DD65020AC96BA006A800F /* SettingsViewController.swift in Sources */,
 				4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */,
@@ -579,12 +569,10 @@
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
 				4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */,
 				4A347CDD20AA46C3003BEE72 /* WelcomeViewController.swift in Sources */,
-				4AB8F18620AF485F00A2C257 /* ArtistTableView.swift in Sources */,
 				4A347CE520AB59A6003BEE72 /* TutorialScreen1.swift in Sources */,
 				4A347CE920AB59DF003BEE72 /* TutorialScreen3.swift in Sources */,
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
 				4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */,
-				4AB8F19820AF6B1800A2C257 /* ArtistsTableViewController+Search.swift in Sources */,
 				4AB8F18A20AF527700A2C257 /* AddAlbumView.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
 				4A6287FA20B079C800544D8B /* ArtistArtDownloader.swift in Sources */,
