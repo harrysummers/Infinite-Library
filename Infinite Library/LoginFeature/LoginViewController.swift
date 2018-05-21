@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        MemoryCounter.shared.incrementCount(for: .loginViewController)
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         NotificationCenter.default.addObserver(self, selector: #selector(loginSuccessful), name: .SpotifyLoginSuccessful, object: nil)
         setupView()
@@ -51,6 +52,7 @@ class LoginViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        MemoryCounter.shared.decrementCount(for: .loginViewController)
     }
     
     func goToLibraryDownloader() {
@@ -64,13 +66,14 @@ class LoginViewController: UIViewController {
     }
     
     @objc func loginSuccessful() {
+        weak var weakSelf = self
         AsyncWebService.shared.getAccessToken { (_, error) in
             if error == nil {
-                self.isEmptyLibrary { (isEmpty) in
+                weakSelf?.isEmptyLibrary { (isEmpty) in
                     if isEmpty {
-                        self.goToLibraryDownloader()
+                        weakSelf?.goToLibraryDownloader()
                     } else {
-                        self.goToAlbums()
+                        weakSelf?.goToAlbums()
                     }
                 }
             }

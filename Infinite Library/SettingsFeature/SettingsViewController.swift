@@ -24,7 +24,12 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MemoryCounter.shared.incrementCount(for: .settingsViewController)
         setupSettingsView()
+    }
+    
+    deinit {
+        MemoryCounter.shared.decrementCount(for: .settingsViewController)
     }
     
     fileprivate func setupSettingsView() {
@@ -65,6 +70,5 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
-    
 
 }

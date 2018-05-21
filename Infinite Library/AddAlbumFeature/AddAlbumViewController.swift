@@ -23,11 +23,16 @@ class AddAlbumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MemoryCounter.shared.incrementCount(for: .addAlbumViewController)
         guard let album = album else { return }
         setupViewController()
         setupBackground()
         setupAlbumView(with: album)
         buzz()
+    }
+    
+    deinit {
+        MemoryCounter.shared.decrementCount(for: .addAlbumViewController)
     }
     
     fileprivate func buzz() {
@@ -77,9 +82,10 @@ class AddAlbumViewController: UIViewController {
     }
     
     fileprivate func saveAlbum(_ albumDownloader: AlbumDownloader) {
+        weak var weakSelf = self
         albumDownloader.saveToDatabase {
             albumDownloader.getArt()
-            self.dismiss(animated: true, completion: nil)
+            weakSelf?.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -47,20 +47,22 @@ class Clipboard {
 
     fileprivate func downloadAlbum() {
         let albumDownloader = AlbumDownloader()
+        weak var weakSelf = self
         albumDownloader.download(pasteAlbum?.id ?? "") { (status, album) in
             if status {
-                self.showActionSheet(with: album, and: albumDownloader)
+                weakSelf?.showActionSheet(with: album, and: albumDownloader)
             }
         }
     }
 
     fileprivate func showActionSheet(with album: JSONAlbum, and albumDownloader: AlbumDownloader) {
+        weak var weakSelf = self
         DispatchQueue.main.async {
             let addAlbumViewController = AddAlbumViewController()
             addAlbumViewController.modalPresentationStyle = .overCurrentContext
             addAlbumViewController.album = album
             addAlbumViewController.albumDownloader = albumDownloader
-            if let root = self.window?.rootViewController, let currentViewController = self.getShowingViewController(root) {
+            if let root = weakSelf?.window?.rootViewController, let currentViewController = weakSelf?.getShowingViewController(root) {
                 currentViewController.present(addAlbumViewController, animated: true, completion: nil)
             }
         }

@@ -29,13 +29,13 @@ class Infinite_LibraryTests: XCTestCase {
     }
     
     func getAlbumTest() {
-        let expectation = XCTestExpectation()
-        AlbumDownloader().download(albumId) { (album) in
-            print(album.name ?? "Could not print album")
-            XCTAssert(album.name != nil)
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 10.0)
+//        let expectation = XCTestExpectation()
+//        AlbumDownloader().download(albumId) { (album) in
+//            print(album.name ?? "Could not print album")
+//            XCTAssert(album.name != nil)
+//            expectation.fulfill()
+//        }
+//        wait(for: [expectation], timeout: 10.0)
     }
     
     func getLibraryAlbums() {

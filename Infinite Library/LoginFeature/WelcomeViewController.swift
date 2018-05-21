@@ -34,9 +34,14 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MemoryCounter.shared.incrementCount(for: .welcomeViewController)
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         transitioningDelegate = self
         setupView()
+    }
+    
+    deinit {
+        MemoryCounter.shared.decrementCount(for: .welcomeViewController)
     }
     
     private func setupView() {
@@ -57,8 +62,7 @@ class WelcomeViewController: UIViewController {
     }
     
     @objc func nextPressed() {
-        let vc = TutorialScreen1()
-        present(vc, animated: true, completion: nil)
+        TutorialPresenter.shared.showNext(from: self)
     }
     
 }

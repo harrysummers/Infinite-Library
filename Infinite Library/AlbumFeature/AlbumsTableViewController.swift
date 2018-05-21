@@ -69,7 +69,12 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MemoryCounter.shared.incrementCount(for: .albumsTableViewController)
         setupView()
+    }
+    
+    deinit {
+        MemoryCounter.shared.decrementCount(for: .albumsTableViewController)
     }
     
     fileprivate func setupView() {

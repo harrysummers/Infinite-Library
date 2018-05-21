@@ -20,9 +20,10 @@ class InitialViewControllerChooser {
     
     func show() {
         setTemporaryViewController()
+        weak var weakSelf = self
         isLoggedIn { (isValidated) in
-            self.chooseInitialViewController(isValidated)
-            self.goToInitialViewController()
+            weakSelf?.chooseInitialViewController(isValidated)
+            weakSelf?.goToInitialViewController()
         }
     }
     
@@ -44,14 +45,14 @@ class InitialViewControllerChooser {
     
     fileprivate func chooseInitialViewController(_ isValidated: Bool) {
         if !isValidated {
-            self.initialViewController = TabViewController()
+            initialViewController = TabViewController()
         } else {
-            self.initialViewController = WelcomeViewController()
+            initialViewController = WelcomeViewController()
         }
     }
     
     fileprivate func goToInitialViewController() {
-        temporaryViewController?.present(self.initialViewController!, animated: true, completion: nil)
+        temporaryViewController?.present(initialViewController!, animated: true, completion: nil)
     }
     
     

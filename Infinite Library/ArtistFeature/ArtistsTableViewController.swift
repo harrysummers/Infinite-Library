@@ -68,7 +68,7 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        MemoryCounter.shared.incrementCount(for: .artistsTableViewController)
         navigationController?.navigationBar.barTintColor = UIColor.CustomColors.spotifyExtraDark
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         tableView.separatorStyle = .none
@@ -78,6 +78,10 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
         title = "Artists"
         setupView()
+    }
+    
+    deinit {
+        MemoryCounter.shared.decrementCount(for: .artistsTableViewController)
     }
     
     @objc func settingsPressed() {

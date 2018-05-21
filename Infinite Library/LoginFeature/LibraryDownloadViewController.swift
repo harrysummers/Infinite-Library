@@ -72,9 +72,14 @@ class LibraryDownloadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MemoryCounter.shared.incrementCount(for: .libraryDownloadViewController)
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         transitioningDelegate = self
         setupView()
+    }
+    
+    deinit {
+        MemoryCounter.shared.decrementCount(for: .libraryDownloadViewController)
     }
     
     private func setupView() {
@@ -113,11 +118,12 @@ class LibraryDownloadViewController: UIViewController {
         startProgressViews()
         let libraryDownloader = LibraryDownloader()
         libraryDownloader.progressCounter = ProgressCounter(with: progressLabel)
+        weak var weakSelf = self
         libraryDownloader.download { (library) in
             DispatchQueue.main.async {
-                self.stopProgressViews()
+                weakSelf?.stopProgressViews()
                 let vc = TabViewController()
-                self.present(vc, animated: true, completion: nil)
+                weakSelf?.present(vc, animated: true, completion: nil)
             }
         }
     }

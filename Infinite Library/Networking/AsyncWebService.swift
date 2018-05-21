@@ -48,6 +48,7 @@ final class AsyncWebService {
     }
     
     func getAccessToken(onComplete:@escaping(_ accessToken: String?, _ error: Error?) -> Void) {
+
         SpotifyLogin.shared.getAccessToken { (accessToken, error) in
             if let accessToken = accessToken {
                 self.token = "Bearer " + accessToken
