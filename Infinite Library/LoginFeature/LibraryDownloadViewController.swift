@@ -27,7 +27,7 @@ class LibraryDownloadViewController: UIViewController {
         transitioningDelegate = self
                 libraryDownloaderView.skipButton.addTarget(self, action: #selector(skipPressed), for: .touchUpInside)
                 libraryDownloaderView.downloadButton.addTarget(self,
-                                                               action: #selector(downloadPressed), for: .touchUpInside)
+                                                action: #selector(downloadPressed), for: .touchUpInside)
     }
     deinit {
         MemoryCounter.shared.decrementCount(for: .libraryDownloadViewController)

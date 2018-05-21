@@ -9,49 +9,25 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    var titleLabel: UILabel = {
-        var label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Welcome to Infinity Library"
-        label.font = UIFont.boldSystemFont(ofSize: 50.0)
-        label.textColor = UIColor.CustomColors.offWhite
-        label.numberOfLines = 3
-        return label
-    }()
-    var nextButton: UIButton = {
-        var button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Next", for: .normal)
-        button.layer.cornerRadius = 25.0
-        button.backgroundColor = UIColor.CustomColors.spotifyGreen
-        button.tintColor = .white
-        return button
+    let welcomeView: WelcomeView = {
+        let view = WelcomeView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     let transition = PopAnimator()
     override func viewDidLoad() {
         super.viewDidLoad()
-        MemoryCounter.shared.incrementCount(for: .welcomeViewController)
+    MemoryCounter.shared.incrementCount(for: .welcomeViewController)
+        welcomeView.viewController = self
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         transitioningDelegate = self
-        setupView()
+        welcomeView.nextButton.addTarget(self, action: #selector(nextPressed), for: .touchUpInside)
+
     }
     deinit {
         MemoryCounter.shared.decrementCount(for: .welcomeViewController)
     }
-    private func setupView() {
-        view.addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15.0).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15.0).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15.0).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-
-        view.addSubview(nextButton)
-        nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25.0).isActive = true
-        nextButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        nextButton.addTarget(self, action: #selector(nextPressed), for: .touchUpInside)
-    }
+    
     @objc func nextPressed() {
         TutorialPresenter.shared.showNext(from: self)
     }

@@ -12,6 +12,8 @@
 		4A0259AB20AB6ADC005F75AB /* album.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A920AB6ADB005F75AB /* album.gif */; };
 		4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259AA20AB6ADC005F75AB /* artist.gif */; };
 		4A0C852020B343E9002D203B /* LibraryDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C851F20B343E9002D203B /* LibraryDownloaderView.swift */; };
+		4A0C852220B346BB002D203B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C852120B346BB002D203B /* WelcomeView.swift */; };
+		4A0C852420B347CE002D203B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C852320B347CE002D203B /* LoginView.swift */; };
 		4A255B7220B292480008C586 /* UIViewController+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7120B292480008C586 /* UIViewController+Presenter.swift */; };
 		4A255B7420B292690008C586 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7320B292690008C586 /* ViewControllerType.swift */; };
 		4A255B7620B32AD50008C586 /* SettingsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */; };
@@ -83,6 +85,8 @@
 		4A0259A920AB6ADB005F75AB /* album.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = album.gif; sourceTree = "<group>"; };
 		4A0259AA20AB6ADC005F75AB /* artist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = artist.gif; sourceTree = "<group>"; };
 		4A0C851F20B343E9002D203B /* LibraryDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloaderView.swift; sourceTree = "<group>"; };
+		4A0C852120B346BB002D203B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		4A0C852320B347CE002D203B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4A255B7120B292480008C586 /* UIViewController+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presenter.swift"; sourceTree = "<group>"; };
 		4A255B7320B292690008C586 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 				4AC9214420B21DF4006F5EB8 /* TutorialPresenter.swift */,
 				4AC9214620B21E87006F5EB8 /* TutorialScreenView.swift */,
 				4A0C851F20B343E9002D203B /* LibraryDownloaderView.swift */,
+				4A0C852120B346BB002D203B /* WelcomeView.swift */,
+				4A0C852320B347CE002D203B /* LoginView.swift */,
 			);
 			path = LoginFeature;
 			sourceTree = "<group>";
@@ -601,6 +607,7 @@
 				4A347CE320AB45C1003BEE72 /* PopAnimator.swift in Sources */,
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
+				4A0C852420B347CE002D203B /* LoginView.swift in Sources */,
 				4AB8F18820AF48C300A2C257 /* SettingsView.swift in Sources */,
 				4A255B7420B292690008C586 /* ViewControllerType.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
@@ -619,6 +626,7 @@
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
 				4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */,
 				4AAF0AE720A2077B0054A0FC /* ArtistsTableViewCell.swift in Sources */,
+				4A0C852220B346BB002D203B /* WelcomeView.swift in Sources */,
 				4A255B7620B32AD50008C586 /* SettingsViewControllerDelegate.swift in Sources */,
 				4A255B7A20B32C540008C586 /* AlbumsTableViewController+SettingsDelegate.swift in Sources */,
 				4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */,
