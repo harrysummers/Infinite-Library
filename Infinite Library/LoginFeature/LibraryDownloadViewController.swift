@@ -51,11 +51,13 @@ class LibraryDownloadViewController: UIViewController {
         viewController.present(from: self)
     }
     private func startProgressViews() {
+        view.isUserInteractionEnabled = false
         libraryDownloaderView.activityView.startAnimating()
         libraryDownloaderView.progressLabel.isHidden = false
         libraryDownloaderView.progressLabel.text = "0%"
     }
     private func stopProgressViews() {
+        view.isUserInteractionEnabled = true
         libraryDownloaderView.activityView.stopAnimating()
         libraryDownloaderView.progressLabel.isHidden = true
     }
