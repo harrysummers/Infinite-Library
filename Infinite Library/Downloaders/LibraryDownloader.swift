@@ -10,11 +10,9 @@ import UIKit
 import CoreData
 
 class LibraryDownloader {
-    
     private var library = JSONLibrary()
     private let batchSize = 20
     var progressCounter: ProgressCounter?
-    
     func download(onComplete:@escaping (_ albums: JSONLibrary) -> Void) {
         self.recursiveDownload(0) {
             self.saveToDatabase {
@@ -70,7 +68,6 @@ class LibraryDownloader {
             onComplete(false)
         }
     }
-    
     private func saveToDatabase(_ onComplete:@escaping () -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         guard let items = library.items else { return }

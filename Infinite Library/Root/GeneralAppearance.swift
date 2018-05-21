@@ -22,7 +22,7 @@ extension UINavigationBar {
         UINavigationBar.appearance().barTintColor = UIColor.CustomColors.spotifyExtraDark
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor : UIColor.white]
+            [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
 }
 

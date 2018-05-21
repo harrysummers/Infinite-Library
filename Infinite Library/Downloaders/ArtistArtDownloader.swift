@@ -1,4 +1,4 @@
- //
+//
 //  AlbumArtDownloader.swift
 //  InfiniteLibrary
 //
@@ -10,22 +10,18 @@ import Foundation
 import CoreData
 
 class ArtistArtDownloader {
-    
     var artists: [Artist]?
     fileprivate var offset = 0
     fileprivate var max = 0
-    
     init(with artists: [Artist]) {
         self.artists = artists
         max = artists.count
     }
-    
     func download(_ onComplete:@escaping () -> Void) {
         getNextArtistArtBatch {
             onComplete()
         }
     }
-
     fileprivate func getNextArtistArtBatch(_ onComplete:@escaping () -> Void) {
         fetchArtistArtBatch {
             self.offset = self.getUpperLimit()
@@ -38,7 +34,6 @@ class ArtistArtDownloader {
             }
         }
     }
-    
     fileprivate func fetchArtistArtBatch(_ onComplete:@escaping () -> Void) {
         let ids = makeIDSForBatch()
         SpotifyNetworking.retrieveArtists(with: ids) { (status, data) in
@@ -57,12 +52,10 @@ class ArtistArtDownloader {
             }
         }
     }
-    
     fileprivate func shouldRepeatCall() -> Bool {
         return offset < max
     }
-    
-    fileprivate func getUpperLimit() -> Int{
+    fileprivate func getUpperLimit() -> Int {
         let limit = offset + 50
         if limit >= max {
             return max
@@ -70,7 +63,6 @@ class ArtistArtDownloader {
             return limit
         }
     }
-    
     fileprivate func saveToCoreData(_ artist: JSONSpotifyArtist) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         context.perform {
@@ -82,23 +74,21 @@ class ArtistArtDownloader {
             CoreDataManager.shared.saveMainContext()
         }
     }
-    
     fileprivate func makeIDSForBatch() -> String {
         var ids = ""
         var isFirst = true
         guard let artists = artists else { return "" }
         let endIndex = getUpperLimit() - 1
         for index in offset...endIndex {
-            guard let id = artists[index].id else { return "" }
+            guard let artistId = artists[index].id else { return "" }
             if isFirst {
                isFirst = false
             } else {
                 ids.append(",")
             }
-            ids.append(id)
+            ids.append(artistId)
         }
 
         return ids
     }
 }
-

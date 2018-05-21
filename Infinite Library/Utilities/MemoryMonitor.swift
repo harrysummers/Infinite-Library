@@ -9,7 +9,6 @@
 import Foundation
 
 struct MemoryCounter {
-    
     static var shared = MemoryCounter()
     private var settingsViewControllerCount = 0
     private var albumsTableViewControllerCount = 0
@@ -20,14 +19,11 @@ struct MemoryCounter {
     private var libraryDownloadViewControllerCount = 0
     private var tutorialScreenViewControllerCount = 0
     private var welcomeViewControllerCount = 0
-    
-    
     func incrementCount(for viewController: ViewControllerType) {
         switch viewController {
         case .settingsViewController:
             MemoryCounter.shared.settingsViewControllerCount += 1
             MemoryCounter.shared.printCount(for: .settingsViewController)
-            break
         case .albumsTableViewController:
             MemoryCounter.shared.albumsTableViewControllerCount += 1
             MemoryCounter.shared.printCount(for: .albumsTableViewController)
@@ -54,13 +50,11 @@ struct MemoryCounter {
             MemoryCounter.shared.printCount(for: .tutorialScreenViewController)
         }
     }
-    
     func decrementCount(for viewController: ViewControllerType) {
         switch viewController {
         case .settingsViewController:
             MemoryCounter.shared.settingsViewControllerCount -= 1
             MemoryCounter.shared.printCount(for: .settingsViewController)
-            break
         case .albumsTableViewController:
             MemoryCounter.shared.albumsTableViewControllerCount -= 1
             MemoryCounter.shared.printCount(for: .albumsTableViewController)
@@ -87,15 +81,12 @@ struct MemoryCounter {
             MemoryCounter.shared.printCount(for: .tutorialScreenViewController)
         }
     }
-    
     fileprivate func printCount(for viewController: ViewControllerType) {
         switch viewController {
         case .settingsViewController:
             print("settingsViewController count = \(settingsViewControllerCount)")
-            break
         case .albumsTableViewController:
             print("albumsTableViewController count = \(albumsTableViewControllerCount)")
-            break
         case .addAlbumViewController:
             print("addAlbumViewController count = \(addAlbumViewCountrollerCount)")
         case .artistsTableViewController:
@@ -112,5 +103,4 @@ struct MemoryCounter {
             print("tutorialScreenViewController count = \(tutorialScreenViewControllerCount)")
         }
     }
-    
 }

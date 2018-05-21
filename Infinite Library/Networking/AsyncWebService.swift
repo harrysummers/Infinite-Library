@@ -12,16 +12,13 @@ import SpotifyLogin
 final class AsyncWebService {
     static let shared = AsyncWebService()
     var token = ""
-    
     func sendAsyncRequest(request: URLRequest, onComplete:@escaping (_ status: Int, _ result: Data) -> Void) {
         var request = request
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.addValue(token, forHTTPHeaderField: "Authorization")
-        URLSession.shared.dataTask(with: request) {
-            (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else { return }
             let statusCode = httpResponse.statusCode
-            
             guard error == nil else {
                 print("error on processing url request")
                 print(error!)

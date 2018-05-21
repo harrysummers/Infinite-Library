@@ -27,7 +27,6 @@ class WelcomeViewController: UIViewController {
     deinit {
         MemoryCounter.shared.decrementCount(for: .welcomeViewController)
     }
-    
     @objc func nextPressed() {
         TutorialPresenter.shared.showNext(from: self)
     }

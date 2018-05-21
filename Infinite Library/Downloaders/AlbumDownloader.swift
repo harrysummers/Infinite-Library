@@ -10,9 +10,7 @@ import Foundation
 import CoreData
 
 class AlbumDownloader {
-    
     private var album: JSONAlbum = JSONAlbum()
-    
     func download(_ albumId: String, onComplete:@escaping (_ status: Bool, _ album: JSONAlbum) -> Void) {
         SpotifyNetworking.retrieveAlbum(with: albumId) { (status, data) in
             self.mapJSONToCoreData(data) {
@@ -20,18 +18,15 @@ class AlbumDownloader {
             }
         }
     }
-    
     func mapJSONToCoreData(_ data: Data, onComplete:@escaping () -> Void) {
         do {
             album = try JSONDecoder().decode(JSONAlbum.self, from: data)
-            
             onComplete()
         } catch let err {
             onComplete()
             print(err)
         }
     }
-    
     func saveToDatabase(_ onComplete:@escaping () -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         context.perform {
@@ -40,32 +35,28 @@ class AlbumDownloader {
             onComplete()
         }
     }
-    
-
-    
     func getArt() {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        if let id = getArtistId() {
-            let artist = Artist.getArtist(with: id, in: context)
+        if let artistId = getArtistId() {
+            let artist = Artist.getArtist(with: artistId, in: context)
             if !albumArtExists(artist?.image_url) {
-                getAlbumArt(with: id) { (artistArt) in
+                getAlbumArt(with: artistId) { (artistArt) in
                     artist?.image_url = artistArt
-                    CoreDataManager.shared.saveMainContext()
+                    context.perform {
+                        CoreDataManager.shared.saveMainContext()
+                    }
                 }
             }
         }
     }
-    
-    
     func getArtistId() -> String? {
         let artists = album.artists
-        if let artists = artists, artists.count > 0, let id = artists[0].id {
-            return id
+        if let artists = artists, artists.count > 0, let artistId = artists[0].id {
+            return artistId
         } else {
             return nil
         }
     }
-    
     func albumArtExists(_ imageUrl: String?) -> Bool {
         if imageUrl != nil && imageUrl != "" {
             return true
@@ -73,9 +64,8 @@ class AlbumDownloader {
             return false
         }
     }
-    
-    func getAlbumArt(with id: String, _ onComplete:@escaping (_ artistArt: String) -> Void) {
-        SpotifyNetworking.retrieveArtist(with: id) { (status, data) in
+    func getAlbumArt(with albumId: String, _ onComplete:@escaping (_ artistArt: String) -> Void) {
+        SpotifyNetworking.retrieveArtist(with: albumId) { (_, data) in
             do {
                 let spotifyArtist = try JSONDecoder().decode(JSONSpotifyArtist.self, from: data)
                 if let images = spotifyArtist.images, images.count > 0 {
@@ -84,7 +74,6 @@ class AlbumDownloader {
                 } else {
                     onComplete("")
                 }
-                
             } catch let err {
                 print(err)
                 onComplete("")

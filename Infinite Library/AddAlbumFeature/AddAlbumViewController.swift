@@ -19,7 +19,6 @@ class AddAlbumViewController: UIViewController {
     var album: JSONAlbum?
     var albumDownloader: AlbumDownloader?
     let impact = UIImpactFeedbackGenerator()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         MemoryCounter.shared.incrementCount(for: .addAlbumViewController)
@@ -29,22 +28,18 @@ class AddAlbumViewController: UIViewController {
         setupAlbumView(with: album)
         buzz()
     }
-    
     deinit {
         MemoryCounter.shared.decrementCount(for: .addAlbumViewController)
     }
-    
     fileprivate func buzz() {
         impact.impactOccurred()
     }
-    
     fileprivate func setupViewController() {
         addAlbumView.viewController = self
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backgroundTouched))
         addAlbumView.backgroundView.addGestureRecognizer(gestureRecognizer)
         addAlbumView.addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
     }
-    
     fileprivate func setupBackground() {
         let darkColor = UIColor.CustomColors.spotifyLight
         view.backgroundColor = darkColor.withAlphaComponent(0.0)
@@ -54,7 +49,6 @@ class AddAlbumViewController: UIViewController {
         setupNameLabel(album)
         setupArtistLabel(album)
     }
-    
     fileprivate func setupAlbumArt(_ album: JSONAlbum) {
         if let images = album.images, images.count > 0, let url = URL(string: images[0].url) {
             addAlbumView.albumArt.af_setImage(withURL: url)
@@ -66,7 +60,6 @@ class AddAlbumViewController: UIViewController {
     fileprivate func setupArtistLabel(_ album: JSONAlbum) {
         addAlbumView.artistLabel.text = album.artists?[0].name ?? ""
     }
-    
     @objc func backgroundTouched() {
         dismiss(animated: true, completion: nil)
     }

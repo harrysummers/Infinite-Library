@@ -14,7 +14,6 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     private let searchController = UISearchController(searchResultsController: nil)
     lazy var fetchedResultsController: NSFetchedResultsController<Album> = {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        
         let request: NSFetchRequest<Album> = Album.fetchRequest()
         request.sortDescriptors = [
             NSSortDescriptor(key: "artist.name", ascending: true)

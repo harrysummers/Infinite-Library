@@ -1,15 +1,15 @@
 //
-//  TutorialScreenView.swift
+//  WelcomeView.swift
 //  InfiniteLibrary
 //
-//  Created by Harry Summers on 5/20/18.
+//  Created by Harry Summers on 5/21/18.
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
 
 import UIKit
 
-class TutorialScreenView: UIView {
-    weak var viewController: TutorialScreenViewController? {
+class WelcomeView: UIView {
+    weak var viewController: WelcomeViewController? {
         didSet {
             setupViewController()
         }
@@ -17,9 +17,10 @@ class TutorialScreenView: UIView {
     var titleLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 30.0)
+        label.text = "Welcome to Infinity Library"
+        label.font = UIFont.boldSystemFont(ofSize: 50.0)
         label.textColor = UIColor.CustomColors.offWhite
-        label.numberOfLines = 4
+        label.numberOfLines = 3
         return label
     }()
     var nextButton: UIButton = {
@@ -31,19 +32,12 @@ class TutorialScreenView: UIView {
         button.tintColor = .white
         return button
     }()
-    var gifView: UIImageView = {
-        var imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.CustomColors.spotifyDark
-        return imageView
-    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
-    fileprivate func setupView() {
+    private func setupView() {
         setupTitleLabel()
-        setupGifView()
         setupNextButton()
     }
     fileprivate func setupTitleLabel() {
@@ -52,13 +46,6 @@ class TutorialScreenView: UIView {
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15.0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -15.0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-    }
-    fileprivate func setupGifView() {
-        addSubview(gifView)
-        gifView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
-        gifView.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        gifView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        gifView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     fileprivate func setupNextButton() {
         addSubview(nextButton)

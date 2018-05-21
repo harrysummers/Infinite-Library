@@ -13,7 +13,6 @@ extension AlbumsTableViewController: UISearchResultsUpdating {
         fetchedResultsController.fetchRequest.predicate = getPredicate(for: searchText)
         reloadFetchedResultsController()
     }
-    
     fileprivate func getPredicate(for searchText: String) -> NSPredicate? {
         if searchText.count > 0 {
             return NSPredicate(format: "(name contains[cd] %@) || (artist.name contains[cd] %@)",

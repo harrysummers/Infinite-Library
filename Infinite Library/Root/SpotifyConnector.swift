@@ -10,7 +10,6 @@ import UIKit
 import SpotifyLogin
 
 class SpotifyConnector {
-    
     func connect() {
         let url = URL(string: Constants.appUrl)
         SpotifyLogin.shared.configure(clientID: EnvConstants.clientId,

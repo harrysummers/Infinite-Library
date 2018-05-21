@@ -15,7 +15,6 @@ class AutoLoginViewController: UIViewController {
         MemoryCounter.shared.incrementCount(for: .autoLoginViewController)
         view.backgroundColor = UIColor.CustomColors.spotifyDark
     }
-    
     deinit {
         MemoryCounter.shared.decrementCount(for: .autoLoginViewController)
     }

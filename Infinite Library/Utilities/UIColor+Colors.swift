@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIColor {
-    
     struct CustomColors {
         static var spotifyExtraDark = UIColor.hexStringToUIColor(hex: "#080808")
         static var spotifyDark = UIColor.hexStringToUIColor(hex: "#121212")
@@ -17,21 +16,16 @@ extension UIColor {
         static var spotifyGreen = UIColor.hexStringToUIColor(hex: "#28B054")
         static var spotifyLight = UIColor.hexStringToUIColor(hex: "#212121")
     }
-    
-    static func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
+    static func hexStringToUIColor (hex: String) -> UIColor {
+        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        if cString.hasPrefix("#") {
             cString.remove(at: cString.startIndex)
         }
-        
-        if ((cString.count) != 6) {
+        if cString.count != 6 {
             return UIColor.gray
         }
-        
-        var rgbValue:UInt32 = 0
+        var rgbValue: UInt32 = 0
         Scanner(string: cString).scanHexInt32(&rgbValue)
-        
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,

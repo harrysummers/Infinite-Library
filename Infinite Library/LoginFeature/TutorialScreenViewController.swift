@@ -15,11 +15,9 @@ class TutorialScreenViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
     fileprivate let transition = SlideLeftAnimator()
     var titleText = ""
     var gif = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         MemoryCounter.shared.incrementCount(for: .tutorialScreenViewController)
@@ -33,7 +31,6 @@ class TutorialScreenViewController: UIViewController {
     deinit {
         MemoryCounter.shared.decrementCount(for: .tutorialScreenViewController)
     }
-    
     @objc func nextPressed() {
         TutorialPresenter.shared.showNext(from: self)
     }

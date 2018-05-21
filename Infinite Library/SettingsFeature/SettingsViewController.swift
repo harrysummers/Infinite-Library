@@ -48,16 +48,16 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         dismiss(animated: false, completion: nil)
         delegate?.didPressLogout()
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let gif = gifs[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? GifCollectionViewCell
-            else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: cellId,
+            for: indexPath) as? GifCollectionViewCell else { return UICollectionViewCell() }
         cell.gifView.loadGif(name: gif)
         return cell
-
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
-
 }

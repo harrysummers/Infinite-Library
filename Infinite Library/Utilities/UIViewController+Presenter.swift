@@ -9,14 +9,10 @@
 import UIKit
 
 extension UIViewController {
-    
     func present(from viewController: UIViewController) {
         guard let presenting = viewController.presentingViewController else { return }
         viewController.dismiss(animated: false) {
             presenting.present(self, animated: true, completion: nil)
         }
     }
-    
-
-    
 }

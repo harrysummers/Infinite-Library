@@ -11,7 +11,7 @@ import CoreData
 
 extension Album {
     static func getAlbum(with externalUrl: String, in context: NSManagedObjectContext) -> Album? {
-        let request:NSFetchRequest<Album> = Album.fetchRequest()
+        let request: NSFetchRequest<Album> = Album.fetchRequest()
         request.sortDescriptors = [
             NSSortDescriptor(key: "name", ascending: false)
         ]
@@ -29,7 +29,6 @@ extension Album {
         }
         return nil
     }
-    
     static func isAlreadyInCoreData(with externalUrl: String, with context: NSManagedObjectContext) -> Bool {
         let album = getAlbum(with: externalUrl, in: context)
         if album == nil {
@@ -38,7 +37,6 @@ extension Album {
             return true
         }
     }
-    
     public override func prepareForDeletion() {
         if let artist = artist {
             let albums = artist.albums
@@ -47,9 +45,8 @@ extension Album {
             }
         }
     }
-    
     static func getAlbumCount(in context: NSManagedObjectContext) -> Int {
-        let request:NSFetchRequest<Album> = Album.fetchRequest()
+        let request: NSFetchRequest<Album> = Album.fetchRequest()
         do {
             let albums = try context.fetch(request)
             return albums.count

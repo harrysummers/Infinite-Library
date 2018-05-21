@@ -16,7 +16,6 @@ class LoginView: UIView {
         }
     }
     var spotifyButton: SpotifyLoginButton?
-    
     var titleLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,11 +30,16 @@ class LoginView: UIView {
     }
     private func setupView() {
         addSubview(titleLabel)
+        setupTitleLabel()
+        setupSpotifyButton()
+    }
+    fileprivate func setupTitleLabel() {
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15.0).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15.0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -15.0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        
+    }
+    fileprivate func setupSpotifyButton() {
         guard let spotifyButton = spotifyButton else { return }
         addSubview(spotifyButton)
         spotifyButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25.0).isActive = true
@@ -56,7 +60,6 @@ class LoginView: UIView {
             setupView()
         }
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

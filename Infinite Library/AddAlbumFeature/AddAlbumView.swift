@@ -38,7 +38,6 @@ class AddAlbumView: UIView {
         label.font = label.font.withSize(18.0)
         return label
     }()
-    
     var addButton: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +47,6 @@ class AddAlbumView: UIView {
         button.layer.cornerRadius = 15.0
         return button
     }()
-    
     var containerView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -62,12 +60,10 @@ class AddAlbumView: UIView {
         view.alpha = 1.0
         return view
     }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
-    
     fileprivate func setupView() {
         setupContainerView()
         setupBackgroundView()
@@ -76,7 +72,6 @@ class AddAlbumView: UIView {
         setupArtistLabel()
         setupAddButton()
     }
-    
     fileprivate func setupContainerView() {
         addSubview(containerView)
         containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15.0).isActive = true
@@ -98,7 +93,6 @@ class AddAlbumView: UIView {
         albumArt.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
         albumArt.widthAnchor.constraint(equalToConstant: 100.0).isActive = true
     }
-    
     fileprivate func setupNameLabel() {
         containerView.addSubview(nameLabel)
         nameLabel.topAnchor.constraint(equalTo: albumArt.bottomAnchor, constant: 15.0).isActive = true
@@ -106,7 +100,6 @@ class AddAlbumView: UIView {
         nameLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
         nameLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
     }
-    
     fileprivate func setupArtistLabel() {
         containerView.addSubview(artistLabel)
         artistLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5.0).isActive = true
@@ -130,7 +123,6 @@ class AddAlbumView: UIView {
             bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

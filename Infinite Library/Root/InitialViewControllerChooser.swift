@@ -9,7 +9,6 @@
 import UIKit
 
 class InitialViewControllerChooser {
-    
     var window: UIWindow?
     private var initialViewController: UIViewController?
     private var temporaryViewController: UIViewController?
@@ -17,7 +16,6 @@ class InitialViewControllerChooser {
     init(with window: UIWindow) {
         self.window = window
     }
-    
     func show() {
         setTemporaryViewController()
         weak var weakSelf = self
@@ -26,7 +24,6 @@ class InitialViewControllerChooser {
             weakSelf?.goToInitialViewController()
         }
     }
-    
     fileprivate func setTemporaryViewController() {
         temporaryViewController = UIViewController()
         temporaryViewController?.view.backgroundColor = UIColor.CustomColors.spotifyDark
@@ -41,7 +38,6 @@ class InitialViewControllerChooser {
             }
         }
     }
-    
     fileprivate func chooseInitialViewController(_ isValidated: Bool) {
         if !isValidated {
             initialViewController = TabViewController()
@@ -49,7 +45,6 @@ class InitialViewControllerChooser {
             initialViewController = WelcomeViewController()
         }
     }
-    
     fileprivate func goToInitialViewController() {
         temporaryViewController?.present(initialViewController!, animated: true, completion: nil)
     }

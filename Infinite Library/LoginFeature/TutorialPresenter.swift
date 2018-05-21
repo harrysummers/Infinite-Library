@@ -14,10 +14,8 @@ struct TutorialScreen {
 }
 
 class TutorialPresenter {
-    
     private var tutorialIndex = 0
     static var shared = TutorialPresenter()
-    
     fileprivate let tutorials: [TutorialScreen] = [
         TutorialScreen(gif: "album", title: "Click on albums to play them on Spotify"),
         TutorialScreen(gif: "artist", title: "Click on artists to visit their artist page"),
@@ -38,9 +36,7 @@ class TutorialPresenter {
             loginScreen.present(from: viewController)
         }
     }
-    
     fileprivate func isLastViewController() -> Bool {
         return tutorialIndex == tutorials.count
     }
-    
 }

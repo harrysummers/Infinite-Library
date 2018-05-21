@@ -72,36 +72,39 @@ class LibraryDownloaderView: UIView {
         setupView()
     }
     private func setupView() {
+        setupTitleLabel()
+        setupActivityView()
+        setupButtonStack()
+        setupProgressLabel()
+    }
+    fileprivate func setupTitleLabel() {
         addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15.0).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15.0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -15.0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        
+    }
+    fileprivate func setupActivityView() {
         addSubview(activityView)
         activityView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
         activityView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         activityView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         activityView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
+    }
+    fileprivate func setupButtonStack() {
         addSubview(buttonStack)
         buttonStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15.0).isActive = true
         buttonStack.widthAnchor.constraint(equalToConstant: 200).isActive = true
         buttonStack.heightAnchor.constraint(equalToConstant: 115).isActive = true
         buttonStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
-        
         buttonStack.addArrangedSubview(skipButton)
-
-        
         buttonStack.addArrangedSubview(downloadButton)
-
-        
+    }
+    fileprivate func setupProgressLabel() {
         addSubview(progressLabel)
         progressLabel.bottomAnchor.constraint(equalTo: buttonStack.topAnchor, constant: -15.0).isActive = true
         progressLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         progressLabel.center = center
-        
     }
     fileprivate func setupViewController() {
         if let view = viewController?.view {
@@ -112,7 +115,6 @@ class LibraryDownloaderView: UIView {
             bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

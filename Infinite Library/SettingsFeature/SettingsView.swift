@@ -15,7 +15,6 @@ class SettingsView: UIView {
             setupViewController()
         }
     }
-    
     var scrollView: UIScrollView = {
         var scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -26,14 +25,12 @@ class SettingsView: UIView {
         scroll.alwaysBounceVertical = true
         return scroll
     }()
-    
     var contentView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isUserInteractionEnabled = true
         return view
     }()
-    
     var titleLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +39,6 @@ class SettingsView: UIView {
         label.text = "Settings"
         return label
     }()
-    
     var closeButton: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +46,6 @@ class SettingsView: UIView {
         button.setTitle("Close", for: .normal)
         return button
     }()
-    
     var logoutButton: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -60,7 +55,6 @@ class SettingsView: UIView {
         button.layer.cornerRadius = 18.0
         return button
     }()
-    
     var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 140, height: 250)

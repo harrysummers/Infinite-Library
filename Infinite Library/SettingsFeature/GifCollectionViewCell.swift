@@ -9,7 +9,6 @@
 import UIKit
 
 class GifCollectionViewCell: UICollectionViewCell {
-    
     var gifView: UIImageView = {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
