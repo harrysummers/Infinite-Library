@@ -19,8 +19,8 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     }()
     
     let cellId = "gifCell"
-
     var gifs = ["addAlbum", "album", "artist"]
+    var delegate: SettingsViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +54,8 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     fileprivate func goToLoginScreen() {
-        let vc = LoginViewController()
-        vc.present(from: self)
+        dismiss(animated: false, completion: nil)
+        delegate?.didPressLogout()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

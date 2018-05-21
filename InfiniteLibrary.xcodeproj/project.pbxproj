@@ -13,6 +13,9 @@
 		4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259AA20AB6ADC005F75AB /* artist.gif */; };
 		4A255B7220B292480008C586 /* UIViewController+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7120B292480008C586 /* UIViewController+Presenter.swift */; };
 		4A255B7420B292690008C586 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7320B292690008C586 /* ViewControllerType.swift */; };
+		4A255B7620B32AD50008C586 /* SettingsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */; };
+		4A255B7820B32BD80008C586 /* ArtistsTableViewController+SettingsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7720B32BD80008C586 /* ArtistsTableViewController+SettingsDelegate.swift */; };
+		4A255B7A20B32C540008C586 /* AlbumsTableViewController+SettingsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7920B32C540008C586 /* AlbumsTableViewController+SettingsDelegate.swift */; };
 		4A30205420ADF8BE00D27664 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30205320ADF8BE00D27664 /* GifCollectionViewCell.swift */; };
 		4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30E266209E782800680B4C /* UIColor+Colors.swift */; };
 		4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */; };
@@ -82,6 +85,9 @@
 		4A0259AA20AB6ADC005F75AB /* artist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = artist.gif; sourceTree = "<group>"; };
 		4A255B7120B292480008C586 /* UIViewController+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presenter.swift"; sourceTree = "<group>"; };
 		4A255B7320B292690008C586 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
+		4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		4A255B7720B32BD80008C586 /* ArtistsTableViewController+SettingsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistsTableViewController+SettingsDelegate.swift"; sourceTree = "<group>"; };
+		4A255B7920B32C540008C586 /* AlbumsTableViewController+SettingsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumsTableViewController+SettingsDelegate.swift"; sourceTree = "<group>"; };
 		4A30205320ADF8BE00D27664 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A30E266209E782800680B4C /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideLeftAnimator.swift; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 				4A3DD64F20AC96BA006A800F /* SettingsViewController.swift */,
 				4A30205320ADF8BE00D27664 /* GifCollectionViewCell.swift */,
 				4AB8F18720AF48C300A2C257 /* SettingsView.swift */,
+				4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */,
 			);
 			path = SettingsFeature;
 			sourceTree = "<group>";
@@ -222,6 +229,7 @@
 				4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */,
 				4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */,
 				4AC9213C20B20479006F5EB8 /* AlbumsTableViewController+Search.swift */,
+				4A255B7920B32C540008C586 /* AlbumsTableViewController+SettingsDelegate.swift */,
 			);
 			path = AlbumFeature;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 				4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */,
 				4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */,
 				4AC9213E20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift */,
+				4A255B7720B32BD80008C586 /* ArtistsTableViewController+SettingsDelegate.swift */,
 			);
 			path = ArtistFeature;
 			sourceTree = "<group>";
@@ -568,6 +577,7 @@
 				4A556A71209CF40B00D6EA14 /* AlbumsTableViewCell.swift in Sources */,
 				4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */,
 				4A9F2E6120A77A32002329B2 /* AddAlbumViewController.swift in Sources */,
+				4A255B7820B32BD80008C586 /* ArtistsTableViewController+SettingsDelegate.swift in Sources */,
 				4AAF0ADE20A202D80054A0FC /* Artist+Utilities.swift in Sources */,
 				4AB8F19020AF5B4C00A2C257 /* InitialViewControllerChooser.swift in Sources */,
 				4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */,
@@ -595,6 +605,8 @@
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
 				4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */,
 				4AAF0AE720A2077B0054A0FC /* ArtistsTableViewCell.swift in Sources */,
+				4A255B7620B32AD50008C586 /* SettingsViewControllerDelegate.swift in Sources */,
+				4A255B7A20B32C540008C586 /* AlbumsTableViewController+SettingsDelegate.swift in Sources */,
 				4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */,
 				4AA4F4A620AE107000C9E735 /* ProgressCounter.swift in Sources */,
 			);

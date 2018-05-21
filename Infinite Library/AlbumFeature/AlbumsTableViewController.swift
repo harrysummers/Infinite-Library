@@ -116,6 +116,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     
     @objc func settingsPressed() {
         let vc = SettingsViewController()
+        vc.delegate = self
         present(vc, animated: true, completion: nil)
     }
     
