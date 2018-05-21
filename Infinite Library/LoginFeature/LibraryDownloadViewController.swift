@@ -123,14 +123,15 @@ class LibraryDownloadViewController: UIViewController {
             DispatchQueue.main.async {
                 weakSelf?.stopProgressViews()
                 let vc = TabViewController()
-                weakSelf?.present(vc, animated: true, completion: nil)
+                guard let weakSelf = weakSelf else { return }
+                vc.present(from: weakSelf)
             }
         }
     }
     
     @objc func skipPressed() {
         let vc = TabViewController()
-        self.present(vc, animated: true, completion: nil)
+        vc.present(from: self)
     }
     
     private func startProgressViews() {

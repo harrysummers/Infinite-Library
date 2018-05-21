@@ -32,10 +32,10 @@ class TutorialPresenter {
             let toViewController = TutorialScreenViewController()
             toViewController.gif = tutorialScreen.gif
             toViewController.titleText = tutorialScreen.title
-            viewController.present(toViewController, animated: true, completion: nil)
+            toViewController.present(from: viewController)
         } else{
             let loginScreen = LoginViewController()
-            viewController.present(loginScreen, animated: true, completion: nil)
+            loginScreen.present(from: viewController)
         }
     }
     

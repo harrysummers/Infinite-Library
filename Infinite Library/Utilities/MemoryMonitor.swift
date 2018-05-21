@@ -8,21 +8,6 @@
 
 import Foundation
 
-import Foundation
-
-
-enum ViewControllerType: Int {
-    case settingsViewController
-    case albumsTableViewController
-    case addAlbumViewController
-    case artistsTableViewController
-    case loginViewController
-    case autoLoginViewController
-    case libraryDownloadViewController
-    case tutorialScreenViewController
-    case welcomeViewController
-}
-
 struct MemoryCounter {
     
     static var shared = MemoryCounter()

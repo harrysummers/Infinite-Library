@@ -55,9 +55,8 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     fileprivate func goToLoginScreen() {
         let vc = LoginViewController()
-        present(vc, animated: true, completion: nil)
+        vc.present(from: self)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let gif = gifs[indexPath.row]

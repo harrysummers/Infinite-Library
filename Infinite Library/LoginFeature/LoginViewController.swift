@@ -57,12 +57,12 @@ class LoginViewController: UIViewController {
     
     func goToLibraryDownloader() {
         let vc = LibraryDownloadViewController()
-        present(vc, animated: true, completion: nil)
+        vc.present(from: self)
     }
     
     func goToAlbums() {
         let vc = TabViewController()
-        self.present(vc, animated: true, completion: nil)
+        vc.present(from: self)
     }
     
     @objc func loginSuccessful() {

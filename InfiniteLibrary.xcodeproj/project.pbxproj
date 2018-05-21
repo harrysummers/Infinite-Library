@@ -11,6 +11,8 @@
 		4A0259A820AB62FA005F75AB /* addAlbum.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A720AB62FA005F75AB /* addAlbum.gif */; };
 		4A0259AB20AB6ADC005F75AB /* album.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A920AB6ADB005F75AB /* album.gif */; };
 		4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259AA20AB6ADC005F75AB /* artist.gif */; };
+		4A255B7220B292480008C586 /* UIViewController+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7120B292480008C586 /* UIViewController+Presenter.swift */; };
+		4A255B7420B292690008C586 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7320B292690008C586 /* ViewControllerType.swift */; };
 		4A30205420ADF8BE00D27664 /* GifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30205320ADF8BE00D27664 /* GifCollectionViewCell.swift */; };
 		4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30E266209E782800680B4C /* UIColor+Colors.swift */; };
 		4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */; };
@@ -78,6 +80,8 @@
 		4A0259A720AB62FA005F75AB /* addAlbum.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addAlbum.gif; sourceTree = "<group>"; };
 		4A0259A920AB6ADB005F75AB /* album.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = album.gif; sourceTree = "<group>"; };
 		4A0259AA20AB6ADC005F75AB /* artist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = artist.gif; sourceTree = "<group>"; };
+		4A255B7120B292480008C586 /* UIViewController+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presenter.swift"; sourceTree = "<group>"; };
+		4A255B7320B292690008C586 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		4A30205320ADF8BE00D27664 /* GifCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A30E266209E782800680B4C /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideLeftAnimator.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				4AB3BB6F209F7A96001E1F89 /* CoreDataManager.swift */,
 				4A9F2E6220A77D89002329B2 /* String+Spotify.swift */,
 				4AC9214020B214CE006F5EB8 /* MemoryMonitor.swift */,
+				4A255B7120B292480008C586 /* UIViewController+Presenter.swift */,
+				4A255B7320B292690008C586 /* ViewControllerType.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
 				4AB8F18820AF48C300A2C257 /* SettingsView.swift in Sources */,
+				4A255B7420B292690008C586 /* ViewControllerType.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
 				4AB8F18C20AF595C00A2C257 /* GeneralAppearance.swift in Sources */,
 				4AC9214720B21E87006F5EB8 /* TutorialScreenView.swift in Sources */,
@@ -580,6 +587,7 @@
 				4A347CDD20AA46C3003BEE72 /* WelcomeViewController.swift in Sources */,
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
 				4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */,
+				4A255B7220B292480008C586 /* UIViewController+Presenter.swift in Sources */,
 				4AB8F18A20AF527700A2C257 /* AddAlbumView.swift in Sources */,
 				4AC9213F20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
