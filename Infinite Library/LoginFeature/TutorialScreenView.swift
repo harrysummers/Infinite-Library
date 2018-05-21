@@ -17,9 +17,9 @@ class TutorialScreenView: UIView {
     var titleLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 30.0)
+        label.font = UIFont.boldSystemFont(ofSize: 25.0)
         label.textColor = UIColor.CustomColors.offWhite
-        label.numberOfLines = 4
+        label.numberOfLines = 3
         return label
     }()
     var nextButton: UIButton = {
@@ -43,22 +43,22 @@ class TutorialScreenView: UIView {
     }
     fileprivate func setupView() {
         setupTitleLabel()
-        setupGifView()
         setupNextButton()
+        setupGifView()
     }
     fileprivate func setupTitleLabel() {
         addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15.0).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5.0).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15.0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -15.0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
     }
     fileprivate func setupGifView() {
         addSubview(gifView)
-        gifView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        gifView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        gifView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         gifView.widthAnchor.constraint(equalToConstant: 140).isActive = true
         gifView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        gifView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     fileprivate func setupNextButton() {
         addSubview(nextButton)
