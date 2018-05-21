@@ -10,15 +10,12 @@ import UIKit
 import SpotifyLogin
 
 class LoginViewController: UIViewController {
-    
     lazy var spotifyButton: SpotifyLoginButton = {
         var button = SpotifyLoginButton(viewController: self, scopes: [.streaming, .userLibraryRead])
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
     let transition = SlideLeftAnimator()
-    
     var titleLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -33,11 +30,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         MemoryCounter.shared.incrementCount(for: .loginViewController)
         view.backgroundColor = UIColor.CustomColors.spotifyDark
-        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccessful), name: .SpotifyLoginSuccessful, object: nil)
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(loginSuccessful), name: .SpotifyLoginSuccessful, object: nil)
         setupView()
         transitioningDelegate = self
     }
-    
     private func setupView() {
         view.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15.0).isActive = true
@@ -49,22 +46,18 @@ class LoginViewController: UIViewController {
         spotifyButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25.0).isActive = true
         spotifyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
         MemoryCounter.shared.decrementCount(for: .loginViewController)
     }
-    
     func goToLibraryDownloader() {
-        let vc = LibraryDownloadViewController()
-        vc.present(from: self)
+        let viewController = LibraryDownloadViewController()
+        viewController.present(from: self)
     }
-    
     func goToAlbums() {
-        let vc = TabViewController()
-        vc.present(from: self)
+        let viewController = TabViewController()
+        viewController.present(from: self)
     }
-    
     @objc func loginSuccessful() {
         weak var weakSelf = self
         AsyncWebService.shared.getAccessToken { (_, error) in
@@ -79,7 +72,6 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
     private func isEmptyLibrary(_ onComplete:@escaping (_ isEmpty: Bool) -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         context.perform {
@@ -88,12 +80,10 @@ class LoginViewController: UIViewController {
         }
     }
 }
-
 extension LoginViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return transition
     }
 }
-
-
-

@@ -16,7 +16,6 @@ class AddAlbumViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
     var album: JSONAlbum?
     var albumDownloader: AlbumDownloader?
     let impact = UIImpactFeedbackGenerator()
@@ -50,7 +49,6 @@ class AddAlbumViewController: UIViewController {
         let darkColor = UIColor.CustomColors.spotifyLight
         view.backgroundColor = darkColor.withAlphaComponent(0.0)
     }
-    
     fileprivate func setupAlbumView(with album: JSONAlbum) {
         setupAlbumArt(album)
         setupNameLabel(album)
@@ -62,11 +60,9 @@ class AddAlbumViewController: UIViewController {
             addAlbumView.albumArt.af_setImage(withURL: url)
         }
     }
-    
     fileprivate func setupNameLabel(_ album: JSONAlbum) {
         addAlbumView.nameLabel.text = album.name ?? ""
     }
-    
     fileprivate func setupArtistLabel(_ album: JSONAlbum) {
         addAlbumView.artistLabel.text = album.artists?[0].name ?? ""
     }
@@ -74,13 +70,11 @@ class AddAlbumViewController: UIViewController {
     @objc func backgroundTouched() {
         dismiss(animated: true, completion: nil)
     }
-    
     @objc private func addButtonPressed() {
         guard let albumDownloader = albumDownloader else { return }
         buzz()
         saveAlbum(albumDownloader)
     }
-    
     fileprivate func saveAlbum(_ albumDownloader: AlbumDownloader) {
         weak var weakSelf = self
         albumDownloader.saveToDatabase {

@@ -9,6 +9,6 @@
 import Foundation
 
 class EnvConstants {
-    static let CLIENT_ID = "b33591e9a0364755bf0a5f3ed311c089"
-    static let CLIENT_SECRET = "9005f46e74b24847b95feadbd6d2b444"
+    static let clientId = "b33591e9a0364755bf0a5f3ed311c089"
+    static let clientSecret = "9005f46e74b24847b95feadbd6d2b444"
 }

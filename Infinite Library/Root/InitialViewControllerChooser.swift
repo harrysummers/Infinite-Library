@@ -32,7 +32,6 @@ class InitialViewControllerChooser {
         temporaryViewController?.view.backgroundColor = UIColor.CustomColors.spotifyDark
         window?.rootViewController = temporaryViewController
     }
-    
     fileprivate func isLoggedIn(_ onComplete:@escaping (_ isValidated: Bool) -> Void) {
         AsyncWebService.shared.getAccessToken { (accessToken, error) in
             if error == nil && accessToken != nil {
@@ -54,6 +53,4 @@ class InitialViewControllerChooser {
     fileprivate func goToInitialViewController() {
         temporaryViewController?.present(initialViewController!, animated: true, completion: nil)
     }
-    
-    
 }

@@ -25,7 +25,7 @@ class ProgressCounter {
     
     func increment() {
         if count < (100 - INCREMENT) {
-            count = count + INCREMENT
+            count += INCREMENT
             updateLabel()
         }
     }

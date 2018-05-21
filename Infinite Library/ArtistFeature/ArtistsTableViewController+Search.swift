@@ -1,4 +1,3 @@
-
 //
 //  ArtistsTableViewController+Search.swift
 //  InfiniteLibrary
@@ -14,7 +13,6 @@ extension ArtistsTableViewController: UISearchResultsUpdating {
         fetchedResultsController.fetchRequest.predicate = getPredicate(for: searchText)
         reloadFetchedResultsController()
     }
-    
     fileprivate func getPredicate(for searchText: String) -> NSPredicate? {
         if searchText.count > 0 {
             return NSPredicate(format: "name contains[cd] %@", searchText)
@@ -22,7 +20,6 @@ extension ArtistsTableViewController: UISearchResultsUpdating {
             return nil
         }
     }
-    
     fileprivate func reloadFetchedResultsController() {
         do {
             try fetchedResultsController.performFetch()

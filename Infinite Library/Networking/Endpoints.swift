@@ -9,9 +9,8 @@
 import Foundation
 
 class Endpoints {
-    static let BASE_URL = "https://api.spotify.com/v1/"
-    
-    static let SPOTIFY_ALBUMS = Endpoints.BASE_URL + "albums/"
-    static let SPOTIFY_LIBRARY_ALBUMS = Endpoints.BASE_URL + "me/albums"
-    static let SPOTIFY_ARTIST = Endpoints.BASE_URL + "artists"
+    static let baseUrl = "https://api.spotify.com/v1/"
+    static let spotifyAlbums = Endpoints.baseUrl + "albums/"
+    static let spotifyLibraryAlbums = Endpoints.baseUrl + "me/albums"
+    static let spotifyArtists = Endpoints.baseUrl + "artists"
 }

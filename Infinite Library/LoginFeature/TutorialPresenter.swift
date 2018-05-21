@@ -33,7 +33,7 @@ class TutorialPresenter {
             toViewController.gif = tutorialScreen.gif
             toViewController.titleText = tutorialScreen.title
             toViewController.present(from: viewController)
-        } else{
+        } else {
             let loginScreen = LoginViewController()
             loginScreen.present(from: viewController)
         }

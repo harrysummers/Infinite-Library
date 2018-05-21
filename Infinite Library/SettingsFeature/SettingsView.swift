@@ -74,12 +74,10 @@ class SettingsView: UIView {
         collection.alwaysBounceVertical = false
         return collection
     }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
-    
     fileprivate func setupView() {
         setupScrollView()
         setupContentView()
@@ -88,7 +86,6 @@ class SettingsView: UIView {
         setupCollectionView()
         setupLogoutButton()
     }
-    
     fileprivate func setupScrollView() {
         addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -98,7 +95,6 @@ class SettingsView: UIView {
         scrollView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         scrollView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
-    
     fileprivate func setupContentView() {
         scrollView.addSubview(contentView)
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
@@ -108,7 +104,6 @@ class SettingsView: UIView {
         contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
     }
-    
     fileprivate func setupTitleLabel() {
         contentView.addSubview(titleLabel)
         titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
@@ -116,7 +111,6 @@ class SettingsView: UIView {
         titleLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15).isActive = true
     }
-    
     fileprivate func setupCloseButton() {
         contentView.addSubview(closeButton)
         closeButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15).isActive = true
@@ -124,7 +118,6 @@ class SettingsView: UIView {
         closeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         closeButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
     }
-    
     fileprivate func setupCollectionView() {
         contentView.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15.0).isActive = true
@@ -132,7 +125,6 @@ class SettingsView: UIView {
         collectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15.0).isActive = true
         collectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 15.0).isActive = true
     }
-    
     fileprivate func setupLogoutButton() {
         contentView.addSubview(logoutButton)
         logoutButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 50).isActive = true
@@ -140,7 +132,6 @@ class SettingsView: UIView {
         logoutButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         logoutButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
-    
     fileprivate func setupViewController() {
         if let view = viewController?.view {
             view.addSubview(self)
@@ -150,7 +141,6 @@ class SettingsView: UIView {
             bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

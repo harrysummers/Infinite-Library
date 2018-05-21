@@ -10,7 +10,7 @@ import UIKit
 
 extension AlbumsTableViewController: SettingsViewControllerDelegate {
     func didPressLogout() {
-        let vc = LoginViewController()
-        vc.present(from: self)
+        let viewController = LoginViewController()
+        viewController.present(from: self)
     }
 }

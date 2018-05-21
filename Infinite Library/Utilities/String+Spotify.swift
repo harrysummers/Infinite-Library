@@ -11,7 +11,7 @@ import Foundation
 extension String {
     func getAlbumId() -> String? {
         let url = self
-        let base = Constants.BASE_URL_NEW_ALBUM
+        let base = Constants.baseUrlNewAlbum
         let start = base.count
 
         if url.contains(base) && url.count > start {

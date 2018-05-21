@@ -21,7 +21,8 @@ extension UINavigationBar {
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().barTintColor = UIColor.CustomColors.spotifyExtraDark
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes =
+            [NSAttributedStringKey.foregroundColor : UIColor.white]
     }
 }
 

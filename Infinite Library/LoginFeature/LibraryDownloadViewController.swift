@@ -11,145 +11,60 @@ import NVActivityIndicatorView
 import CoreData
 
 class LibraryDownloadViewController: UIViewController {
-    
-    var titleLabel: UILabel = {
-        var label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Download your existing library"
-        label.font = UIFont.boldSystemFont(ofSize: 50.0)
-        label.textColor = UIColor.CustomColors.offWhite
-        label.numberOfLines = 3
-        return label
+
+    let libraryDownloaderView: LibraryDownloaderView = {
+        let view = LibraryDownloaderView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
-    
-    var downloadButton: UIButton = {
-        var button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Download", for: .normal)
-        button.layer.cornerRadius = 25.0
-        button.backgroundColor = UIColor.CustomColors.spotifyGreen
-        button.tintColor = .white
-        return button
-    }()
-    
-    var skipButton: UIButton = {
-        var button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Skip", for: .normal)
-        button.layer.cornerRadius = 25.0
-        button.backgroundColor = UIColor.CustomColors.spotifyLight
-        button.tintColor = .white
-        return button
-    }()
-    
-    var buttonStack: UIStackView = {
-        var stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 15.0
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.contentMode = .center
-        return stackView
-    }()
-    
-    lazy var activityView: NVActivityIndicatorView = {
-        var activityView = NVActivityIndicatorView(frame: self.view.frame, type: .ballPulse, color: UIColor.CustomColors.offWhite, padding: nil)
-        activityView.center = self.view.center
-        activityView.translatesAutoresizingMaskIntoConstraints = false
-        return activityView
-    }()
-    
-    var progressLabel: UILabel = {
-        var label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.CustomColors.offWhite
-        label.isHidden = true
-        return label
-    }()
-    
     let transition = SlideLeftAnimator()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         MemoryCounter.shared.incrementCount(for: .libraryDownloadViewController)
+        libraryDownloaderView.viewController = self
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         transitioningDelegate = self
-        setupView()
+                libraryDownloaderView.skipButton.addTarget(self, action: #selector(skipPressed), for: .touchUpInside)
+                libraryDownloaderView.downloadButton.addTarget(self,
+                                                               action: #selector(downloadPressed), for: .touchUpInside)
     }
-    
     deinit {
         MemoryCounter.shared.decrementCount(for: .libraryDownloadViewController)
     }
-    
-    private func setupView() {
-        view.addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15.0).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15.0).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15.0).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        
-        view.addSubview(activityView)
-        activityView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
-        activityView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        activityView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        view.addSubview(buttonStack)
-        buttonStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -15.0).isActive = true
-        buttonStack.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        buttonStack.heightAnchor.constraint(equalToConstant: 115).isActive = true
-        buttonStack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        
-        buttonStack.addArrangedSubview(skipButton)
-        skipButton.addTarget(self, action: #selector(skipPressed), for: .touchUpInside)
-        
-        buttonStack.addArrangedSubview(downloadButton)
-        downloadButton.addTarget(self, action: #selector(downloadPressed), for: .touchUpInside)
-
-        view.addSubview(progressLabel)
-        progressLabel.bottomAnchor.constraint(equalTo: buttonStack.topAnchor, constant: -15.0).isActive = true
-        progressLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-    }
-    
     @objc func downloadPressed() {
         startProgressViews()
         let libraryDownloader = LibraryDownloader()
-        libraryDownloader.progressCounter = ProgressCounter(with: progressLabel)
+        libraryDownloader.progressCounter = ProgressCounter(with: libraryDownloaderView.progressLabel)
         weak var weakSelf = self
-        libraryDownloader.download { (library) in
+        libraryDownloader.download { (_) in
             DispatchQueue.main.async {
                 weakSelf?.stopProgressViews()
-                let vc = TabViewController()
+                let viewController = TabViewController()
                 guard let weakSelf = weakSelf else { return }
-                vc.present(from: weakSelf)
+                viewController.present(from: weakSelf)
             }
         }
     }
-    
     @objc func skipPressed() {
-        let vc = TabViewController()
-        vc.present(from: self)
+        let viewController = TabViewController()
+        viewController.present(from: self)
     }
-    
     private func startProgressViews() {
-        activityView.startAnimating()
-        progressLabel.isHidden = false
-        progressLabel.text = "0%"
+        libraryDownloaderView.activityView.startAnimating()
+        libraryDownloaderView.progressLabel.isHidden = false
+        libraryDownloaderView.progressLabel.text = "0%"
     }
-    
     private func stopProgressViews() {
-        self.activityView.stopAnimating()
-        progressLabel.isHidden = true
-        
+        libraryDownloaderView.activityView.stopAnimating()
+        libraryDownloaderView.progressLabel.isHidden = true
     }
-    
 }
 
 extension LibraryDownloadViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return transition
     }
 }

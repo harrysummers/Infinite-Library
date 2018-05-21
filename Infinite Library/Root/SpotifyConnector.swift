@@ -12,7 +12,9 @@ import SpotifyLogin
 class SpotifyConnector {
     
     func connect() {
-        let url = URL(string: Constants.APP_URL)
-        SpotifyLogin.shared.configure(clientID: EnvConstants.CLIENT_ID, clientSecret: EnvConstants.CLIENT_SECRET, redirectURL: url!)
+        let url = URL(string: Constants.appUrl)
+        SpotifyLogin.shared.configure(clientID: EnvConstants.clientId,
+                                      clientSecret: EnvConstants.clientSecret,
+                                      redirectURL: url!)
     }
 }

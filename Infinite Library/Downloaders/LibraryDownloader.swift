@@ -12,7 +12,7 @@ import CoreData
 class LibraryDownloader {
     
     private var library = JSONLibrary()
-    private let BATCH_SIZE = 20
+    private let batchSize = 20
     var progressCounter: ProgressCounter?
     
     func download(onComplete:@escaping (_ albums: JSONLibrary) -> Void) {
@@ -27,15 +27,14 @@ class LibraryDownloader {
             }
         }
     }
-    
     func recursiveDownload(_ offset: Int, onComplete:@escaping () -> Void) {
-        SpotifyNetworking.retrieveAllAlbums(offset) { (status, data) in
+        SpotifyNetworking.retrieveAllAlbums(offset) { (_, data) in
             self.convertDataToAlbums(data, self.isFirstBatch(offset)) { shouldRepeat in
                 DispatchQueue.main.async {
                     self.progressCounter?.increment()
                 }
                 if shouldRepeat {
-                    let nextBatch = offset + 20
+                    let nextBatch = offset + self.batchSize
                     self.recursiveDownload(nextBatch) {
                         onComplete()
                     }
@@ -45,12 +44,12 @@ class LibraryDownloader {
             }
         }
     }
-    
     private func isFirstBatch(_ offset: Int) -> Bool {
         return offset == 0
     }
-    
-    private func convertDataToAlbums(_ data: Data, _ isFirstBatch: Bool, onComplete:@escaping (_ shouldGetNextBatch: Bool) -> Void) {
+    private func convertDataToAlbums(_ data: Data,
+                                     _ isFirstBatch: Bool,
+                                     onComplete:@escaping (_ shouldGetNextBatch: Bool) -> Void) {
         do {
             let newLibrary = try JSONDecoder().decode(JSONLibrary.self, from: data)
 
@@ -58,7 +57,6 @@ class LibraryDownloader {
             if let libraryCount = newLibrary.items?.count, libraryCount > 0 {
                 shouldRepeat = true
             }
-            
             if isFirstBatch {
                 library = newLibrary
             } else {
@@ -71,13 +69,11 @@ class LibraryDownloader {
             print(err)
             onComplete(false)
         }
-        
     }
     
     private func saveToDatabase(_ onComplete:@escaping () -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         guard let items = library.items else { return }
-        
         context.perform {
             for libraryAlbum in items {
                 _ = libraryAlbum.album?.map(in: context)
@@ -90,7 +86,6 @@ class LibraryDownloader {
         }
 
     }
-    
     func getArtistArt(_ onComplete:@escaping () -> Void) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         context.perform {

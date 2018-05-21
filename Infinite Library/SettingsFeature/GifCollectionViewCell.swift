@@ -16,12 +16,10 @@ class GifCollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = UIColor.CustomColors.spotifyDark
         return imageView
     }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
-    
     private func setupView() {
         addSubview(gifView)
         gifView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -31,8 +29,6 @@ class GifCollectionViewCell: UICollectionViewCell {
         gifView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         gifView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
-
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -15,7 +15,6 @@ class AddAlbumView: UIView {
             setupViewController()
         }
     }
-    
     var albumArt: UIImageView = {
         var imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -23,7 +22,6 @@ class AddAlbumView: UIView {
         imageView.backgroundColor = UIColor.CustomColors.spotifyDark
         return imageView
     }()
-    
     var nameLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +30,6 @@ class AddAlbumView: UIView {
         label.font = label.font.withSize(20.0)
         return label
     }()
-    
     var artistLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +56,6 @@ class AddAlbumView: UIView {
         view.backgroundColor = UIColor.CustomColors.spotifyLight
         return view
     }()
-    
     var backgroundView: UIView = {
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +84,6 @@ class AddAlbumView: UIView {
         containerView.rightAnchor.constraint(equalTo: rightAnchor, constant: -15.0).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: 300.0).isActive = true
     }
-    
     fileprivate func setupBackgroundView() {
         addSubview(backgroundView)
         backgroundView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -96,7 +91,6 @@ class AddAlbumView: UIView {
         backgroundView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         backgroundView.bottomAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
     }
-    
     fileprivate func setupAlbumArt() {
         containerView.addSubview(albumArt)
         albumArt.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20.0).isActive = true
@@ -120,7 +114,6 @@ class AddAlbumView: UIView {
         artistLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
         artistLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
     }
-    
     fileprivate func setupAddButton() {
         containerView.addSubview(addButton)
         addButton.topAnchor.constraint(equalTo: artistLabel.bottomAnchor, constant: 15.0).isActive = true
@@ -128,7 +121,6 @@ class AddAlbumView: UIView {
         addButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
         addButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
     }
-    
     fileprivate func setupViewController() {
         if let view = viewController?.view {
             view.addSubview(self)

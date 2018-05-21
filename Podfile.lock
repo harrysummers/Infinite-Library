@@ -10,6 +10,7 @@ PODS:
   - NVActivityIndicatorView/Presenter (4.2.1)
   - SpotifyLogin (0.1.6)
   - SwiftGifOrigin (1.6.1)
+  - SwiftLint (0.25.1)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.3)
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - SpotifyLogin (~> 0.1)
   - SwiftGifOrigin (~> 1.6.1)
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -28,6 +30,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - SpotifyLogin
     - SwiftGifOrigin
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -37,7 +40,8 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
 
-PODFILE CHECKSUM: a09b3ab6d0db632103b0c06e87d8e2837f617c2a
+PODFILE CHECKSUM: a9365e3d260d447855b95f315c12507894d1d0ff
 
 COCOAPODS: 1.5.0

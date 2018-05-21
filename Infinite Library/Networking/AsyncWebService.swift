@@ -9,9 +9,7 @@
 import Foundation
 import SpotifyLogin
 
-
 final class AsyncWebService {
-    
     static let shared = AsyncWebService()
     var token = ""
     
@@ -21,7 +19,6 @@ final class AsyncWebService {
         request.addValue(token, forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: request) {
             (data, response, error) in
-            
             guard let httpResponse = response as? HTTPURLResponse else { return }
             let statusCode = httpResponse.statusCode
             
@@ -30,23 +27,18 @@ final class AsyncWebService {
                 print(error!)
                 return
             }
-            
             guard let responseData = data else {
                 print("Error: did not receive data")
                 return
             }
-            
-            if (statusCode == 200) {
+            if statusCode == 200 {
                 onComplete(statusCode, responseData)
             } else {
                 print("\(statusCode) ...")
                 onComplete(statusCode, responseData)
             }
-            
-            
         }.resume()
     }
-    
     func getAccessToken(onComplete:@escaping(_ accessToken: String?, _ error: Error?) -> Void) {
 
         SpotifyLogin.shared.getAccessToken { (accessToken, error) in
@@ -56,6 +48,4 @@ final class AsyncWebService {
             onComplete(accessToken, error)
         }
     }
-    
-    
 }

@@ -25,12 +25,14 @@ class SlideLeftAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let slideTransform = CGAffineTransform(translationX: toView.frame.width, y: 0)
         toView.transform = slideTransform
         
-        let finalFrame = CGRect(x: -fromView.frame.width, y: 0, width: fromView.frame.width, height: fromView.frame.height)
-        
+        let finalFrame = CGRect(x: -fromView.frame.width,
+                                y: 0,
+                                width: fromView.frame.width,
+                                height: fromView.frame.height)
         containerView.addSubview(toView)
         containerView.bringSubview(toFront: toView)
         
-        UIView.animate(withDuration: duration, delay:0.0,
+        UIView.animate(withDuration: duration, delay: 0.0,
                        usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0,
                        animations: {
                         toView.transform = .identity

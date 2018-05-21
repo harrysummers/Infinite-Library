@@ -12,7 +12,7 @@ target 'InfiniteLibrary' do
   pod 'NVActivityIndicatorView'
   pod 'Fabric'
   pod 'Crashlytics'
-
+  pod 'SwiftLint'
   target 'InfiniteLibraryTests' do
     inherit! :search_paths
     # Pods for testing

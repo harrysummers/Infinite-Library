@@ -10,7 +10,7 @@ import XCTest
 @testable import InfiniteLibrary
 
 
-class Infinite_LibraryTests: XCTestCase {
+class InfiniteLibraryTests: XCTestCase {
     let albumId = "4Db5w1mFaolDotknFJiteD"
     var library: JSONLibrary?
     let albumUrl = "https://open.spotify.com/track/6UPWfwnMVop0szGZacqwRn?si=Bt8ZIObiQ8OBPCLDkOQY9A"

@@ -10,8 +10,6 @@ import UIKit
 import SwiftGifOrigin
 
 class TutorialScreenViewController: UIViewController {
-    
-    
     let tutorialScreenView: TutorialScreenView = {
         let view = TutorialScreenView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +30,6 @@ class TutorialScreenViewController: UIViewController {
         tutorialScreenView.gifView.loadGif(name: gif)
         tutorialScreenView.nextButton.addTarget(self, action: #selector(nextPressed), for: .touchUpInside)
     }
-    
     deinit {
         MemoryCounter.shared.decrementCount(for: .tutorialScreenViewController)
     }
@@ -40,11 +37,12 @@ class TutorialScreenViewController: UIViewController {
     @objc func nextPressed() {
         TutorialPresenter.shared.showNext(from: self)
     }
-    
 }
 
 extension TutorialScreenViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return transition
     }
 }

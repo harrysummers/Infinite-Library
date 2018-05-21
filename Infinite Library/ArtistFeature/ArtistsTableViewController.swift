@@ -13,14 +13,16 @@ import CoreData
 class ArtistsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     private let cellId = "artistId"
     private let searchController = UISearchController(searchResultsController: nil)
-    
     lazy var fetchedResultsController: NSFetchedResultsController<Artist> = {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let request: NSFetchRequest<Artist> = Artist.fetchRequest()
         request.sortDescriptors = [
             NSSortDescriptor(key: "name", ascending: true)
         ]
-        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "name", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: request,
+                                             managedObjectContext: context,
+                                             sectionNameKeyPath: "name",
+                                             cacheName: nil)
         frc.delegate = self
         do {
             try frc.performFetch()
@@ -30,13 +32,15 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         return frc
     }()
     
-    
     // MARK: NSFetchResultsController Delegate
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
             tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
@@ -48,8 +52,10 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
             break
         }
     }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any, at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
@@ -61,11 +67,9 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
             tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
-    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         MemoryCounter.shared.incrementCount(for: .artistsTableViewController)
@@ -75,21 +79,19 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.register(AlbumsTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.keyboardDismissMode = .interactive
         tableView.sectionIndexColor = UIColor.CustomColors.offWhite
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
+        navigationItem.rightBarButtonItem =
+            UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
         title = "Artists"
         setupView()
     }
-    
     deinit {
         MemoryCounter.shared.decrementCount(for: .artistsTableViewController)
     }
-    
     @objc func settingsPressed() {
-        let vc = SettingsViewController()
-        vc.delegate = self
-        present(vc, animated: true, completion: nil)
+        let viewController = SettingsViewController()
+        viewController.delegate = self
+        present(viewController, animated: true, completion: nil)
     }
-    
     private func setupView() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -99,8 +101,6 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
-    
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         if let count = fetchedResultsController.sections?.count {
             return count
@@ -108,11 +108,9 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
             return 1
         }
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getArtistCount(for: section)
     }
-    
     func getArtistCount(for section: Int) -> Int {
         if let sections = fetchedResultsController.sections, sections.count != 0 {
             return sections[section].numberOfObjects
@@ -120,7 +118,6 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
             return 0
         }
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let artist = fetchedResultsController.object(at: indexPath)
         let cell = ArtistTableViewCell()
@@ -131,28 +128,21 @@ class ArtistsTableViewController: UITableViewController, NSFetchedResultsControl
         cell.backgroundColor = UIColor.CustomColors.spotifyDark
         return cell
     }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 62
     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let artist = fetchedResultsController.object(at: indexPath)
         if let spotifyUrl = artist.external_url {
-            let url = URL(string : spotifyUrl)
-            UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in })
+            let url = URL(string: spotifyUrl)
+            UIApplication.shared.open(url!, options: [:], completionHandler: { (_) in })
         }
     }
-    
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return fetchedResultsController.sectionIndexTitles
     }
-    
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return fetchedResultsController.section(forSectionIndexTitle: title, at: index)
     }
 }
-
-
-

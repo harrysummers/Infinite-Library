@@ -19,7 +19,6 @@ struct JSONLibraryAlbum: Decodable {
     var album: JSONAlbum?
 }
 
-
 struct JSONAlbum: Decodable {
     var album_type: String?
     var artists: [JSONArtist]?
@@ -75,7 +74,6 @@ struct JSONArtist: Decodable {
         }
 
     }
-    
 }
 
 struct JSONSpotifyArtist: Decodable {
@@ -97,7 +95,6 @@ struct JSONAlbumArt: Decodable {
     var height: Int
     var url: String
     var width: Int
-    
 }
 
 struct JSONArtists: Decodable {
