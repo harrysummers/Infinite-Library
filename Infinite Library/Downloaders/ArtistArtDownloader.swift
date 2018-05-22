@@ -49,6 +49,8 @@ class ArtistArtDownloader {
                     onComplete()
                     print(err)
                 }
+            } else {
+                onComplete()
             }
         }
     }
@@ -78,17 +80,18 @@ class ArtistArtDownloader {
         var ids = ""
         var isFirst = true
         guard let artists = artists else { return "" }
-        let endIndex = getUpperLimit() - 1
-        for index in offset...endIndex {
-            guard let artistId = artists[index].id else { return "" }
-            if isFirst {
-               isFirst = false
-            } else {
-                ids.append(",")
+        if artists.count > 0 {
+            let endIndex = getUpperLimit() - 1
+            for index in offset...endIndex {
+                guard let artistId = artists[index].id else { return "" }
+                if isFirst {
+                    isFirst = false
+                } else {
+                    ids.append(",")
+                }
+                ids.append(artistId)
             }
-            ids.append(artistId)
         }
-
         return ids
     }
 }
