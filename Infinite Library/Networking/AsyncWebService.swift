@@ -22,7 +22,7 @@ final class AsyncWebService {
                 print("error on processing url request")
                 print(error!)
                 DispatchQueue.main.async {
-                    let murmur = Murmur(title: "Internet Connectivity Issue",
+                    let murmur = Murmur(title: "No Internet Connection",
                                         backgroundColor: UIColor.CustomColors.spotifyDark,
                                         titleColor: UIColor.white,
                                         font: UIFont.systemFont(ofSize: 14), action: nil)
