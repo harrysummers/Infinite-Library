@@ -15,19 +15,17 @@ class AutoLoginViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         MemoryCounter.shared.incrementCount(for: .autoLoginViewController)
+        autoLoginView.viewController = self
         view.backgroundColor = UIColor.CustomColors.spotifyDark
-        autoLoginView.activityView.startAnimating()
         autoLoginView.retryButton.isHidden = true
         autoLoginView.retryButton.addTarget(self, action: #selector(retryPressed), for: .touchUpInside)
-
+        showInitialViewController()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        showInitialViewController()
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -43,6 +41,7 @@ class AutoLoginViewController: UIViewController {
         showInitialViewController()
     }
     func showInitialViewController() {
+        autoLoginView.activityView.startAnimating()
         InitialViewControllerChooser().show { (viewController) in
             guard let viewController = viewController else { return }
             DispatchQueue.main.async {

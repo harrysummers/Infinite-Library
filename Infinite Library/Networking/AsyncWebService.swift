@@ -26,7 +26,7 @@ final class AsyncWebService {
                                         backgroundColor: UIColor.CustomColors.spotifyDark,
                                         titleColor: UIColor.white,
                                         font: UIFont.systemFont(ofSize: 14), action: nil)
-                    Whisper.show(whistle: murmur, action: .show(2.5))
+                    Whisper.show(whistle: murmur, action: .show(4.0))
                 }
                 return
             }

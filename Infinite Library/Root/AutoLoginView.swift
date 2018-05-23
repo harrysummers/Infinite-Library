@@ -18,9 +18,9 @@ class AutoLoginView: UIView {
     lazy var activityView: NVActivityIndicatorView = {
         var activityView =
             NVActivityIndicatorView(frame: CGRect.zero,
-                                    type: .ballPulse,
-                                    color: UIColor.CustomColors.offWhite,
-                                    padding: nil)
+                type: .ballPulse,
+                color: UIColor.CustomColors.offWhite,
+                padding: nil)
         activityView.translatesAutoresizingMaskIntoConstraints = false
         return activityView
     }()
@@ -56,9 +56,6 @@ class AutoLoginView: UIView {
         retryButton.topAnchor.constraint(equalTo: activityView.bottomAnchor, constant: 15).isActive = true
         retryButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     fileprivate func setupViewController() {
         if let view = viewController?.view {
             view.addSubview(self)
@@ -67,5 +64,8 @@ class AutoLoginView: UIView {
             topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

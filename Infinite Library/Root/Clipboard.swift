@@ -20,13 +20,18 @@ class Clipboard {
         self.window = window
     }
     func checkForAlbum() {
-        checkPasteboard()
+        if checkIsLoggedIn() {
+            checkPasteboard()
+        }
     }
     fileprivate func checkPasteboard() {
         getPasteAlbumFromPasteboard()
         if !isInCoreData() {
             downloadAlbum()
         }
+    }
+    fileprivate func checkIsLoggedIn() -> Bool {
+        return UserDefaultsHelper.shared.getLoggedIn()
     }
     fileprivate func getPasteAlbumFromPasteboard() {
         if let clipboard = UIPasteboard.general.string,

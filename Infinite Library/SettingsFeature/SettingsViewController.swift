@@ -43,6 +43,7 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     fileprivate func logout() {
         SpotifyLogin.shared.logout()
+        UserDefaultsHelper.shared.logout()
     }
     fileprivate func goToLoginScreen() {
         dismiss(animated: false, completion: nil)

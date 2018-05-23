@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         viewController.present(from: self)
     }
     @objc func loginSuccessful() {
+        UserDefaultsHelper.shared.login()
         weak var weakSelf = self
         AsyncWebService.shared.getAccessToken { (_, error) in
             if error == nil {

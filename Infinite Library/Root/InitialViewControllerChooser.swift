@@ -33,8 +33,10 @@ class InitialViewControllerChooser {
     fileprivate func chooseInitialViewController(_ isValidated: Bool) {
         if isValidated {
             initialViewController = TabViewController()
+            UserDefaultsHelper.shared.login()
         } else {
             initialViewController = WelcomeViewController()
+            UserDefaultsHelper.shared.logout()
         }
     }
 }
