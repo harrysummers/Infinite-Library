@@ -10,33 +10,45 @@ import UIKit
 import NVActivityIndicatorView
 
 class AutoLoginViewController: UIViewController {
-    lazy var activityView: NVActivityIndicatorView = {
-        var activityView =
-            NVActivityIndicatorView(frame: CGRect.zero,
-            type: .ballPulse,
-            color: UIColor.CustomColors.offWhite,
-            padding: nil)
-        activityView.translatesAutoresizingMaskIntoConstraints = false
-        return activityView
+    var autoLoginView: AutoLoginView = {
+        var view = AutoLoginView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         MemoryCounter.shared.incrementCount(for: .autoLoginViewController)
         view.backgroundColor = UIColor.CustomColors.spotifyDark
-        setupView()
-        activityView.startAnimating()
+        autoLoginView.activityView.startAnimating()
+        autoLoginView.retryButton.isHidden = true
+        autoLoginView.retryButton.addTarget(self, action: #selector(retryPressed), for: .touchUpInside)
+
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showInitialViewController()
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        activityView.stopAnimating()
+        autoLoginView.activityView.stopAnimating()
     }
-    fileprivate func setupView() {
-        view.addSubview(activityView)
-        activityView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        activityView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        activityView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+    @objc func retryPressed() {
+        weak var weakSelf = self
+        DispatchQueue.main.async {
+            weakSelf?.autoLoginView.retryButton.isHidden = true
+            weakSelf?.autoLoginView.activityView.startAnimating()
+        }
+        showInitialViewController()
+    }
+    func showInitialViewController() {
+        InitialViewControllerChooser().show { (viewController) in
+            guard let viewController = viewController else { return }
+            DispatchQueue.main.async {
+                self.present(viewController, animated: true, completion: nil)
+            }
+        }
     }
     deinit {
         MemoryCounter.shared.decrementCount(for: .autoLoginViewController)

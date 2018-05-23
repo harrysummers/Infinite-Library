@@ -9,27 +9,21 @@
 import UIKit
 
 class InitialViewControllerChooser {
-    var window: UIWindow?
     private var initialViewController: UIViewController?
-    private var temporaryViewController: UIViewController?
 
-    init(with window: UIWindow) {
-        self.window = window
-    }
-    func show() {
-        setTemporaryViewController()
+    func show(_ onComplete:@escaping (_ viewController: UIViewController?) -> Void) {
         isLoggedIn { (isValidated) in
             self.chooseInitialViewController(isValidated)
-            self.goToInitialViewController()
+            guard let viewController = self.initialViewController else {
+                onComplete(nil)
+                return
+            }
+            onComplete(viewController)
         }
-    }
-    fileprivate func setTemporaryViewController() {
-        temporaryViewController = AutoLoginViewController()
-        window?.rootViewController = temporaryViewController
     }
     fileprivate func isLoggedIn(_ onComplete:@escaping (_ isValidated: Bool) -> Void) {
         AsyncWebService.shared.getAccessToken { (accessToken, error) in
-            if error == nil && accessToken != nil {
+            if error != nil || accessToken == nil {
                 onComplete(false)
             } else {
                 onComplete(true)
@@ -37,13 +31,10 @@ class InitialViewControllerChooser {
         }
     }
     fileprivate func chooseInitialViewController(_ isValidated: Bool) {
-        if !isValidated {
+        if isValidated {
             initialViewController = TabViewController()
         } else {
             initialViewController = WelcomeViewController()
         }
-    }
-    fileprivate func goToInitialViewController() {
-        temporaryViewController?.present(initialViewController!, animated: true, completion: nil)
     }
 }

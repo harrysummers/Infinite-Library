@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SpotifyConnector().connect()
         window = UIWindow.setup()
         GeneralAppearance().setup()
-        InitialViewControllerChooser(with: window!).show()
+        window?.rootViewController = AutoLoginViewController()
         return true
     }
     func application(_ app: UIApplication, open url: URL,

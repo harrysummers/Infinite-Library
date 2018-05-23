@@ -31,6 +31,7 @@
 		4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D17E9209A9619006A7B01 /* EnvConstants.swift */; };
 		4A9F2E6120A77A32002329B2 /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */; };
 		4A9F2E6320A77D89002329B2 /* String+Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F2E6220A77D89002329B2 /* String+Spotify.swift */; };
+		4AA36E8920B532110063B5CE /* AutoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA36E8820B532110063B5CE /* AutoLoginView.swift */; };
 		4AA40F57209A85630081F69A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F56209A85630081F69A /* Constants.swift */; };
 		4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */; };
 		4AA4F4A620AE107000C9E735 /* ProgressCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */; };
@@ -105,6 +106,7 @@
 		4A9D17E9209A9619006A7B01 /* EnvConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvConstants.swift; sourceTree = "<group>"; };
 		4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
 		4A9F2E6220A77D89002329B2 /* String+Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Spotify.swift"; sourceTree = "<group>"; };
+		4AA36E8820B532110063B5CE /* AutoLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLoginView.swift; sourceTree = "<group>"; };
 		4AA40F56209A85630081F69A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
 		4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCounter.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */,
 				4AB8F19320AF609300A2C257 /* Clipboard.swift */,
 				4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */,
+				4AA36E8820B532110063B5CE /* AutoLoginView.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				4AC9214720B21E87006F5EB8 /* TutorialScreenView.swift in Sources */,
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
 				4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */,
+				4AA36E8920B532110063B5CE /* AutoLoginView.swift in Sources */,
 				4A347CDD20AA46C3003BEE72 /* WelcomeViewController.swift in Sources */,
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
 				4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */,
