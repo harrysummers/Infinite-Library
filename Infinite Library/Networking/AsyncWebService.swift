@@ -36,12 +36,11 @@ final class AsyncWebService {
                 print("Error: did not receive data")
                 return
             }
-            if statusCode == 200 {
-                onComplete(statusCode, responseData)
-            } else {
+            if statusCode != 200 {
                 print("\(statusCode) ...")
-                onComplete(statusCode, responseData)
             }
+            onComplete(statusCode, responseData)
+
         }.resume()
     }
     func getAccessToken(onComplete:@escaping(_ accessToken: String?, _ error: Error?) -> Void) {
