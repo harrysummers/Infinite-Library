@@ -67,6 +67,7 @@
 		4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */; };
 		4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */; };
 		4AFC2C04209BC4540054811C /* AutoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */; };
+		EE0B6060B5FA3DB7AA18357F /* Pods_InfiniteLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6770C750B78367D8AB18F05 /* Pods_InfiniteLibraryTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,8 +144,9 @@
 		4AFC2BFC209BAE090054811C /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
 		4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloader.swift; sourceTree = "<group>"; };
 		4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDownloader.swift; sourceTree = "<group>"; };
-		4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLoginViewController.swift; sourceTree = "<group>"; };
+		4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoLoginViewController.swift; path = ../LoginFeature/AutoLoginViewController.swift; sourceTree = "<group>"; };
 		B10B001AF740EB0CBCCFCFFE /* Pods-InfiniteLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary.debug.xcconfig"; sourceTree = "<group>"; };
+		B6770C750B78367D8AB18F05 /* Pods_InfiniteLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2338FFB2990EFDFF5E96B1 /* Pods-InfiniteLibraryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibraryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibraryTests/Pods-InfiniteLibraryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0779598191B503FDA28009 /* Pods-InfiniteLibraryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibraryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibraryTests/Pods-InfiniteLibraryTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE0B6060B5FA3DB7AA18357F /* Pods_InfiniteLibraryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				4AB21724209A398F00DB0878 /* LoginViewController.swift */,
-				4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */,
 				4A347CD820AA3C24003BEE72 /* SlideLeftAnimator.swift */,
 				4A347CDA20AA3E0B003BEE72 /* LibraryDownloadViewController.swift */,
 				4A347CDC20AA46C3003BEE72 /* WelcomeViewController.swift */,
@@ -276,6 +278,7 @@
 				4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */,
 				4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */,
 				4AB8F19320AF609300A2C257 /* Clipboard.swift */,
+				4AFC2C03209BC4540054811C /* AutoLoginViewController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */,
+				B6770C750B78367D8AB18F05 /* Pods_InfiniteLibraryTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -523,6 +527,7 @@
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SpotifyLogin/SpotifyLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
+				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -531,6 +536,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpotifyLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

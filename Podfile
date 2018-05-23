@@ -13,6 +13,7 @@ target 'InfiniteLibrary' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'SwiftLint'
+  pod 'Whisper'
   target 'InfiniteLibraryTests' do
     inherit! :search_paths
     # Pods for testing

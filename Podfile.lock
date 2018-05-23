@@ -11,6 +11,7 @@ PODS:
   - SpotifyLogin (0.1.6)
   - SwiftGifOrigin (1.6.1)
   - SwiftLint (0.25.1)
+  - Whisper (6.0.2)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.3)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - SpotifyLogin (~> 0.1)
   - SwiftGifOrigin (~> 1.6.1)
   - SwiftLint
+  - Whisper
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - SpotifyLogin
     - SwiftGifOrigin
     - SwiftLint
+    - Whisper
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -41,7 +44,8 @@ SPEC CHECKSUMS:
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  Whisper: 169760fc4bab0abf24d5529f9276f95c25cf1025
 
-PODFILE CHECKSUM: a9365e3d260d447855b95f315c12507894d1d0ff
+PODFILE CHECKSUM: c98c08a25cc9e39baf08d3d2494c7b5429417c67
 
 COCOAPODS: 1.5.0
