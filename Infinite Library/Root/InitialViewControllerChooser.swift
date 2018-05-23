@@ -25,8 +25,7 @@ class InitialViewControllerChooser {
         }
     }
     fileprivate func setTemporaryViewController() {
-        temporaryViewController = UIViewController()
-        temporaryViewController?.view.backgroundColor = UIColor.CustomColors.spotifyDark
+        temporaryViewController = AutoLoginViewController()
         window?.rootViewController = temporaryViewController
     }
     fileprivate func isLoggedIn(_ onComplete:@escaping (_ isValidated: Bool) -> Void) {
