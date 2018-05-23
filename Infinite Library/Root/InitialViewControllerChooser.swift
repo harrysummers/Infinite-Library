@@ -18,10 +18,9 @@ class InitialViewControllerChooser {
     }
     func show() {
         setTemporaryViewController()
-        weak var weakSelf = self
         isLoggedIn { (isValidated) in
-            weakSelf?.chooseInitialViewController(isValidated)
-            weakSelf?.goToInitialViewController()
+            self.chooseInitialViewController(isValidated)
+            self.goToInitialViewController()
         }
     }
     fileprivate func setTemporaryViewController() {
