@@ -9,6 +9,6 @@
 import Foundation
 
 class Constants {
-    static let appUrl = "harrysummersinfinitelibrary://"
+    static let appUrl = "harrysummersinfinitylibrary://"
     static let baseUrlNewAlbum = "https://open.spotify.com/album/"
 }
