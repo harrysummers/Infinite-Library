@@ -13,6 +13,7 @@ class GifCollectionViewCell: UICollectionViewCell {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = UIColor.CustomColors.spotifyDark
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     override init(frame: CGRect) {

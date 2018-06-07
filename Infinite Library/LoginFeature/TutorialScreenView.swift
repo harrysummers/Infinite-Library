@@ -35,6 +35,7 @@ class TutorialScreenView: UIView {
         var imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = UIColor.CustomColors.spotifyDark
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     override init(frame: CGRect) {
@@ -51,14 +52,7 @@ class TutorialScreenView: UIView {
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5.0).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15.0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -15.0).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-    }
-    fileprivate func setupGifView() {
-        addSubview(gifView)
-        gifView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        gifView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        gifView.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        gifView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     fileprivate func setupNextButton() {
         addSubview(nextButton)
@@ -66,6 +60,13 @@ class TutorialScreenView: UIView {
         nextButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         nextButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    }
+    fileprivate func setupGifView() {
+        addSubview(gifView)
+        gifView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15).isActive = true
+        gifView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        gifView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -15).isActive = true
+        //gifView.widthAnchor.constraint(equalToConstant: 140).isActive = true
     }
     fileprivate func setupViewController() {
         if let view = viewController?.view {

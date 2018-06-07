@@ -102,7 +102,7 @@ class SettingsView: UIView {
         contentView.addSubview(titleLabel)
         titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15).isActive = true
     }
     fileprivate func setupCloseButton() {
@@ -121,7 +121,7 @@ class SettingsView: UIView {
     }
     fileprivate func setupLogoutButton() {
         contentView.addSubview(logoutButton)
-        logoutButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 50).isActive = true
+        logoutButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 15).isActive = true
         logoutButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         logoutButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         logoutButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
