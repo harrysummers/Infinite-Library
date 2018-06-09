@@ -139,8 +139,11 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
                 if let downloader = downloader {
                     weakSelf?.saveAlbum(downloader)
                 } else {
-                    alertViewController.messageColor = .red
-                    alertViewController.message = "Either the url is not valid or the album is already in your library."
+                    DispatchQueue.main.async {
+                        alertViewController.messageColor = .red
+                        alertViewController.message =
+                        "Either the url is not valid or the album is already in your library."
+                    }
                 }
                 DispatchQueue.main.async {
                     weakSelf?.impact.impactOccurred()
