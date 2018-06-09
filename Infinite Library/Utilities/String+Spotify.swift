@@ -24,7 +24,7 @@ extension String {
                     idString.append(letter)
                 }
             }
-            return nil
+            return idString
         }
         return nil
     }
@@ -38,6 +38,6 @@ extension String {
                 externalUrl.append(letter)
             }
         }
-        return nil
+        return externalUrl
     }
 }

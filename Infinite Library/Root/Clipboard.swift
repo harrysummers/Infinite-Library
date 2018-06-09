@@ -20,19 +20,18 @@ class Clipboard {
         self.window = window
     }
     func checkForAlbum() {
-        if checkIsLoggedIn() {
-            checkPasteboard()
-        }
-    }
-    fileprivate func checkPasteboard() {
         getPasteAlbumFromPasteboard()
-        if !isInCoreData() {
-            downloadAlbum()
+        guard let pasteAlbum = pasteAlbum else {
+            print("Did not check for album")
+            return
+        }
+        AlbumRetriever(with: pasteAlbum).retrieve { (album, downloader) in
+            if let album = album, let downloader = downloader {
+                self.showActionSheet(with: album, and: downloader)
+            }
         }
     }
-    fileprivate func checkIsLoggedIn() -> Bool {
-        return UserDefaultsHelper.shared.getLoggedIn()
-    }
+
     fileprivate func getPasteAlbumFromPasteboard() {
         if let clipboard = UIPasteboard.general.string,
             let idString = clipboard.getAlbumId(),
@@ -40,18 +39,7 @@ class Clipboard {
             pasteAlbum = PasteAlbum(albumId: idString, externalUrl: externalUrl)
         }
     }
-    fileprivate func isInCoreData() -> Bool {
-        let context = CoreDataManager.shared.persistentContainer.viewContext
-        return Album.isAlreadyInCoreData(with: pasteAlbum?.externalUrl ?? "", with: context)
-    }
-    fileprivate func downloadAlbum() {
-        let albumDownloader = AlbumDownloader()
-        albumDownloader.download(pasteAlbum?.albumId ?? "") { (status, album) in
-            if status {
-                self.showActionSheet(with: album, and: albumDownloader)
-            }
-        }
-    }
+
     fileprivate func showActionSheet(with album: JSONAlbum, and albumDownloader: AlbumDownloader) {
         DispatchQueue.main.async {
             let addAlbumViewController = AddAlbumViewController()

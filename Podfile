@@ -14,6 +14,7 @@ target 'InfiniteLibrary' do
   pod 'Crashlytics'
   pod 'SwiftLint'
   pod 'Whisper'
+  pod 'NYAlertViewController'
   target 'InfiniteLibraryTests' do
     inherit! :search_paths
     # Pods for testing
