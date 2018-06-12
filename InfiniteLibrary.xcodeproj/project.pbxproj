@@ -30,6 +30,7 @@
 		4A556A71209CF40B00D6EA14 /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */; };
 		4A6287FA20B079C800544D8B /* ArtistArtDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6287F920B079C800544D8B /* ArtistArtDownloader.swift */; };
 		4A664E3120B5E861004B899F /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A664E3020B5E861004B899F /* UserDefaultsHelper.swift */; };
+		4A7E0BA720CFDE8C00FA0465 /* GroupsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7E0BA620CFDE8C00FA0465 /* GroupsCollectionViewController.swift */; };
 		4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D17E9209A9619006A7B01 /* EnvConstants.swift */; };
 		4A9F2E6120A77A32002329B2 /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */; };
 		4A9F2E6320A77D89002329B2 /* String+Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F2E6220A77D89002329B2 /* String+Spotify.swift */; };
@@ -107,6 +108,7 @@
 		4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		4A6287F920B079C800544D8B /* ArtistArtDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistArtDownloader.swift; sourceTree = "<group>"; };
 		4A664E3020B5E861004B899F /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		4A7E0BA620CFDE8C00FA0465 /* GroupsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionViewController.swift; sourceTree = "<group>"; };
 		4A9D17E9209A9619006A7B01 /* EnvConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvConstants.swift; sourceTree = "<group>"; };
 		4A9F2E6020A77A32002329B2 /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
 		4A9F2E6220A77D89002329B2 /* String+Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Spotify.swift"; sourceTree = "<group>"; };
@@ -209,6 +211,14 @@
 				4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */,
 			);
 			path = SettingsFeature;
+			sourceTree = "<group>";
+		};
+		4A7E0BA520CFDE6F00FA0465 /* GroupFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4A7E0BA620CFDE8C00FA0465 /* GroupsCollectionViewController.swift */,
+			);
+			path = GroupFeature;
 			sourceTree = "<group>";
 		};
 		4A9D17E8209A960B006A7B01 /* Utilities */ = {
@@ -315,6 +325,7 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
+				4A7E0BA520CFDE6F00FA0465 /* GroupFeature */,
 				4A3DD64E20AC96A9006A800F /* SettingsFeature */,
 				4A0259A620AB62ED005F75AB /* Media */,
 				4A9F2E5F20A77A0F002329B2 /* AddAlbumFeature */,
@@ -618,6 +629,7 @@
 				4AB8F19020AF5B4C00A2C257 /* InitialViewControllerChooser.swift in Sources */,
 				4A0C852020B343E9002D203B /* LibraryDownloaderView.swift in Sources */,
 				4A30E267209E782800680B4C /* UIColor+Colors.swift in Sources */,
+				4A7E0BA720CFDE8C00FA0465 /* GroupsCollectionViewController.swift in Sources */,
 				4AB8F19220AF5EB500A2C257 /* SpotifyConnector.swift in Sources */,
 				4AC9214320B21DDB006F5EB8 /* TutorialScreenViewController.swift in Sources */,
 				4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */,

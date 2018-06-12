@@ -5,6 +5,7 @@
         <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="albums" inverseEntity="Artist" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="albums" inverseEntity="Group" syncable="YES"/>
     </entity>
     <entity name="Artist" representedClassName="Artist" syncable="YES" codeGenerationType="class">
         <attribute name="external_url" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,8 +14,13 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="albums" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="artist" inverseEntity="Album" syncable="YES"/>
     </entity>
+    <entity name="Group" representedClassName="Group" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="albums" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="group" inverseEntity="Album" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Album" positionX="198" positionY="45" width="128" height="105"/>
+        <element name="Album" positionX="198" positionY="45" width="128" height="120"/>
         <element name="Artist" positionX="0" positionY="45" width="128" height="120"/>
+        <element name="Group" positionX="99" positionY="90" width="128" height="75"/>
     </elements>
 </model>
