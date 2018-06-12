@@ -14,6 +14,7 @@
 		4A0C852020B343E9002D203B /* LibraryDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C851F20B343E9002D203B /* LibraryDownloaderView.swift */; };
 		4A0C852220B346BB002D203B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C852120B346BB002D203B /* WelcomeView.swift */; };
 		4A0C852420B347CE002D203B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C852320B347CE002D203B /* LoginView.swift */; };
+		4A2135E720D00ECD005D6B92 /* GradientGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2135E620D00ECD005D6B92 /* GradientGenerator.swift */; };
 		4A255B7220B292480008C586 /* UIViewController+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7120B292480008C586 /* UIViewController+Presenter.swift */; };
 		4A255B7420B292690008C586 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7320B292690008C586 /* ViewControllerType.swift */; };
 		4A255B7620B32AD50008C586 /* SettingsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */; };
@@ -67,6 +68,8 @@
 		4AC9214520B21DF4006F5EB8 /* TutorialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9214420B21DF4006F5EB8 /* TutorialPresenter.swift */; };
 		4AC9214720B21E87006F5EB8 /* TutorialScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9214620B21E87006F5EB8 /* TutorialScreenView.swift */; };
 		4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */; };
+		4AFAD8E320CFE9A300088FB4 /* GroupCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAD8E220CFE9A300088FB4 /* GroupCollectionCell.swift */; };
+		4AFAD8E720CFEBE500088FB4 /* GroupsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAD8E620CFEBE500088FB4 /* GroupsCollectionView.swift */; };
 		4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFC209BAE090054811C /* SpotifyModels.swift */; };
 		4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */; };
 		4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */; };
@@ -92,6 +95,7 @@
 		4A0C851F20B343E9002D203B /* LibraryDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloaderView.swift; sourceTree = "<group>"; };
 		4A0C852120B346BB002D203B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		4A0C852320B347CE002D203B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4A2135E620D00ECD005D6B92 /* GradientGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientGenerator.swift; sourceTree = "<group>"; };
 		4A255B7120B292480008C586 /* UIViewController+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presenter.swift"; sourceTree = "<group>"; };
 		4A255B7320B292690008C586 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 		4AC9214420B21DF4006F5EB8 /* TutorialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPresenter.swift; sourceTree = "<group>"; };
 		4AC9214620B21E87006F5EB8 /* TutorialScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenView.swift; sourceTree = "<group>"; };
 		4AD0D37020A0F9E600DD3723 /* Album+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+Utilities.swift"; sourceTree = "<group>"; };
+		4AFAD8E220CFE9A300088FB4 /* GroupCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionCell.swift; sourceTree = "<group>"; };
+		4AFAD8E620CFEBE500088FB4 /* GroupsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionView.swift; sourceTree = "<group>"; };
 		4AFC2BFC209BAE090054811C /* SpotifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyModels.swift; sourceTree = "<group>"; };
 		4AFC2BFF209BAF5E0054811C /* LibraryDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloader.swift; sourceTree = "<group>"; };
 		4AFC2C01209BB4CE0054811C /* AlbumDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDownloader.swift; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				4A7E0BA620CFDE8C00FA0465 /* GroupsCollectionViewController.swift */,
+				4AFAD8E220CFE9A300088FB4 /* GroupCollectionCell.swift */,
+				4AFAD8E620CFEBE500088FB4 /* GroupsCollectionView.swift */,
 			);
 			path = GroupFeature;
 			sourceTree = "<group>";
@@ -234,6 +242,7 @@
 				4A255B7320B292690008C586 /* ViewControllerType.swift */,
 				4A664E3020B5E861004B899F /* UserDefaultsHelper.swift */,
 				4A47876420CC309900B162CE /* AlbumRetriever.swift */,
+				4A2135E620D00ECD005D6B92 /* GradientGenerator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -613,8 +622,10 @@
 				4AB21725209A398F00DB0878 /* LoginViewController.swift in Sources */,
 				4A9D17EA209A9619006A7B01 /* EnvConstants.swift in Sources */,
 				4AFC2BFD209BAE090054811C /* SpotifyModels.swift in Sources */,
+				4A2135E720D00ECD005D6B92 /* GradientGenerator.swift in Sources */,
 				4AB2174D209A404900DB0878 /* AsyncWebService.swift in Sources */,
 				4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */,
+				4AFAD8E720CFEBE500088FB4 /* GroupsCollectionView.swift in Sources */,
 				4AC9214120B214CE006F5EB8 /* MemoryMonitor.swift in Sources */,
 				4AC9213D20B20479006F5EB8 /* AlbumsTableViewController+Search.swift in Sources */,
 				4A3DD65020AC96BA006A800F /* SettingsViewController.swift in Sources */,
@@ -637,6 +648,7 @@
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
 				4A0C852420B347CE002D203B /* LoginView.swift in Sources */,
+				4AFAD8E320CFE9A300088FB4 /* GroupCollectionCell.swift in Sources */,
 				4AB8F18820AF48C300A2C257 /* SettingsView.swift in Sources */,
 				4A255B7420B292690008C586 /* ViewControllerType.swift in Sources */,
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
