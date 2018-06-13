@@ -133,24 +133,74 @@ class GroupsCollectionViewController: UIViewController,
         let location = gestureReconizer.location(in: groupsCollectionView.collectionView)
         let indexPath = groupsCollectionView.collectionView.indexPathForItem(at: location)
         if let index = indexPath {
-            showActionSheet(for: index.row)
-            // do stuff with your cell, for example print the indexPath
+            showActionSheet(for: index)
             print(index.row)
         } else {
             print("Could not find index path")
         }
     }
-    fileprivate func showActionSheet(for index: Int) {
+    fileprivate func showActionSheet(for index: IndexPath) {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        let editNameButton = UIAlertAction(title: "Change Name", style: .default) { (action) in
+        weak var weakSelf = self
+        let editNameButton = UIAlertAction(title: "Change Name", style: .default) { (_) in
+            weakSelf?.edit(at: index)
         }
-        let deleteButton = UIAlertAction(title: "Delete Group", style: .destructive) { (action) in
+        let deleteButton = UIAlertAction(title: "Delete Group", style: .destructive) { (_) in
+            weakSelf?.delete(at: index)
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(editNameButton)
         alertController.addAction(deleteButton)
         alertController.addAction(cancelButton)
         present(alertController, animated: true, completion: nil)
+    }
+    fileprivate func delete(at index: IndexPath) {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        weak var weakSelf = self
+        context.perform {
+            if let group = weakSelf?.fetchedResultsController.object(at: index) {
+                context.delete(group)
+                CoreDataManager.shared.saveMainContext()
+            }
+        }
+    }
+    fileprivate func changeName(at index: IndexPath, with newName: String) {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        weak var weakSelf = self
+        context.perform {
+            if let group = weakSelf?.fetchedResultsController.object(at: index) {
+                group.name = newName
+                CoreDataManager.shared.saveMainContext()
+            }
+        }
+    }
+    fileprivate func edit(at index: IndexPath) {
+        let group = fetchedResultsController.object(at: index)
+        let alertViewController = NYAlertViewController()
+        alertViewController.title = "Change Name"
+        alertViewController.alertViewBackgroundColor = UIColor.CustomColors.spotifyLight
+        alertViewController.messageColor = UIColor.CustomColors.offWhite
+        alertViewController.titleColor = UIColor.CustomColors.offWhite
+        alertViewController.swipeDismissalGestureEnabled = true
+        alertViewController.backgroundTapDismissalGestureEnabled = true
+        alertViewController.addTextField { (textField) in
+            textField?.placeholder = "Group Name"
+            textField?.keyboardAppearance = .dark
+            textField?.text = group.name
+        }
+        let cancelAction = NYAlertAction(title: "Cancel", style: .cancel) { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        weak var weakSelf = self
+        let addAction = NYAlertAction(title: "Save", style: .default) { (_) in
+            let textField = alertViewController.textFields[0] as? UITextField
+            let text = textField?.text ?? ""
+            weakSelf?.changeName(at: index, with: text)
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertViewController.addAction(cancelAction)
+        alertViewController.addAction(addAction)
+        present(alertViewController, animated: true, completion: nil)
     }
     fileprivate func setupNavigationItems() {
         navigationItem.rightBarButtonItem =
