@@ -31,7 +31,8 @@ class GroupsCollectionViewController: UIViewController,
         ]
         let frc = NSFetchedResultsController(fetchRequest: request,
                                              managedObjectContext: context,
-                                             sectionNameKeyPath: "name", cacheName: nil)
+                                             sectionNameKeyPath: nil, cacheName: nil)
+        
         frc.delegate = self
         do {
             try frc.performFetch()
@@ -41,7 +42,7 @@ class GroupsCollectionViewController: UIViewController,
         return frc
     }()
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
+        groupsCollectionView.collectionView.performBatchUpdates(nil, completion: nil)
     }
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange sectionInfo: NSFetchedResultsSectionInfo,
@@ -49,9 +50,9 @@ class GroupsCollectionViewController: UIViewController,
                     for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            groupsCollectionView.collectionView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+            groupsCollectionView.collectionView.insertSections(IndexSet(integer: sectionIndex))
         case .delete:
-            groupsCollectionView.collectionView.deleteSections(IndexSet(integer: sectionIndex), with: .left)
+            groupsCollectionView.collectionView.deleteSections(IndexSet(integer: sectionIndex))
         case .move:
             break
         case .update:
@@ -64,35 +65,48 @@ class GroupsCollectionViewController: UIViewController,
                     newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            groupsCollectionView.collectionView.insertItems(at: [newIndexPath!])
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .left)
+            groupsCollectionView.collectionView.deleteItems(at: [indexPath!])
         case .update:
-            tableView.reloadRows(at: [indexPath!], with: .fade)
+            groupsCollectionView.collectionView.reloadItems(at: [indexPath!])
         case .move:
-            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+            groupsCollectionView.collectionView.moveItem(at: indexPath!, to: newIndexPath!)
         }
     }
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return getGroupCount(for: section)
+    }
+    func getGroupCount(for section: Int) -> Int {
+        if let sections = fetchedResultsController.sections, sections.count != 0 {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
+    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if let count = fetchedResultsController.sections?.count {
+            return count
+        } else {
+            return 1
+        }
     }
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "groupCell",
             for: indexPath) as? GroupCollectionCell else { return GroupCollectionCell() }
-        cell.nameLabel.text = titles[indexPath.row]
-        let url = URL(string: images[indexPath.row])!
-        cell.artView.af_setImage(withURL: url)
+        let group = fetchedResultsController.object(at: indexPath)
+        cell.nameLabel.text = group.name
+        //let url = URL(string: images[indexPath.row])!
+        //cell.artView.af_setImage(withURL: url)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         groupsCollectionView.collectionView.deselectItem(at: indexPath, animated: true)
+        let group = fetchedResultsController.object(at: indexPath)
         let viewController = GroupAlbumsTableViewController()
-        viewController.groupName = titles[indexPath.row]
+        viewController.groupName = group.name ?? ""
         navigationController?.pushViewController(viewController, animated: true)
     }
     override func viewDidLoad() {
@@ -129,10 +143,8 @@ class GroupsCollectionViewController: UIViewController,
     fileprivate func showActionSheet(for index: Int) {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
         let editNameButton = UIAlertAction(title: "Change Name", style: .default) { (action) in
-            
         }
         let deleteButton = UIAlertAction(title: "Delete Group", style: .destructive) { (action) in
-            
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(editNameButton)
@@ -167,9 +179,16 @@ class GroupsCollectionViewController: UIViewController,
         let cancelAction = NYAlertAction(title: "Cancel", style: .cancel) { (_) in
             self.dismiss(animated: true, completion: nil)
         }
-        //weak var weakSelf = self
         let addAction = NYAlertAction(title: "Add", style: .default) { (_) in
-            print(123)
+            let textField = alertViewController.textFields[0] as? UITextField
+            let text = textField?.text ?? ""
+            let context = CoreDataManager.shared.persistentContainer.viewContext
+            let group = Group(context: context)
+            group.name = text
+            context.perform {
+                CoreDataManager.shared.saveMainContext()
+            }
+            self.dismiss(animated: true, completion: nil)
         }
         alertViewController.addAction(cancelAction)
         alertViewController.addAction(addAction)
