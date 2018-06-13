@@ -32,7 +32,6 @@ class GroupsCollectionViewController: UIViewController,
         let frc = NSFetchedResultsController(fetchRequest: request,
                                              managedObjectContext: context,
                                              sectionNameKeyPath: nil, cacheName: nil)
-        
         frc.delegate = self
         do {
             try frc.performFetch()
@@ -98,8 +97,8 @@ class GroupsCollectionViewController: UIViewController,
             for: indexPath) as? GroupCollectionCell else { return GroupCollectionCell() }
         let group = fetchedResultsController.object(at: indexPath)
         cell.nameLabel.text = group.name
-        //let url = URL(string: images[indexPath.row])!
-        //cell.artView.af_setImage(withURL: url)
+        guard let url = AlbumArtChooser(with: group).getAlbumArtUrl() else { return cell }
+        cell.artView.af_setImage(withURL: url)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

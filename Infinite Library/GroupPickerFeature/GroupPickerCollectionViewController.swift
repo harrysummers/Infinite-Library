@@ -101,8 +101,8 @@ class GroupPickerCollectionViewController: UIViewController,
             for: indexPath) as? GroupPickerCollectionCell else { return GroupPickerCollectionCell() }
         let group = fetchedResultsController.object(at: indexPath)
         cell.nameLabel.text = group.name
-        //let url = URL(string: images[indexPath.row])!
-        //cell.artView.af_setImage(withURL: url)
+        guard let url = AlbumArtChooser(with: group).getAlbumArtUrl() else { return cell }
+        cell.artView.af_setImage(withURL: url)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
