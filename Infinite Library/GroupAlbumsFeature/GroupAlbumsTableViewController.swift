@@ -21,6 +21,7 @@ class GroupAlbumsTableViewController: UITableViewController, NSFetchedResultsCon
         request.sortDescriptors = [
             NSSortDescriptor(key: "artist.name", ascending: true)
         ]
+        request.predicate = NSPredicate(format: "group.name = %@", groupName)
         let frc = NSFetchedResultsController(fetchRequest: request,
                                              managedObjectContext: context,
                                              sectionNameKeyPath: "artist.name", cacheName: nil)

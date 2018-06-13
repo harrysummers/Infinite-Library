@@ -196,8 +196,15 @@ class GroupsCollectionViewController: UIViewController,
         let addAction = NYAlertAction(title: "Save", style: .default) { (_) in
             let textField = alertViewController.textFields[0] as? UITextField
             let text = textField?.text ?? ""
-            weakSelf?.changeName(at: index, with: text)
-            self.dismiss(animated: true, completion: nil)
+            if !Group.nameAlreadyExists(text) {
+                weakSelf?.changeName(at: index, with: text)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                DispatchQueue.main.async {
+                    alertViewController.messageColor = .red
+                    alertViewController.message = "Group name already exists."
+                }
+            }
         }
         alertViewController.addAction(cancelAction)
         alertViewController.addAction(addAction)
@@ -233,18 +240,27 @@ class GroupsCollectionViewController: UIViewController,
         let addAction = NYAlertAction(title: "Add", style: .default) { (_) in
             let textField = alertViewController.textFields[0] as? UITextField
             let text = textField?.text ?? ""
-            let context = CoreDataManager.shared.persistentContainer.viewContext
-            let group = Group(context: context)
-            group.name = text
-            context.perform {
-                CoreDataManager.shared.saveMainContext()
+            if !Group.nameAlreadyExists(text) {
+                let context = CoreDataManager.shared.persistentContainer.viewContext
+                let group = Group(context: context)
+                group.name = text
+                context.perform {
+                    CoreDataManager.shared.saveMainContext()
+                }
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                DispatchQueue.main.async {
+                    alertViewController.messageColor = .red
+                    alertViewController.message = "Group name already exists."
+                }
             }
-            self.dismiss(animated: true, completion: nil)
+
         }
         alertViewController.addAction(cancelAction)
         alertViewController.addAction(addAction)
         present(alertViewController, animated: true, completion: nil)
     }
+
     func setupGridview() {
         guard let flow = groupsCollectionView.collectionView.collectionViewLayout
              as? UICollectionViewFlowLayout else { return }
