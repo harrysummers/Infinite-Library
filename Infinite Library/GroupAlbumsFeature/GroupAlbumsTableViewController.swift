@@ -12,7 +12,7 @@ import NYAlertViewController
 
 class GroupAlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     private let cellId = "albumId"
-    var groupName = "Group Name"
+    var group: Group?
     private let searchController = UISearchController(searchResultsController: nil)
     let impact = UIImpactFeedbackGenerator()
     lazy var fetchedResultsController: NSFetchedResultsController<Album> = {
@@ -21,7 +21,9 @@ class GroupAlbumsTableViewController: UITableViewController, NSFetchedResultsCon
         request.sortDescriptors = [
             NSSortDescriptor(key: "artist.name", ascending: true)
         ]
-        request.predicate = NSPredicate(format: "group.name = %@", groupName)
+        if let name = group?.name {
+            request.predicate = NSPredicate(format: "group.name = %@", name)
+        }
         let frc = NSFetchedResultsController(fetchRequest: request,
                                              managedObjectContext: context,
                                              sectionNameKeyPath: "artist.name", cacheName: nil)
@@ -102,7 +104,7 @@ class GroupAlbumsTableViewController: UITableViewController, NSFetchedResultsCon
         view.backgroundColor = UIColor.CustomColors.spotifyDark
     }
     fileprivate func setTitle() {
-        title = groupName
+        title = group?.name ?? ""
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         if let count = fetchedResultsController.sections?.count {
@@ -157,8 +159,12 @@ class GroupAlbumsTableViewController: UITableViewController, NSFetchedResultsCon
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let context = CoreDataManager.shared.persistentContainer.viewContext
-            context.delete(self.fetchedResultsController.object(at: indexPath))
-            CoreDataManager.shared.saveMainContext()
+            weak var weakSelf = self
+            context.perform {
+                if let album = weakSelf?.fetchedResultsController.object(at: indexPath) {
+                    weakSelf?.group?.removeFromAlbums(album)
+                }
+            }
         }
     }
 }

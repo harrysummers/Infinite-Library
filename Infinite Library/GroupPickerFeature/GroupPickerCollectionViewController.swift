@@ -1,28 +1,32 @@
 //
-//  GroupsCollectionViewController.swift
+//  GroupPickerCollectionViewController.swift
 //  InfiniteLibrary
 //
-//  Created by Harry Summers on 6/12/18.
+//  Created by Harry Summers on 6/13/18.
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
+
+import UIKit
 
 import UIKit
 import CoreData
 import AlamofireImage
 import NYAlertViewController
 
-class GroupsCollectionViewController: UIViewController,
-        UICollectionViewDataSource, UICollectionViewDelegate,
-        UICollectionViewDelegateFlowLayout,
-        UIGestureRecognizerDelegate,
-        NSFetchedResultsControllerDelegate {
-    let groupsCollectionView: GroupsCollectionView = {
-        let view = GroupsCollectionView()
+class GroupPickerCollectionViewController: UIViewController,
+    UICollectionViewDataSource, UICollectionViewDelegate,
+    UICollectionViewDelegateFlowLayout,
+    UIGestureRecognizerDelegate,
+    NSFetchedResultsControllerDelegate {
+    let groupsCollectionView: GroupPickerCollectionView = {
+        let view = GroupPickerCollectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     let estimateWidth = 160.0
     let cellMarginSize = 24.0
+    weak var delegate: GroupPickerDelegate?
+    var albumTarget: Album?
     lazy var fetchedResultsController: NSFetchedResultsController<Group> = {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let request: NSFetchRequest<Group> = Group.fetchRequest()
@@ -32,7 +36,6 @@ class GroupsCollectionViewController: UIViewController,
         let frc = NSFetchedResultsController(fetchRequest: request,
                                              managedObjectContext: context,
                                              sectionNameKeyPath: nil, cacheName: nil)
-        
         frc.delegate = self
         do {
             try frc.performFetch()
@@ -94,8 +97,8 @@ class GroupsCollectionViewController: UIViewController,
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "groupCell",
-            for: indexPath) as? GroupCollectionCell else { return GroupCollectionCell() }
+            withReuseIdentifier: "groupPickerCell",
+            for: indexPath) as? GroupPickerCollectionCell else { return GroupPickerCollectionCell() }
         let group = fetchedResultsController.object(at: indexPath)
         cell.nameLabel.text = group.name
         //let url = URL(string: images[indexPath.row])!
@@ -105,9 +108,9 @@ class GroupsCollectionViewController: UIViewController,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         groupsCollectionView.collectionView.deselectItem(at: indexPath, animated: true)
         let group = fetchedResultsController.object(at: indexPath)
-        let viewController = GroupAlbumsTableViewController()
-        viewController.group = group
-        navigationController?.pushViewController(viewController, animated: true)
+        guard let album = albumTarget else { return }
+        delegate?.didSelectGroup(group, album)
+        dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -212,14 +215,12 @@ class GroupsCollectionViewController: UIViewController,
     }
     fileprivate func setupNavigationItems() {
         navigationItem.rightBarButtonItem =
-            UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
-        navigationItem.leftBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPressed))
+        navigationItem.leftBarButtonItem =
+            UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
     }
-    @objc func settingsPressed() {
-        let viewController = SettingsViewController()
-        viewController.delegate = self
-        present(viewController, animated: true, completion: nil)
+    @objc func cancelPressed() {
+        dismiss(animated: true, completion: nil)
     }
     @objc func addPressed() {
         let alertViewController = NYAlertViewController()
@@ -254,16 +255,14 @@ class GroupsCollectionViewController: UIViewController,
                     alertViewController.message = "Group name already exists."
                 }
             }
-
         }
         alertViewController.addAction(cancelAction)
         alertViewController.addAction(addAction)
         present(alertViewController, animated: true, completion: nil)
     }
-
     func setupGridview() {
         guard let flow = groupsCollectionView.collectionView.collectionViewLayout
-             as? UICollectionViewFlowLayout else { return }
+            as? UICollectionViewFlowLayout else { return }
         flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
         flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
     }

@@ -9,8 +9,11 @@
 import UIKit
 import CoreData
 import NYAlertViewController
+import Whisper
 
-class AlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class AlbumsTableViewController: UITableViewController,
+    NSFetchedResultsControllerDelegate,
+    GroupPickerDelegate {
     private let cellId = "albumId"
     private let searchController = UISearchController(searchResultsController: nil)
     let impact = UIImpactFeedbackGenerator()
@@ -224,13 +227,37 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         }
     }
     override func tableView(_ tableView: UITableView,
-                            leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+                            leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+                            -> UISwipeActionsConfiguration? {
+        weak var weakSelf = self
+        let album = fetchedResultsController.object(at: indexPath)
         let addAction = UIContextualAction(style: .normal, title: "Add to Group") { (_, _, completionHandler) in
+            let viewController = GroupPickerCollectionViewController()
+            viewController.delegate = self
+            viewController.albumTarget = album
+            let navController = UINavigationController(rootViewController: viewController)
+            weakSelf?.present(navController, animated: true, completion: nil)
             completionHandler(true)
-            print(123)
         }
         addAction.backgroundColor = UIColor.CustomColors.spotifyGreen
         let swipeAction = UISwipeActionsConfiguration(actions: [addAction])
         return swipeAction
+    }
+    func didSelectGroup(_ group: Group, _ album: Album) {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        context.perform {
+            group.addToAlbums(album)
+            CoreDataManager.shared.saveMainContext()
+            DispatchQueue.main.async {
+                let impact = UIImpactFeedbackGenerator()
+                impact.impactOccurred()
+                let murmur = Murmur(title: "Successfully Added",
+                                    backgroundColor: UIColor.CustomColors.spotifyGreen,
+                                    titleColor: .white,
+                                    font: UIFont.systemFont(ofSize: 14),
+                                    action: nil)
+                Whisper.show(whistle: murmur)
+            }
+        }
     }
 }

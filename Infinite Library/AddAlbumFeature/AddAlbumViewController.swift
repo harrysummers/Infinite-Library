@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import Whisper
 
 class AddAlbumViewController: UIViewController {
 
@@ -72,7 +73,15 @@ class AddAlbumViewController: UIViewController {
         weak var weakSelf = self
         albumDownloader.saveToDatabase {
             albumDownloader.getArt()
-            weakSelf?.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.async {
+                weakSelf?.dismiss(animated: true, completion: nil)
+                let murmur = Murmur(title: "Successfully Added",
+                                    backgroundColor: UIColor.CustomColors.spotifyGreen,
+                                    titleColor: .white,
+                                    font: UIFont.systemFont(ofSize: 14),
+                                    action: nil)
+                Whisper.show(whistle: murmur)
+            }
         }
     }
 }

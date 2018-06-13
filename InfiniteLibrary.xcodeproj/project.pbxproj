@@ -67,6 +67,10 @@
 		4AB8F19020AF5B4C00A2C257 /* InitialViewControllerChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */; };
 		4AB8F19220AF5EB500A2C257 /* SpotifyConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */; };
 		4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8F19320AF609300A2C257 /* Clipboard.swift */; };
+		4ABC5F0C20D1A2EA009846A9 /* GroupPickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC5F0B20D1A2EA009846A9 /* GroupPickerCollectionViewController.swift */; };
+		4ABC5F0E20D1A338009846A9 /* GroupPickerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC5F0D20D1A338009846A9 /* GroupPickerCollectionCell.swift */; };
+		4ABC5F1020D1A35D009846A9 /* GroupPickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC5F0F20D1A35D009846A9 /* GroupPickerCollectionView.swift */; };
+		4ABC5F1220D1A81E009846A9 /* GroupPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC5F1120D1A81E009846A9 /* GroupPickerDelegate.swift */; };
 		4AC9213D20B20479006F5EB8 /* AlbumsTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9213C20B20479006F5EB8 /* AlbumsTableViewController+Search.swift */; };
 		4AC9213F20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9213E20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift */; };
 		4AC9214120B214CE006F5EB8 /* MemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9214020B214CE006F5EB8 /* MemoryMonitor.swift */; };
@@ -158,6 +162,10 @@
 		4AB8F18F20AF5B4C00A2C257 /* InitialViewControllerChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewControllerChooser.swift; sourceTree = "<group>"; };
 		4AB8F19120AF5EB500A2C257 /* SpotifyConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConnector.swift; sourceTree = "<group>"; };
 		4AB8F19320AF609300A2C257 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
+		4ABC5F0B20D1A2EA009846A9 /* GroupPickerCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPickerCollectionViewController.swift; sourceTree = "<group>"; };
+		4ABC5F0D20D1A338009846A9 /* GroupPickerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPickerCollectionCell.swift; sourceTree = "<group>"; };
+		4ABC5F0F20D1A35D009846A9 /* GroupPickerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPickerCollectionView.swift; sourceTree = "<group>"; };
+		4ABC5F1120D1A81E009846A9 /* GroupPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPickerDelegate.swift; sourceTree = "<group>"; };
 		4AC9213C20B20479006F5EB8 /* AlbumsTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumsTableViewController+Search.swift"; sourceTree = "<group>"; };
 		4AC9213E20B2049D006F5EB8 /* ArtistsTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistsTableViewController+Search.swift"; sourceTree = "<group>"; };
 		4AC9214020B214CE006F5EB8 /* MemoryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryMonitor.swift; sourceTree = "<group>"; };
@@ -358,6 +366,7 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
+				4ABC5F0A20D1A2D0009846A9 /* GroupPickerFeature */,
 				4A48665720D12A840015F5AE /* GroupAlbumsFeature */,
 				4A7E0BA520CFDE6F00FA0465 /* GroupFeature */,
 				4A3DD64E20AC96A9006A800F /* SettingsFeature */,
@@ -405,6 +414,17 @@
 				4AB21751209A424B00DB0878 /* Endpoints.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		4ABC5F0A20D1A2D0009846A9 /* GroupPickerFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4ABC5F0B20D1A2EA009846A9 /* GroupPickerCollectionViewController.swift */,
+				4ABC5F0D20D1A338009846A9 /* GroupPickerCollectionCell.swift */,
+				4ABC5F0F20D1A35D009846A9 /* GroupPickerCollectionView.swift */,
+				4ABC5F1120D1A81E009846A9 /* GroupPickerDelegate.swift */,
+			);
+			path = GroupPickerFeature;
 			sourceTree = "<group>";
 		};
 		4AFC2BFB209BADFB0054811C /* Objects */ = {
@@ -658,6 +678,7 @@
 				4A347CDB20AA3E0B003BEE72 /* LibraryDownloadViewController.swift in Sources */,
 				4A9F2E6320A77D89002329B2 /* String+Spotify.swift in Sources */,
 				4AFC2C04209BC4540054811C /* AutoLoginViewController.swift in Sources */,
+				4ABC5F0E20D1A338009846A9 /* GroupPickerCollectionCell.swift in Sources */,
 				4A556A71209CF40B00D6EA14 /* AlbumsTableViewCell.swift in Sources */,
 				4AB21750209A409100DB0878 /* SpotifyNetworking.swift in Sources */,
 				4A9F2E6120A77A32002329B2 /* AddAlbumViewController.swift in Sources */,
@@ -674,6 +695,7 @@
 				4A48665920D12AA20015F5AE /* GroupAlbumsTableViewController.swift in Sources */,
 				4A347CE320AB45C1003BEE72 /* PopAnimator.swift in Sources */,
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
+				4ABC5F1020D1A35D009846A9 /* GroupPickerCollectionView.swift in Sources */,
 				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
 				4A0C852420B347CE002D203B /* LoginView.swift in Sources */,
 				4AFAD8E320CFE9A300088FB4 /* GroupCollectionCell.swift in Sources */,
@@ -686,8 +708,10 @@
 				4A48665B20D12AC30015F5AE /* GroupAlbumsTableViewController+SettingsDelegate.swift in Sources */,
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
 				4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */,
+				4ABC5F1220D1A81E009846A9 /* GroupPickerDelegate.swift in Sources */,
 				4AA36E8920B532110063B5CE /* AutoLoginView.swift in Sources */,
 				4A347CDD20AA46C3003BEE72 /* WelcomeViewController.swift in Sources */,
+				4ABC5F0C20D1A2EA009846A9 /* GroupPickerCollectionViewController.swift in Sources */,
 				4AFC2C02209BB4CE0054811C /* AlbumDownloader.swift in Sources */,
 				4A47876520CC309900B162CE /* AlbumRetriever.swift in Sources */,
 				4AB8F19420AF609300A2C257 /* Clipboard.swift in Sources */,
