@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import CoreData
 import AlamofireImage
 import NYAlertViewController
 
 class GroupsCollectionViewController: UIViewController,
         UICollectionViewDataSource, UICollectionViewDelegate,
         UICollectionViewDelegateFlowLayout,
-        UIGestureRecognizerDelegate {
+        UIGestureRecognizerDelegate,
+        NSFetchedResultsControllerDelegate {
     let groupsCollectionView: GroupsCollectionView = {
         let view = GroupsCollectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -21,16 +23,59 @@ class GroupsCollectionViewController: UIViewController,
     }()
     let estimateWidth = 160.0
     let cellMarginSize = 24.0
-    let images = [
-        "https://google.com",
-        "https://i.scdn.co/image/e67c37be368b0b47319f5c7a57ab5f4e3c262f3c",
-        "https://i.scdn.co/image/7de30f477ba56e0dd40128fd2f8f91bd4bdd8c46"
-    ]
-    let titles = [
-        "GOAT",
-        "Favorites",
-        "Best of Kanye this is a really long name lol"
-    ]
+    lazy var fetchedResultsController: NSFetchedResultsController<Group> = {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let request: NSFetchRequest<Group> = Group.fetchRequest()
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "name", ascending: true)
+        ]
+        let frc = NSFetchedResultsController(fetchRequest: request,
+                                             managedObjectContext: context,
+                                             sectionNameKeyPath: "name", cacheName: nil)
+        frc.delegate = self
+        do {
+            try frc.performFetch()
+        } catch let err {
+            print(err)
+        }
+        return frc
+    }()
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            groupsCollectionView.collectionView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            groupsCollectionView.collectionView.deleteSections(IndexSet(integer: sectionIndex), with: .left)
+        case .move:
+            break
+        case .update:
+            break
+        }
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any, at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .left)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        }
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
@@ -44,7 +89,12 @@ class GroupsCollectionViewController: UIViewController,
         cell.artView.af_setImage(withURL: url)
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        groupsCollectionView.collectionView.deselectItem(at: indexPath, animated: true)
+        let viewController = GroupAlbumsTableViewController()
+        viewController.groupName = titles[indexPath.row]
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         groupsCollectionView.viewController = self
@@ -84,9 +134,7 @@ class GroupsCollectionViewController: UIViewController,
         let deleteButton = UIAlertAction(title: "Delete Group", style: .destructive) { (action) in
             
         }
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            
-        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(editNameButton)
         alertController.addAction(deleteButton)
         alertController.addAction(cancelButton)

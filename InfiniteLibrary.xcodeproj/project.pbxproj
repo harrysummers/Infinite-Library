@@ -29,6 +29,10 @@
 		4A3DD65020AC96BA006A800F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3DD64F20AC96BA006A800F /* SettingsViewController.swift */; };
 		4A47876520CC309900B162CE /* AlbumRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47876420CC309900B162CE /* AlbumRetriever.swift */; };
 		4A48665620D121990015F5AE /* GroupsCollectionViewSettingsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A48665520D121990015F5AE /* GroupsCollectionViewSettingsDelegate.swift */; };
+		4A48665920D12AA20015F5AE /* GroupAlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A48665820D12AA20015F5AE /* GroupAlbumsTableViewController.swift */; };
+		4A48665B20D12AC30015F5AE /* GroupAlbumsTableViewController+SettingsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A48665A20D12AC30015F5AE /* GroupAlbumsTableViewController+SettingsDelegate.swift */; };
+		4A48665D20D12AEE0015F5AE /* GroupAlbumsTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A48665C20D12AEE0015F5AE /* GroupAlbumsTableViewController+Search.swift */; };
+		4A48665F20D12B170015F5AE /* GroupAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A48665E20D12B170015F5AE /* GroupAlbumsTableViewCell.swift */; };
 		4A556A71209CF40B00D6EA14 /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */; };
 		4A6287FA20B079C800544D8B /* ArtistArtDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6287F920B079C800544D8B /* ArtistArtDownloader.swift */; };
 		4A664E3120B5E861004B899F /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A664E3020B5E861004B899F /* UserDefaultsHelper.swift */; };
@@ -111,6 +115,10 @@
 		4A3DD64F20AC96BA006A800F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4A47876420CC309900B162CE /* AlbumRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRetriever.swift; sourceTree = "<group>"; };
 		4A48665520D121990015F5AE /* GroupsCollectionViewSettingsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionViewSettingsDelegate.swift; sourceTree = "<group>"; };
+		4A48665820D12AA20015F5AE /* GroupAlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAlbumsTableViewController.swift; sourceTree = "<group>"; };
+		4A48665A20D12AC30015F5AE /* GroupAlbumsTableViewController+SettingsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupAlbumsTableViewController+SettingsDelegate.swift"; sourceTree = "<group>"; };
+		4A48665C20D12AEE0015F5AE /* GroupAlbumsTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupAlbumsTableViewController+Search.swift"; sourceTree = "<group>"; };
+		4A48665E20D12B170015F5AE /* GroupAlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		4A556A70209CF40B00D6EA14 /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		4A6287F920B079C800544D8B /* ArtistArtDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistArtDownloader.swift; sourceTree = "<group>"; };
 		4A664E3020B5E861004B899F /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
@@ -219,6 +227,17 @@
 				4A255B7520B32AD50008C586 /* SettingsViewControllerDelegate.swift */,
 			);
 			path = SettingsFeature;
+			sourceTree = "<group>";
+		};
+		4A48665720D12A840015F5AE /* GroupAlbumsFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4A48665820D12AA20015F5AE /* GroupAlbumsTableViewController.swift */,
+				4A48665A20D12AC30015F5AE /* GroupAlbumsTableViewController+SettingsDelegate.swift */,
+				4A48665C20D12AEE0015F5AE /* GroupAlbumsTableViewController+Search.swift */,
+				4A48665E20D12B170015F5AE /* GroupAlbumsTableViewCell.swift */,
+			);
+			path = GroupAlbumsFeature;
 			sourceTree = "<group>";
 		};
 		4A7E0BA520CFDE6F00FA0465 /* GroupFeature */ = {
@@ -337,6 +356,7 @@
 		4AB21721209A398F00DB0878 /* Infinite Library */ = {
 			isa = PBXGroup;
 			children = (
+				4A48665720D12A840015F5AE /* GroupAlbumsFeature */,
 				4A7E0BA520CFDE6F00FA0465 /* GroupFeature */,
 				4A3DD64E20AC96A9006A800F /* SettingsFeature */,
 				4A0259A620AB62ED005F75AB /* Media */,
@@ -647,6 +667,8 @@
 				4AB8F19220AF5EB500A2C257 /* SpotifyConnector.swift in Sources */,
 				4AC9214320B21DDB006F5EB8 /* TutorialScreenViewController.swift in Sources */,
 				4AB3BB70209F7A96001E1F89 /* CoreDataManager.swift in Sources */,
+				4A48665D20D12AEE0015F5AE /* GroupAlbumsTableViewController+Search.swift in Sources */,
+				4A48665920D12AA20015F5AE /* GroupAlbumsTableViewController.swift in Sources */,
 				4A347CE320AB45C1003BEE72 /* PopAnimator.swift in Sources */,
 				4AFC2C00209BAF5E0054811C /* LibraryDownloader.swift in Sources */,
 				4AAF0AE920A281600054A0FC /* TabViewController.swift in Sources */,
@@ -657,6 +679,7 @@
 				4AB2172B209A398F00DB0878 /* Infinite_Library.xcdatamodeld in Sources */,
 				4AB8F18C20AF595C00A2C257 /* GeneralAppearance.swift in Sources */,
 				4AC9214720B21E87006F5EB8 /* TutorialScreenView.swift in Sources */,
+				4A48665B20D12AC30015F5AE /* GroupAlbumsTableViewController+SettingsDelegate.swift in Sources */,
 				4AB21752209A424B00DB0878 /* Endpoints.swift in Sources */,
 				4A347CD920AA3C24003BEE72 /* SlideLeftAnimator.swift in Sources */,
 				4AA36E8920B532110063B5CE /* AutoLoginView.swift in Sources */,
@@ -670,6 +693,7 @@
 				4A48665620D121990015F5AE /* GroupsCollectionViewSettingsDelegate.swift in Sources */,
 				4AB21723209A398F00DB0878 /* AppDelegate.swift in Sources */,
 				4A6287FA20B079C800544D8B /* ArtistArtDownloader.swift in Sources */,
+				4A48665F20D12B170015F5AE /* GroupAlbumsTableViewCell.swift in Sources */,
 				4AA40F57209A85630081F69A /* Constants.swift in Sources */,
 				4AD0D37120A0F9E600DD3723 /* Album+Utilities.swift in Sources */,
 				4AAF0AE720A2077B0054A0FC /* ArtistsTableViewCell.swift in Sources */,

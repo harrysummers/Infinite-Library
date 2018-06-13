@@ -1,8 +1,8 @@
 //
-//  AlbumsTableViewController.swift
+//  GroupAlbumsTableViewController.swift
 //  InfiniteLibrary
 //
-//  Created by Harry Summers on 5/2/18.
+//  Created by Harry Summers on 6/13/18.
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
 
@@ -10,8 +10,9 @@ import UIKit
 import CoreData
 import NYAlertViewController
 
-class AlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class GroupAlbumsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     private let cellId = "albumId"
+    var groupName = "Group Name"
     private let searchController = UISearchController(searchResultsController: nil)
     let impact = UIImpactFeedbackGenerator()
     lazy var fetchedResultsController: NSFetchedResultsController<Album> = {
@@ -80,7 +81,6 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         setupTableView()
         setBackground()
         setTitle()
-        setupNavigationItems()
     }
     fileprivate func setupSearchController() {
         searchController.searchResultsUpdater = self
@@ -101,70 +101,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
         view.backgroundColor = UIColor.CustomColors.spotifyDark
     }
     fileprivate func setTitle() {
-        title = "Albums"
-    }
-    fileprivate func setupNavigationItems() {
-        navigationItem.rightBarButtonItem =
-            UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .plain, target: self, action: #selector(settingsPressed))
-        navigationItem.leftBarButtonItem =
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPressed))
-    }
-    @objc func settingsPressed() {
-        let viewController = SettingsViewController()
-        viewController.delegate = self
-        present(viewController, animated: true, completion: nil)
-    }
-    @objc func addPressed() {
-        let alertViewController = NYAlertViewController()
-        alertViewController.title = "Add Album"
-        alertViewController.message = "Paste the spotify share link of the album you want to add."
-        alertViewController.alertViewBackgroundColor = UIColor.CustomColors.spotifyLight
-        alertViewController.messageColor = UIColor.CustomColors.offWhite
-        alertViewController.titleColor = UIColor.CustomColors.offWhite
-        alertViewController.swipeDismissalGestureEnabled = true
-        alertViewController.backgroundTapDismissalGestureEnabled = true
-        alertViewController.addTextField { (textField) in
-            textField?.placeholder = "Paste Album Link Here"
-            textField?.keyboardAppearance = .dark
-        }
-        let cancelAction = NYAlertAction(title: "Cancel", style: .cancel) { (_) in
-            self.dismiss(animated: true, completion: nil)
-        }
-        weak var weakSelf = self
-        let addAction = NYAlertAction(title: "Add", style: .default) { (_) in
-            let textField = alertViewController.textFields[0] as? UITextField
-            let text = textField?.text ?? ""
-            guard let pasteAlbum = weakSelf?.getPasteAlbum(with: text) else { return }
-            AlbumRetriever(with: pasteAlbum).retrieve { (_, downloader) in
-                if let downloader = downloader {
-                    weakSelf?.saveAlbum(downloader)
-                } else {
-                    DispatchQueue.main.async {
-                        alertViewController.messageColor = .red
-                        alertViewController.message =
-                        "Either the url is not valid or the album is already in your library."
-                    }
-                }
-                DispatchQueue.main.async {
-                    weakSelf?.impact.impactOccurred()
-                }
-            }
-        }
-        alertViewController.addAction(cancelAction)
-        alertViewController.addAction(addAction)
-
-        present(alertViewController, animated: true, completion: nil)
-    }
-    fileprivate func getPasteAlbum(with url: String) -> PasteAlbum {
-        return PasteAlbum(albumId: url.getAlbumId() ?? "",
-                                    externalUrl: url.getAlbumExternalUrl() ?? "")
-    }
-    fileprivate func saveAlbum(_ albumDownloader: AlbumDownloader) {
-        weak var weakSelf = self
-        albumDownloader.saveToDatabase {
-            albumDownloader.getArt()
-            weakSelf?.dismiss(animated: true, completion: nil)
-        }
+        title = groupName
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         if let count = fetchedResultsController.sections?.count {
@@ -185,7 +122,7 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let album = fetchedResultsController.object(at: indexPath)
-        let cell = AlbumsTableViewCell()
+        let cell = GroupAlbumsTableViewCell()
         cell.nameLabel.text = album.name
         cell.artistLabel.text = album.artist?.name ?? ""
         if let imageUrl = album.image_url, let artUrl = URL(string: imageUrl) {
@@ -222,15 +159,5 @@ class AlbumsTableViewController: UITableViewController, NSFetchedResultsControll
             context.delete(self.fetchedResultsController.object(at: indexPath))
             CoreDataManager.shared.saveMainContext()
         }
-    }
-    override func tableView(_ tableView: UITableView,
-                            leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let addAction = UIContextualAction(style: .normal, title: "Add to Group") { (_, _, completionHandler) in
-            completionHandler(true)
-            print(123)
-        }
-        addAction.backgroundColor = UIColor.CustomColors.spotifyGreen
-        let swipeAction = UISwipeActionsConfiguration(actions: [addAction])
-        return swipeAction
     }
 }
