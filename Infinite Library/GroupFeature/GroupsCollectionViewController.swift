@@ -140,7 +140,8 @@ class GroupsCollectionViewController: UIViewController,
         }
     }
     fileprivate func showActionSheet(for index: IndexPath) {
-        let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let group = fetchedResultsController.object(at: index)
+        let alertController = UIAlertController(title: group.name, message: "", preferredStyle: .actionSheet)
         weak var weakSelf = self
         let editNameButton = UIAlertAction(title: "Change Name", style: .default) { (_) in
             weakSelf?.edit(at: index)
