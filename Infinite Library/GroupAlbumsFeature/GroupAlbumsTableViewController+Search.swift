@@ -6,6 +6,8 @@
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
 
+//"(group.name = %@) AND ((name contains[cd] %@) OR (artist.name contains[cd] %@))"
+
 import UIKit
 
 extension GroupAlbumsTableViewController: UISearchResultsUpdating {
@@ -15,12 +17,13 @@ extension GroupAlbumsTableViewController: UISearchResultsUpdating {
         reloadFetchedResultsController()
     }
     fileprivate func getPredicate(for searchText: String) -> NSPredicate? {
+        guard let name = group?.name else { return nil }
         if searchText.count > 0 {
-            return NSPredicate(format: "(name contains[cd] %@) || (artist.name contains[cd] %@)",
-                               searchText,
-                               searchText)
+            return NSPredicate(
+                format: "(group.name = %@) AND ((name contains[cd] %@) OR (artist.name contains[cd] %@))",
+                name, searchText, searchText)
         } else {
-            return nil
+            return NSPredicate(format: "group.name == %@", name)
         }
     }
     fileprivate func reloadFetchedResultsController() {

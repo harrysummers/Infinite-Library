@@ -65,7 +65,7 @@ class TutorialScreenView: UIView {
         addSubview(gifView)
         gifView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15).isActive = true
         gifView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        gifView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -15).isActive = true
+        gifView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -40).isActive = true
         //gifView.widthAnchor.constraint(equalToConstant: 140).isActive = true
     }
     fileprivate func setupViewController() {

@@ -188,16 +188,16 @@ class GroupsCollectionViewController: UIViewController,
             textField?.keyboardAppearance = .dark
             textField?.text = group.name
         }
-        let cancelAction = NYAlertAction(title: "Cancel", style: .cancel) { (_) in
-            self.dismiss(animated: true, completion: nil)
-        }
         weak var weakSelf = self
+        let cancelAction = NYAlertAction(title: "Cancel", style: .cancel) { (_) in
+            weakSelf?.dismiss(animated: true, completion: nil)
+        }
         let addAction = NYAlertAction(title: "Save", style: .default) { (_) in
             let textField = alertViewController.textFields[0] as? UITextField
             let text = textField?.text ?? ""
             if !Group.nameAlreadyExists(text) {
                 weakSelf?.changeName(at: index, with: text)
-                self.dismiss(animated: true, completion: nil)
+                weakSelf?.dismiss(animated: true, completion: nil)
             } else {
                 DispatchQueue.main.async {
                     alertViewController.messageColor = .red
@@ -233,8 +233,9 @@ class GroupsCollectionViewController: UIViewController,
             textField?.placeholder = "Group Name"
             textField?.keyboardAppearance = .dark
         }
+        weak var weakSelf = self
         let cancelAction = NYAlertAction(title: "Cancel", style: .cancel) { (_) in
-            self.dismiss(animated: true, completion: nil)
+            weakSelf?.dismiss(animated: true, completion: nil)
         }
         let addAction = NYAlertAction(title: "Add", style: .default) { (_) in
             let textField = alertViewController.textFields[0] as? UITextField
@@ -246,7 +247,7 @@ class GroupsCollectionViewController: UIViewController,
                 context.perform {
                     CoreDataManager.shared.saveMainContext()
                 }
-                self.dismiss(animated: true, completion: nil)
+                weakSelf?.dismiss(animated: true, completion: nil)
             } else {
                 DispatchQueue.main.async {
                     alertViewController.messageColor = .red
@@ -263,8 +264,8 @@ class GroupsCollectionViewController: UIViewController,
     func setupGridview() {
         guard let flow = groupsCollectionView.collectionView.collectionViewLayout
              as? UICollectionViewFlowLayout else { return }
-        flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
-        flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
+        flow.minimumInteritemSpacing = CGFloat(cellMarginSize)
+        flow.minimumLineSpacing = CGFloat(cellMarginSize)
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -273,10 +274,10 @@ class GroupsCollectionViewController: UIViewController,
         return CGSize(width: width, height: width)
     }
     fileprivate func calculateWidth() -> CGFloat {
-        let estimatedWidth = CGFloat(self.estimateWidth)
-        let cellCount = floor(CGFloat(self.view.frame.size.width / estimatedWidth))
-        let margin = CGFloat(self.cellMarginSize * 2)
-        let width = (self.view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
+        let estimatedWidth = CGFloat(estimateWidth)
+        let cellCount = floor(CGFloat(view.frame.size.width / estimatedWidth))
+        let margin = CGFloat(cellMarginSize * 2)
+        let width = (view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
         return width
     }
 }
