@@ -16,7 +16,7 @@ class TabViewController: UITabBarController {
         let artistViewController = ArtistsTableViewController()
         artistViewController.tabBarItem = UITabBarItem(title: "Artists", image: #imageLiteral(resourceName: "artist"), tag: 1)
         let groupViewController = GroupsCollectionViewController()
-        groupViewController.tabBarItem = UITabBarItem(title: "Groups", image: #imageLiteral(resourceName: "artist"), tag: 2)
+        groupViewController.tabBarItem = UITabBarItem(title: "Groups", image: #imageLiteral(resourceName: "folder"), tag: 2)
         let viewControllersList = [albumViewController, artistViewController, groupViewController]
         viewControllers = viewControllersList.map {
             UINavigationController(rootViewController: $0)

@@ -22,13 +22,24 @@ class WelcomeViewController: UIViewController {
         view.backgroundColor = UIColor.CustomColors.spotifyDark
         transitioningDelegate = self
         welcomeView.nextButton.addTarget(self, action: #selector(nextPressed), for: .touchUpInside)
-
+        createListenLaterGroup()
     }
     deinit {
         MemoryCounter.shared.decrementCount(for: .welcomeViewController)
     }
     @objc func nextPressed() {
         TutorialPresenter.shared.showNext(from: self)
+    }
+    func createListenLaterGroup() {
+        let albumName = "Listen Later"
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        context.perform {
+            if !Group.nameAlreadyExists(albumName) {
+                let group = Group(context: context)
+                group.name = albumName
+                CoreDataManager.shared.saveMainContext()
+            }
+        }
     }
 }
 
