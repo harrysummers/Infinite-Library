@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
         return view
     }()
     let cellId = "gifCell"
-    var gifs = ["addAlbum", "album", "artist"]
+    var gifs = ["artistsAndAlbums", "addAlbum", "addGroup"]
     weak var delegate: SettingsViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()

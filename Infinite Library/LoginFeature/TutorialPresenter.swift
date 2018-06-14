@@ -17,9 +17,9 @@ class TutorialPresenter {
     private var tutorialIndex = 0
     static var shared = TutorialPresenter()
     fileprivate let tutorials: [TutorialScreen] = [
-        TutorialScreen(gif: "album", title: "Click on albums to play them on Spotify"),
-        TutorialScreen(gif: "artist", title: "Click on artists to visit their artist page"),
+        TutorialScreen(gif: "artistsAndAlbums", title: "Click on albums or artists to open them on Spotify"),
         TutorialScreen(gif: "addAlbum", title: "Add new albums by copying the share link to the clipboard"),
+        TutorialScreen(gif: "addGroup", title: "Organize your albums by creating groups"),
         TutorialScreen(gif: "settings", title: "View this tutorial again in the settings")
     ]
 

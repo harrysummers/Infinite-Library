@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0C2CBADE4A8E857B43A0A091 /* Pods_InfiniteLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C787E535FA0254624FDF921B /* Pods_InfiniteLibrary.framework */; };
-		4A0259A820AB62FA005F75AB /* addAlbum.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A720AB62FA005F75AB /* addAlbum.gif */; };
-		4A0259AB20AB6ADC005F75AB /* album.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259A920AB6ADB005F75AB /* album.gif */; };
-		4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A0259AA20AB6ADC005F75AB /* artist.gif */; };
 		4A0C852020B343E9002D203B /* LibraryDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C851F20B343E9002D203B /* LibraryDownloaderView.swift */; };
 		4A0C852220B346BB002D203B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C852120B346BB002D203B /* WelcomeView.swift */; };
 		4A0C852420B347CE002D203B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C852320B347CE002D203B /* LoginView.swift */; };
+		4A140E4E20D27B5300B4825E /* addAlbum.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A140E4B20D27B5200B4825E /* addAlbum.gif */; };
+		4A140E4F20D27B5300B4825E /* addGroup.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A140E4C20D27B5200B4825E /* addGroup.gif */; };
+		4A140E5020D27B5300B4825E /* artistsAndAlbums.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A140E4D20D27B5300B4825E /* artistsAndAlbums.gif */; };
+		4A140E5220D27D8900B4825E /* settings.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4A140E5120D27D8900B4825E /* settings.gif */; };
 		4A2135E720D00ECD005D6B92 /* GradientGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2135E620D00ECD005D6B92 /* GradientGenerator.swift */; };
 		4A255B7220B292480008C586 /* UIViewController+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7120B292480008C586 /* UIViewController+Presenter.swift */; };
 		4A255B7420B292690008C586 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A255B7320B292690008C586 /* ViewControllerType.swift */; };
@@ -45,7 +46,6 @@
 		4AA40F57209A85630081F69A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F56209A85630081F69A /* Constants.swift */; };
 		4AA40F5B209A896A0081F69A /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */; };
 		4AA4F4A620AE107000C9E735 /* ProgressCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */; };
-		4AA4F4A820AE27E900C9E735 /* settings.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AA4F4A720AE27E900C9E735 /* settings.gif */; };
 		4AAF0ADE20A202D80054A0FC /* Artist+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0ADD20A202D80054A0FC /* Artist+Utilities.swift */; };
 		4AAF0AE520A205E30054A0FC /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */; };
 		4AAF0AE720A2077B0054A0FC /* ArtistsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */; };
@@ -100,12 +100,13 @@
 
 /* Begin PBXFileReference section */
 		0FEB956AF21EC09D1D5D7573 /* Pods-InfiniteLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteLibrary.release.xcconfig"; path = "Pods/Target Support Files/Pods-InfiniteLibrary/Pods-InfiniteLibrary.release.xcconfig"; sourceTree = "<group>"; };
-		4A0259A720AB62FA005F75AB /* addAlbum.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addAlbum.gif; sourceTree = "<group>"; };
-		4A0259A920AB6ADB005F75AB /* album.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = album.gif; sourceTree = "<group>"; };
-		4A0259AA20AB6ADC005F75AB /* artist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = artist.gif; sourceTree = "<group>"; };
 		4A0C851F20B343E9002D203B /* LibraryDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDownloaderView.swift; sourceTree = "<group>"; };
 		4A0C852120B346BB002D203B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		4A0C852320B347CE002D203B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4A140E4B20D27B5200B4825E /* addAlbum.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addAlbum.gif; sourceTree = "<group>"; };
+		4A140E4C20D27B5200B4825E /* addGroup.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = addGroup.gif; sourceTree = "<group>"; };
+		4A140E4D20D27B5300B4825E /* artistsAndAlbums.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = artistsAndAlbums.gif; sourceTree = "<group>"; };
+		4A140E5120D27D8900B4825E /* settings.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = settings.gif; sourceTree = "<group>"; };
 		4A2135E620D00ECD005D6B92 /* GradientGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientGenerator.swift; sourceTree = "<group>"; };
 		4A255B7120B292480008C586 /* UIViewController+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presenter.swift"; sourceTree = "<group>"; };
 		4A255B7320B292690008C586 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
@@ -137,7 +138,6 @@
 		4AA40F56209A85630081F69A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4AA40F5A209A896A0081F69A /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
 		4AA4F4A520AE107000C9E735 /* ProgressCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCounter.swift; sourceTree = "<group>"; };
-		4AA4F4A720AE27E900C9E735 /* settings.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = settings.gif; sourceTree = "<group>"; };
 		4AAF0ADD20A202D80054A0FC /* Artist+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+Utilities.swift"; sourceTree = "<group>"; };
 		4AAF0AE420A205E30054A0FC /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
 		4AAF0AE620A2077B0054A0FC /* ArtistsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewCell.swift; sourceTree = "<group>"; };
@@ -222,10 +222,10 @@
 		4A0259A620AB62ED005F75AB /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				4A0259A720AB62FA005F75AB /* addAlbum.gif */,
-				4A0259A920AB6ADB005F75AB /* album.gif */,
-				4A0259AA20AB6ADC005F75AB /* artist.gif */,
-				4AA4F4A720AE27E900C9E735 /* settings.gif */,
+				4A140E4B20D27B5200B4825E /* addAlbum.gif */,
+				4A140E4C20D27B5200B4825E /* addGroup.gif */,
+				4A140E4D20D27B5300B4825E /* artistsAndAlbums.gif */,
+				4A140E5120D27D8900B4825E /* settings.gif */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -547,13 +547,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A140E4F20D27B5300B4825E /* addGroup.gif in Resources */,
+				4A140E5020D27B5300B4825E /* artistsAndAlbums.gif in Resources */,
 				4AB21730209A399000DB0878 /* LaunchScreen.storyboard in Resources */,
+				4A140E5220D27D8900B4825E /* settings.gif in Resources */,
 				4AB2174B209A3F1A00DB0878 /* Default-568h@2x.png in Resources */,
-				4A0259AB20AB6ADC005F75AB /* album.gif in Resources */,
-				4AA4F4A820AE27E900C9E735 /* settings.gif in Resources */,
+				4A140E4E20D27B5300B4825E /* addAlbum.gif in Resources */,
 				4AB2172D209A399000DB0878 /* Assets.xcassets in Resources */,
-				4A0259AC20AB6ADC005F75AB /* artist.gif in Resources */,
-				4A0259A820AB62FA005F75AB /* addAlbum.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
