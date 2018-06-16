@@ -6,7 +6,8 @@
 //  Copyright © 2018 harrysummers. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Whisper
 
 class AlbumRetriever {
     private var pasteAlbum: PasteAlbum?

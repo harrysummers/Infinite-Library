@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) { }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        AsyncWebService.shared.getAccessToken { (_, _) in
+            print("refreshed token")
+        }
         Clipboard(with: window!).checkForAlbum()
     }
     func applicationWillTerminate(_ application: UIApplication) {

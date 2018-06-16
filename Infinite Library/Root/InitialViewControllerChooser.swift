@@ -34,8 +34,11 @@ class InitialViewControllerChooser {
         if isValidated {
             initialViewController = TabViewController()
             UserDefaultsHelper.shared.login()
-        } else {
+        } else if UserDefaultsHelper.shared.isFirstLaunch() {
             initialViewController = WelcomeViewController()
+            UserDefaultsHelper.shared.logout()
+        } else {
+            initialViewController = LoginViewController()
             UserDefaultsHelper.shared.logout()
         }
     }

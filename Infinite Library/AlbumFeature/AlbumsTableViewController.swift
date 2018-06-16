@@ -21,7 +21,8 @@ class AlbumsTableViewController: UITableViewController,
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let request: NSFetchRequest<Album> = Album.fetchRequest()
         request.sortDescriptors = [
-            NSSortDescriptor(key: "artist.name", ascending: true)
+            NSSortDescriptor(key: "artist.name", ascending: true, selector:
+                #selector(NSString.caseInsensitiveCompare(_:)))
         ]
         let frc = NSFetchedResultsController(fetchRequest: request,
                                              managedObjectContext: context,

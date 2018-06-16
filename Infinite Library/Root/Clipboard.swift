@@ -31,7 +31,6 @@ class Clipboard {
             }
         }
     }
-
     fileprivate func getPasteAlbumFromPasteboard() {
         if let clipboard = UIPasteboard.general.string,
             let idString = clipboard.getAlbumId(),
